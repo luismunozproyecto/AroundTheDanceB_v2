@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="types">
+        <item>Battle</item>
+        <item>Jam</item>
+        <item>Workshop</item>
+        <item>Showcase</item>
+        <item>Choreo Championship</item>
+    </array>
+
+    <array name="styles">
+        <item>Popping</item>
+        <item>Locking</item>
+        <item>Hip Hop</item>
+        <item>House</item>
+        <item>Bboying/Breakin</item>
+        <item>Vogue</item>
+        <item>Waacking</item>
+        <item>Open Styles</item>
+        <item>Allstyles</item>
+        <item>Freestyle</item>
+    </array>
+
+    <array name="categoriesBattle">
+        <item>1VS1</item>
+        <item>2VS2</item>
+        <item>3VS3</item>
+        <item>4VS4</item>
+        <item>5VS5</item>
+        <item>6VS6</item>
+        <item>CREWVSCREW</item>
+        <item>7TOSMOKE</item>
+        <item>JAM/CYPHER BATTLE</item>
+        <item>BONNIE AND CLYDE</item>
+    </array>
+
+    <array name="categoriesChoreo">
+
+    </array>
+
+</resources>
