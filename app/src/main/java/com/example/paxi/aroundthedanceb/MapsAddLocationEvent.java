@@ -11,14 +11,12 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,7 +27,6 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.AutocompletePrediction;
-import com.google.android.gms.location.places.GeoDataClient;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.PlaceBuffer;
 import com.google.android.gms.location.places.Places;
@@ -46,7 +43,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewEventAddMap extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.OnConnectionFailedListener
+public class MapsAddLocationEvent extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.OnConnectionFailedListener
 {
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final String COURSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
@@ -151,7 +148,7 @@ public class NewEventAddMap extends AppCompatActivity implements OnMapReadyCallb
     private void inicialiazarMapa()
     {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(NewEventAddMap.this);
+        mapFragment.getMapAsync(MapsAddLocationEvent.this);
     }
 
 
@@ -212,7 +209,7 @@ public class NewEventAddMap extends AppCompatActivity implements OnMapReadyCallb
                         }
                         else
                         {
-                            Toast.makeText(NewEventAddMap.this, "unable to get current location", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MapsAddLocationEvent.this, "unable to get current location", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -229,7 +226,7 @@ public class NewEventAddMap extends AppCompatActivity implements OnMapReadyCallb
 
         String searchString = txt_Search.getText().toString();
 
-        Geocoder geocoder = new Geocoder(NewEventAddMap.this);
+        Geocoder geocoder = new Geocoder(MapsAddLocationEvent.this);
         List<Address> list = new ArrayList<>();
         try
         {

@@ -2,14 +2,10 @@ package com.example.paxi.aroundthedanceb;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.app.DownloadManager;
 import android.app.TimePickerDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -21,17 +17,9 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.google.android.gms.maps.GoogleMap;
+
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
 
 //region Clases
 
@@ -201,7 +189,7 @@ public class NewEvent extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(NewEvent.this, NewEventAddMap.class);
+                Intent intent = new Intent(NewEvent.this, MapsAddLocationEvent.class);
                 startActivity(intent);
             }
         });
@@ -299,7 +287,7 @@ public class NewEvent extends AppCompatActivity
                 MySingleton.getInstance(NewEvent.this).addTorequestque(stringRequest);*/
 
 
-                backgroundWorker.execute
+                /*backgroundWorker.execute
                 (
                         "insertevent",
                         txtNameEvent.getText().toString(),
@@ -307,7 +295,7 @@ public class NewEvent extends AppCompatActivity
                         textViewFechaFinal.getText().toString() + " " + textViewHoraFinal.getText().toString(),
                         txtDescription.getText().toString(),
                         "este"
-                );
+                );*/
 
                 //backgroundWorker.execute("login", "aqui", "aqui");
             }

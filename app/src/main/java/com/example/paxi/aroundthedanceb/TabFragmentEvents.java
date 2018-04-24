@@ -2,6 +2,7 @@ package com.example.paxi.aroundthedanceb;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -20,7 +21,9 @@ public class TabFragmentEvents extends Fragment
 {
     EditText txtSearch;
     Button btnNewEvent, btnAdvanceSearch;
-ArrayList<Evento> lista_eventos=new ArrayList<>();
+    ArrayList<Evento> lista_eventos=new ArrayList<>();
+    FloatingActionButton floatingActionButton_addEvent;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
@@ -30,6 +33,7 @@ ArrayList<Evento> lista_eventos=new ArrayList<>();
         txtSearch = (EditText) view.findViewById(R.id.txt_search);
         btnNewEvent = (Button)  view.findViewById(R.id.btn_newevent);
         btnAdvanceSearch = (Button)  view.findViewById(R.id.btn_advancesearch);
+        floatingActionButton_addEvent = view.findViewById(R.id.floatingbtn_addevent);
 
         txtSearch.addTextChangedListener(new TextWatcher()
         {
@@ -57,8 +61,7 @@ ArrayList<Evento> lista_eventos=new ArrayList<>();
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(getActivity(), NewEvent.class);
-                startActivity(intent);
+
             }
         });
 
@@ -71,13 +74,22 @@ ArrayList<Evento> lista_eventos=new ArrayList<>();
             }
         });
 
+        floatingActionButton_addEvent.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(getActivity(), NewEvent.class);
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
 
 
-    private void simularDatos(){
-
-
+    private void simularDatos()
+    {
         lista_eventos.add(new Evento());
         lista_eventos.add(new Evento());
         lista_eventos.add(new Evento());
