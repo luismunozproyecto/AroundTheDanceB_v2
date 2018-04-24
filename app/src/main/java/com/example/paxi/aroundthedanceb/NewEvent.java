@@ -22,20 +22,19 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-
+import com.google.android.gms.maps.GoogleMap;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
 //region Clases
-//aquii
+
 class LocalTypes
 {
     String type;
@@ -145,6 +144,7 @@ public class NewEvent extends AppCompatActivity
 
     //endregion
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -201,7 +201,8 @@ public class NewEvent extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                //Añadir ubicacion
+                Intent intent = new Intent(NewEvent.this, NewEventAddMap.class);
+                startActivity(intent);
             }
         });
 
@@ -364,7 +365,7 @@ public class NewEvent extends AppCompatActivity
         //endregion
     }
 
-
+    //region Storage
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
@@ -385,6 +386,8 @@ public class NewEvent extends AppCompatActivity
             });*/
         }
     }
+
+    //endregion
 
     //region FechaHora
     private DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener()

@@ -11,15 +11,20 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+
+import Modelos.Evento;
+
 
 public class TabFragmentEvents extends Fragment
 {
     EditText txtSearch;
     Button btnNewEvent, btnAdvanceSearch;
-
+ArrayList<Evento> lista_eventos=new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
+        simularDatos();
         View view = inflater.inflate(R.layout.fragmenttabevents, container, false);
 
         txtSearch = (EditText) view.findViewById(R.id.txt_search);
@@ -67,6 +72,17 @@ public class TabFragmentEvents extends Fragment
         });
 
         return view;
+    }
+
+
+    private void simularDatos(){
+
+
+        lista_eventos.add(new Evento());
+        lista_eventos.add(new Evento());
+        lista_eventos.add(new Evento());
+        lista_eventos.add(new Evento());
+        lista_eventos.add(new Evento());
     }
 }
 
