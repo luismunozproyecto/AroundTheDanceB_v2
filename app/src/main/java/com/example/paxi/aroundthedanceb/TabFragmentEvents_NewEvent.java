@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -17,6 +18,12 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -104,7 +111,7 @@ class LocalCategories
 
 //endregion
 
-public class NewEvent extends AppCompatActivity
+public class TabFragmentEvents_NewEvent extends AppCompatActivity
 {
     //region Variables
 
@@ -120,15 +127,16 @@ public class NewEvent extends AppCompatActivity
     private int mYear, mMonth, mDay, Hora, Minutos;
     private int sYear, sMonth, sDay;
 
-    BackgroundWorker backgroundWorker;
+    //BDAntiguaBackgroundWorker BDAntiguaBackgroundWorker;
 
     String type, category, style;
-
     private static final int GALLERY_INTENT = 2;
-
     ArrayList<LocalTypes> types = new ArrayList<LocalTypes>();
-
     SharedPreferences sharedPref;
+
+    StorageReference storageRef;
+
+
 
     //endregion
 
@@ -141,7 +149,7 @@ public class NewEvent extends AppCompatActivity
 
         setupToolBar();
 
-        backgroundWorker = new BackgroundWorker(this);
+        //BDAntiguaBackgroundWorker = new BDAntiguaBackgroundWorker(this);
 
         //region Controles
         imagenEvent = (ImageView) findViewById(R.id.imagenevent);
@@ -189,7 +197,7 @@ public class NewEvent extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(NewEvent.this, MapsAddLocationEvent.class);
+                Intent intent = new Intent(TabFragmentEvents_NewEvent.this, MapsAddLocationEvent.class);
                 startActivity(intent);
             }
         });
@@ -240,6 +248,7 @@ public class NewEvent extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
+
                 /*String server_url = "http://192.168.129.2/insert_event.php";
                 sharedPref = getSharedPreferences("preferencias", Context.MODE_PRIVATE);
                 final AlertDialog.Builder alertDialog = new AlertDialog.Builder(NewEvent.this);
@@ -287,7 +296,7 @@ public class NewEvent extends AppCompatActivity
                 MySingleton.getInstance(NewEvent.this).addTorequestque(stringRequest);*/
 
 
-                /*backgroundWorker.execute
+                /*BDAntiguaBackgroundWorker.execute
                 (
                         "insertevent",
                         txtNameEvent.getText().toString(),
@@ -297,7 +306,7 @@ public class NewEvent extends AppCompatActivity
                         "este"
                 );*/
 
-                //backgroundWorker.execute("login", "aqui", "aqui");
+                //BDAntiguaBackgroundWorker.execute("login", "aqui", "aqui");
             }
         });
 
@@ -358,20 +367,21 @@ public class NewEvent extends AppCompatActivity
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         super.onActivityResult(requestCode, resultCode, data);
+        storageRef = FirebaseStorage.getInstance().getReference();
 
         if(requestCode == GALLERY_INTENT && resultCode == RESULT_OK)
         {
-            /*Uri uri = data.getData();
-            StorageReference filepath = storageReference.child("Photos").child(uri.getLastPathSegment());
+            Uri uri = data.getData();
+            StorageReference filepath = storageRef.child("Photos").child(uri.getLastPathSegment());
 
             filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>()
             {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot)
                 {
-                    Toast.makeText(NewEvent.this, "Upload Done", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TabFragmentEvents_NewEvent.this, "Upload Done", Toast.LENGTH_SHORT).show();
                 }
-            });*/
+            });
         }
     }
 
@@ -395,7 +405,6 @@ public class NewEvent extends AppCompatActivity
             {
                 textViewFechaFinal.setText(mDay + "/" + (mMonth + 1) + "/" + mYear);
             }
-
         }
     };
 

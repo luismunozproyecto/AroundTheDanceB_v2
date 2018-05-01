@@ -27,9 +27,11 @@ public class Login extends AppCompatActivity
     Button button_logIn, button_forgetPassword, button_newAccount;
     EditText txtPassword, txtEmail;
 
+    //Firebase
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseAuth mAuth;
 
+    //Variables
     String userId, userEmail;
     SharedPreferences sharedPref;
 
@@ -80,9 +82,21 @@ public class Login extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
+        //Mis Controles
+        button_logIn          = (Button)findViewById(R.id.btn_login);
+        button_forgetPassword = (Button)findViewById(R.id.btn_forget);
+        button_newAccount     = (Button)findViewById(R.id.btn_newaccount);
+
+        txtPassword = (EditText) findViewById(R.id.txt_password);
+        txtEmail    = (EditText) findViewById(R.id.txt_email);
+
+        txtEmail.setBackgroundResource(android.R.drawable.edit_text);
+        txtPassword.setBackgroundResource(android.R.drawable.edit_text);
+
+        //Firebase
         mAuth = FirebaseAuth.getInstance();
 
-        //Si el usuario ya esta logeado
+        //region YaLogeado
         sharedPref = getSharedPreferences("preferencias", Context.MODE_PRIVATE);
         String userIdRecogida, userEmailRecogida;
         userIdRecogida = sharedPref.getString("key_id", "");
@@ -93,7 +107,9 @@ public class Login extends AppCompatActivity
             startActivity(new Intent(Login.this, Inicio.class));
         }
 
-        //Listener de Firebase Auth
+        //endregion
+
+        //region ListenerFirebaseAuth
         mAuthListener = new FirebaseAuth.AuthStateListener()
         {
             @Override
@@ -126,17 +142,9 @@ public class Login extends AppCompatActivity
             }
         };
 
-        //Mis Controles
-        button_logIn          = (Button)findViewById(R.id.btn_login);
-        button_forgetPassword = (Button)findViewById(R.id.btn_forget);
-        button_newAccount     = (Button)findViewById(R.id.btn_newaccount);
+        //endregion
 
-        txtPassword = (EditText) findViewById(R.id.txt_password);
-        txtEmail    = (EditText) findViewById(R.id.txt_email);
-
-        txtEmail.setBackgroundResource(android.R.drawable.edit_text);
-        txtPassword.setBackgroundResource(android.R.drawable.edit_text);
-
+        //region Buttons
         button_logIn.setOnClickListener(new View.OnClickListener() //Busqueda en base de datos
         {
             @Override
@@ -174,9 +182,6 @@ public class Login extends AppCompatActivity
                                     }
                                 }
                             });
-
-                    //LOGEAR MYSQL
-                    //backgroundWorker.execute("login", txtEmail.getText().toString(), txtPassword.getText().toString());
                 }
             }
         });
@@ -197,11 +202,14 @@ public class Login extends AppCompatActivity
             public void onClick(View view)
             {
                 //Enviar a activity de crear user
-                startActivity(new Intent(Login.this, CreateUser.class));
+                startActivity(new Intent(Login.this, LoginCreateUser.class));
             }
         });
 
-        //Controlles
+        //endregion
+
+        //region EditText
+
         txtEmail.addTextChangedListener(new TextWatcher()
         {
             @Override
@@ -246,6 +254,8 @@ public class Login extends AppCompatActivity
 
             }
         });
+
+        //endregion
     }
 }
 

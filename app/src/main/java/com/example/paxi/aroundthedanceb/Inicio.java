@@ -19,6 +19,7 @@ public class Inicio extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inicio);
 
+        //region MenuLateral
         //Action Bar
         /*drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         toolbar = (Toolbar) findViewById(R.id.toolBar);
@@ -41,8 +42,9 @@ public class Inicio extends AppCompatActivity
                 return true;
             }
         });*/
+        //endregion
 
-        //Tabs
+        //region Tabs
         tabs = (TabLayout) findViewById(R.id.tablayout);
         tabs.addTab(tabs.newTab().setText("EVENTS"));
         tabs.addTab(tabs.newTab().setText("CALENDAR"));
@@ -50,7 +52,7 @@ public class Inicio extends AppCompatActivity
         tabs.addTab(tabs.newTab().setText("PROFILE"));
 
         final ViewPager mviewPager = (ViewPager) findViewById(R.id.viewpager);
-        final PageAdapter adapter = new PageAdapter(getSupportFragmentManager(), tabs.getTabCount());
+        final TabsPageAdapter adapter = new TabsPageAdapter(getSupportFragmentManager(), tabs.getTabCount());
         mviewPager.setAdapter(adapter);
         mviewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs));
 
@@ -68,9 +70,11 @@ public class Inicio extends AppCompatActivity
             @Override
             public void onTabReselected(TabLayout.Tab tab) {}
         });
+
+        //endregion
     }
 
-    //Menu
+    //region Menu
    /* @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -91,5 +95,5 @@ public class Inicio extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }*/
-
+    //endregion
 }

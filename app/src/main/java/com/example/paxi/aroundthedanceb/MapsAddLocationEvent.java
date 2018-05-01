@@ -56,7 +56,7 @@ public class MapsAddLocationEvent extends AppCompatActivity implements OnMapRead
     private Boolean permisoLocation = false;
     private GoogleMap googleMapa;
     private FusedLocationProviderClient fusedLocationProviderClient;
-    private PlaceAutocompleteAdapter mPlaceAutocompleteAdapter;
+    private MapsPlaceAutocompleteAdapter mMapsPlaceAutocompleteAdapter;
     private GoogleApiClient mGoogleApiClient;
 
     @Override
@@ -163,9 +163,9 @@ public class MapsAddLocationEvent extends AppCompatActivity implements OnMapRead
 
         txt_Search.setOnItemClickListener(mAutocompleteClickListener);
 
-        mPlaceAutocompleteAdapter = new PlaceAutocompleteAdapter(this, mGoogleApiClient, BOUNDS, null);
+        mMapsPlaceAutocompleteAdapter = new MapsPlaceAutocompleteAdapter(this, mGoogleApiClient, BOUNDS, null);
 
-        txt_Search.setAdapter(mPlaceAutocompleteAdapter);
+        txt_Search.setAdapter(mMapsPlaceAutocompleteAdapter);
 
         txt_Search.setOnEditorActionListener(new TextView.OnEditorActionListener()
         {
@@ -273,7 +273,7 @@ public class MapsAddLocationEvent extends AppCompatActivity implements OnMapRead
         {
             FideSoftKeboard();
 
-            final AutocompletePrediction item = mPlaceAutocompleteAdapter.getItem(i);
+            final AutocompletePrediction item = mMapsPlaceAutocompleteAdapter.getItem(i);
             final String placeId = item.getPlaceId();
 
             PendingResult<PlaceBuffer> placeResult = Places.GeoDataApi.getPlaceById(mGoogleApiClient, placeId);

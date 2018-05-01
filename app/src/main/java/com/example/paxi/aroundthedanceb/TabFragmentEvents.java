@@ -21,13 +21,12 @@ public class TabFragmentEvents extends Fragment
 {
     EditText txtSearch;
     Button btnNewEvent, btnAdvanceSearch;
-    ArrayList<Evento> lista_eventos=new ArrayList<>();
+    ArrayList<Evento> lista_eventos = new ArrayList<>();
     FloatingActionButton floatingActionButton_addEvent;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        simularDatos();
         View view = inflater.inflate(R.layout.fragmenttabevents, container, false);
 
         txtSearch = (EditText) view.findViewById(R.id.txt_search);
@@ -35,6 +34,9 @@ public class TabFragmentEvents extends Fragment
         btnAdvanceSearch = (Button)  view.findViewById(R.id.btn_advancesearch);
         floatingActionButton_addEvent = view.findViewById(R.id.floatingbtn_addevent);
 
+        simularDatos();
+
+        //region Search
         txtSearch.addTextChangedListener(new TextWatcher()
         {
             @Override
@@ -55,7 +57,9 @@ public class TabFragmentEvents extends Fragment
 
             }
         });
+        //endregion
 
+        //region Buttons
         btnNewEvent.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -79,10 +83,11 @@ public class TabFragmentEvents extends Fragment
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(getActivity(), NewEvent.class);
+                Intent intent = new Intent(getActivity(), TabFragmentEvents_NewEvent.class);
                 startActivity(intent);
             }
         });
+        //endregion
 
         return view;
     }
