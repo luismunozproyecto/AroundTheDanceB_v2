@@ -1,5 +1,4 @@
-package com.example.paxi.aroundthedanceb;
-
+package com.example.paxi.aroundthedanceb.Fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,7 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class TabFragmentProfile extends Fragment
+import com.example.paxi.aroundthedanceb.R;
+
+public class TabFragmentCalendar extends Fragment
 {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

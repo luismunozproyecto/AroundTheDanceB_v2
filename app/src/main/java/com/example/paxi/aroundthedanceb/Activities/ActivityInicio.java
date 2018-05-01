@@ -1,4 +1,4 @@
-package com.example.paxi.aroundthedanceb;
+package com.example.paxi.aroundthedanceb.Activities;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -7,7 +7,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-public class Inicio extends AppCompatActivity
+import com.example.paxi.aroundthedanceb.R;
+import com.example.paxi.aroundthedanceb.Fragments.TabsPageAdapter;
+
+public class ActivityInicio extends AppCompatActivity
 {
     DrawerLayout drawerLayout;
     Toolbar toolbar;
@@ -17,7 +20,7 @@ public class Inicio extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.inicio);
+        setContentView(R.layout.activityinicio);
 
         //region MenuLateral
         //Action Bar
@@ -38,7 +41,7 @@ public class Inicio extends AppCompatActivity
             {
                 item.setChecked(true);
                 drawerLayout.closeDrawers();
-                Toast.makeText(Inicio.this, item.getTitle(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ActivityInicio.this, item.getTitle(), Toast.LENGTH_SHORT).show();
                 return true;
             }
         });*/

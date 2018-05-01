@@ -1,4 +1,4 @@
-package com.example.paxi.aroundthedanceb;
+package com.example.paxi.aroundthedanceb.Maps;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;

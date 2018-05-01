@@ -1,4 +1,4 @@
-package com.example.paxi.aroundthedanceb;
+package com.example.paxi.aroundthedanceb.Fragments;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -11,12 +11,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.paxi.aroundthedanceb.Activities.ActivityInicio;
+import com.example.paxi.aroundthedanceb.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LoginCreateUser extends FragmentActivity
+public class FragmentLoginCreateUser extends FragmentActivity
 {
     Button buttonNextStep;
     int contador = 0, cont = 0;
@@ -31,7 +34,7 @@ public class LoginCreateUser extends FragmentActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.newuser);
+        setContentView(R.layout.activitynewuser);
 
         //Firebase
         mAuth = FirebaseAuth.getInstance();
@@ -65,7 +68,7 @@ public class LoginCreateUser extends FragmentActivity
                     txtNickName.setBackgroundResource(R.drawable.edittext_border);
 
 
-                    Toast.makeText(LoginCreateUser.this, "NickName cant be empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FragmentLoginCreateUser.this, "NickName cant be empty", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -81,7 +84,7 @@ public class LoginCreateUser extends FragmentActivity
                     txtEmail.setBackgroundResource(R.drawable.edittext_border);
 
 
-                    Toast.makeText(LoginCreateUser.this, "This email is invalid", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FragmentLoginCreateUser.this, "This email is invalid", Toast.LENGTH_SHORT).show();
                 }
 
                 if (txtNickName.getText().toString().equals(""))
@@ -90,7 +93,7 @@ public class LoginCreateUser extends FragmentActivity
                     txtNickName.setBackgroundResource(R.drawable.edittext_border);
 
 
-                    Toast.makeText(LoginCreateUser.this, "NickName cant be empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FragmentLoginCreateUser.this, "NickName cant be empty", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -105,7 +108,7 @@ public class LoginCreateUser extends FragmentActivity
                     txtEmail.setHintTextColor(Color.RED);
                     txtEmail.setBackgroundResource(R.drawable.edittext_border);
 
-                    Toast.makeText(LoginCreateUser.this, "This email is invalid", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FragmentLoginCreateUser.this, "This email is invalid", Toast.LENGTH_SHORT).show();
                 }
 
                 if (txtNickName.getText().toString().equals(""))
@@ -114,7 +117,7 @@ public class LoginCreateUser extends FragmentActivity
                     txtNickName.setBackgroundResource(R.drawable.edittext_border);
 
 
-                    Toast.makeText(LoginCreateUser.this, "NickName cant be empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FragmentLoginCreateUser.this, "NickName cant be empty", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -207,7 +210,7 @@ public class LoginCreateUser extends FragmentActivity
                     txtEmail.setHintTextColor(Color.RED);
                     txtEmail.setBackgroundResource(R.drawable.edittext_border);
 
-                    Toast.makeText(LoginCreateUser.this, "This email is invalid", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FragmentLoginCreateUser.this, "This email is invalid", Toast.LENGTH_SHORT).show();
 
                     if (!txtPassword.getText().toString().equals(txtPasswordRepeat.getText().toString()))
                     {
@@ -217,7 +220,7 @@ public class LoginCreateUser extends FragmentActivity
                         txtPasswordRepeat.setHintTextColor(Color.RED);
                         txtPasswordRepeat.setBackgroundResource(R.drawable.edittext_border);
 
-                        Toast.makeText(LoginCreateUser.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(FragmentLoginCreateUser.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
                     }
                 }
                 else if (txtPassword.getText().toString().length() < 6)
@@ -228,7 +231,7 @@ public class LoginCreateUser extends FragmentActivity
                     txtPasswordRepeat.setHintTextColor(Color.RED);
                     txtPasswordRepeat.setBackgroundResource(R.drawable.edittext_border);
 
-                    Toast.makeText(LoginCreateUser.this, "Password is too short, 6 characters minimum", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FragmentLoginCreateUser.this, "Password is too short, 6 characters minimum", Toast.LENGTH_SHORT).show();
                 }
                 else if (!txtPassword.getText().toString().equals(txtPasswordRepeat.getText().toString()))
                 {
@@ -238,7 +241,7 @@ public class LoginCreateUser extends FragmentActivity
                     txtPasswordRepeat.setHintTextColor(Color.RED);
                     txtPasswordRepeat.setBackgroundResource(R.drawable.edittext_border);
 
-                    Toast.makeText(LoginCreateUser.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FragmentLoginCreateUser.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
                 }
                 /*else if(contador == 0)
                 {
@@ -274,7 +277,7 @@ public class LoginCreateUser extends FragmentActivity
                         }
                     });
 
-                    startActivity(new Intent(LoginCreateUser.this, Inicio.class));
+                    startActivity(new Intent(FragmentLoginCreateUser.this, ActivityInicio.class));
                 }
             }
         });

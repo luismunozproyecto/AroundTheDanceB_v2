@@ -1,4 +1,4 @@
-package com.example.paxi.aroundthedanceb;
+package com.example.paxi.aroundthedanceb.Fragments;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -20,6 +20,8 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.paxi.aroundthedanceb.Maps.MapsAddLocationEvent;
+import com.example.paxi.aroundthedanceb.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -306,7 +308,7 @@ public class TabFragmentEvents_NewEvent extends AppCompatActivity
                         "este"
                 );*/
 
-                //BDAntiguaBackgroundWorker.execute("login", "aqui", "aqui");
+                //BDAntiguaBackgroundWorker.execute("activitylogin", "aqui", "aqui");
             }
         });
 

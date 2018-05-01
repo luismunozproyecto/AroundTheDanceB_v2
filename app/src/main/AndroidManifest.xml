@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".Login">
+        <activity android:name=".Activities.ActivityLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,19 +24,19 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".LoginCreateUser">
+        <activity android:name=".Fragments.FragmentLoginCreateUser">
 
         </activity>
 
-        <activity android:name=".Inicio">
+        <activity android:name=".Activities.ActivityInicio">
 
         </activity>
 
-        <activity android:name=".TabFragmentEvents_NewEvent">
+        <activity android:name=".Fragments.TabFragmentEvents_NewEvent">
 
         </activity>
 
-        <activity android:name=".MapsAddLocationEvent">
+        <activity android:name=".Maps.MapsAddLocationEvent">
 
         </activity>
 

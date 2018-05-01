@@ -1,4 +1,4 @@
-package com.example.paxi.aroundthedanceb;
+package com.example.paxi.aroundthedanceb.Activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.paxi.aroundthedanceb.Fragments.FragmentLoginCreateUser;
+import com.example.paxi.aroundthedanceb.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -21,7 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 
-public class Login extends AppCompatActivity
+public class ActivityLogin extends AppCompatActivity
 {
     //Mis Controles
     Button button_logIn, button_forgetPassword, button_newAccount;
@@ -43,7 +45,7 @@ public class Login extends AppCompatActivity
 
         if (user != null)
         {
-            Intent i = new Intent(Login.this, Inicio.class);
+            Intent i = new Intent(ActivityLogin.this, ActivityInicio.class);
             startActivity(i);
         }
         else
@@ -80,7 +82,7 @@ public class Login extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.activitylogin);
 
         //Mis Controles
         button_logIn          = (Button)findViewById(R.id.btn_login);
@@ -104,7 +106,7 @@ public class Login extends AppCompatActivity
 
         if (!userIdRecogida.equals("") && !userEmailRecogida.equals(""))
         {
-            startActivity(new Intent(Login.this, Inicio.class));
+            startActivity(new Intent(ActivityLogin.this, ActivityInicio.class));
         }
 
         //endregion
@@ -119,7 +121,7 @@ public class Login extends AppCompatActivity
 
                 if(firebaseUser != null)
                 {
-                    startActivity(new Intent(Login.this, Inicio.class));
+                    startActivity(new Intent(ActivityLogin.this, ActivityInicio.class));
 
                     userId = firebaseUser.getUid();
                     userEmail = firebaseUser.getEmail();
@@ -136,7 +138,7 @@ public class Login extends AppCompatActivity
                 {
                     if(!txtPassword.getText().toString().equals("") && !txtEmail.getText().toString().equals(""))
                     {
-                        Toast.makeText(Login.this, "Your email or your password is wrong, please check again", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ActivityLogin.this, "Your email or your password is wrong, please check again", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -171,14 +173,14 @@ public class Login extends AppCompatActivity
                 else
                 {
                     mAuth.signInWithEmailAndPassword(txtEmail.getText().toString(), txtPassword.getText().toString())
-                            .addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>()
+                            .addOnCompleteListener(ActivityLogin.this, new OnCompleteListener<AuthResult>()
                             {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task)
                                 {
                                     if(!task.isSuccessful())
                                     {
-                                        Toast.makeText(Login.this, "Your email account or your password are invalid", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(ActivityLogin.this, "Your email account or your password are invalid", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
@@ -202,7 +204,7 @@ public class Login extends AppCompatActivity
             public void onClick(View view)
             {
                 //Enviar a activity de crear user
-                startActivity(new Intent(Login.this, LoginCreateUser.class));
+                startActivity(new Intent(ActivityLogin.this, FragmentLoginCreateUser.class));
             }
         });
 

@@ -1,4 +1,4 @@
-package com.example.paxi.aroundthedanceb;
+package com.example.paxi.aroundthedanceb.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.paxi.aroundthedanceb.R;
+import com.example.paxi.aroundthedanceb.Recycler.RecyclerAdaptador;
 
 import java.util.ArrayList;
 
@@ -90,7 +93,8 @@ public class TabFragmentEvents extends Fragment
             @Override
             public void onClick(View view)
             {
-
+                Intent intent = new Intent(getActivity(), TabFragmentEvents_NewEvent.class);
+                startActivity(intent);
             }
         });
 

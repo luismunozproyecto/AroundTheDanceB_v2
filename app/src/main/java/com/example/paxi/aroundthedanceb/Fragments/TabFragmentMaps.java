@@ -1,4 +1,4 @@
-package com.example.paxi.aroundthedanceb;
+package com.example.paxi.aroundthedanceb.Fragments;
 
 import android.*;
 import android.Manifest;
@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
 import android.widget.RelativeLayout;
 
+import com.example.paxi.aroundthedanceb.*;
+import com.example.paxi.aroundthedanceb.R;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -38,7 +40,7 @@ public class TabFragmentMaps extends Fragment implements OnMapReadyCallback
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        view = inflater.inflate(R.layout.fragmentmaps, container, false);
+        view = inflater.inflate(com.example.paxi.aroundthedanceb.R.layout.fragmentmaps, container, false);
 
         return view;
     }
