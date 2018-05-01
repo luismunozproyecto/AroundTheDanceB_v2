@@ -1,10 +1,7 @@
 package Modelos;
 
-/**
- * Created by Paxi on 24/04/2018.
- */
-
-public class Evento {
+public class Evento
+{
 
     String ciudad;
     String creadoPor;
@@ -19,10 +16,13 @@ public class Evento {
     String nombre;
     String pais;
 
-    public Evento() {
+    public Evento()
+    {
+
     }
 
-    public Evento(String ciudad, String creadoPor, String descripcion, String fechaFin, String fechaIncio, String horaInicio, String id, String imagen, double lat, double lon, String nombre, String pais) {
+    public Evento(String ciudad, String creadoPor, String descripcion, String fechaFin, String fechaIncio, String horaInicio, String id, String imagen, double lat, double lon, String nombre, String pais)
+    {
         this.ciudad = ciudad;
         this.creadoPor = creadoPor;
         this.descripcion = descripcion;

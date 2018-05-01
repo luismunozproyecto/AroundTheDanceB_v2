@@ -145,7 +145,7 @@ public class TabFragmentEvents_NewEvent extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.newevent);
+        setContentView(R.layout.fragmenteventsnewevent);
 
         setupToolBar();
 
