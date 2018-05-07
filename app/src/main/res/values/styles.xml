@@ -1,11 +1,24 @@
 <resources>
 
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="BotonBase">
+        <item name="android:textSize">@dimen/d16</item>
+        <item name="android:layout_margin">@dimen/d8</item>
+    </style>
+
+    <style name="BotonEstilo1" parent="BotonBase">
+        <item name="android:background">@drawable/fondo_boton1</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="BotonEstilo2" parent="BotonBase">
+        <item name="android:background">@drawable/fondo_boton2</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
 </resources>

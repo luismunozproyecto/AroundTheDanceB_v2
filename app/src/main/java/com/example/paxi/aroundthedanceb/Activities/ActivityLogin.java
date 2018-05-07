@@ -95,6 +95,8 @@ public class ActivityLogin extends AppCompatActivity
         txtEmail.setBackgroundResource(android.R.drawable.edit_text);
         txtPassword.setBackgroundResource(android.R.drawable.edit_text);
 
+        button_logIn.setEnabled(false);
+
         //Firebase
         mAuth = FirebaseAuth.getInstance();
 
@@ -226,6 +228,12 @@ public class ActivityLogin extends AppCompatActivity
                 //AQUI
                 txtEmail.setHintTextColor(Color.GRAY);
                 txtEmail.setBackgroundResource(android.R.drawable.edit_text);
+
+                if(!txtPassword.getText().toString().equals("") && !txtEmail.getText().toString().equals(""))
+                {
+                    button_logIn.setEnabled(true);
+                    button_logIn.setBackgroundResource(R.drawable.fondo_boton3);
+                }
             }
 
             @Override
@@ -248,6 +256,12 @@ public class ActivityLogin extends AppCompatActivity
             {
                 txtPassword.setHintTextColor(Color.GRAY);
                 txtPassword.setBackgroundResource(android.R.drawable.edit_text);
+
+                if(!txtPassword.getText().toString().equals("") && !txtEmail.getText().toString().equals(""))
+                {
+                    button_logIn.setEnabled(true);
+                    button_logIn.setBackgroundResource(R.drawable.fondo_boton3);
+                }
             }
 
             @Override

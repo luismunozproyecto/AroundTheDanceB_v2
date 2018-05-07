@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "813033561830",
-    "firebase_url": "https://aroundthedance.firebaseio.com",
-    "project_id": "aroundthedance",
-    "storage_bucket": "aroundthedance.appspot.com"
+    "project_number": "951282374147",
+    "firebase_url": "https://proyectoapp-9958c.firebaseio.com",
+    "project_id": "proyectoapp-9958c",
+    "storage_bucket": "proyectoapp-9958c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:813033561830:android:5d8915df747cd469",
+        "mobilesdk_app_id": "1:951282374147:android:5d8915df747cd469",
         "android_client_info": {
           "package_name": "com.example.paxi.aroundthedanceb"
         }
       },
       "oauth_client": [
         {
-          "client_id": "813033561830-rn1kdg6ucrc5u70vlnb445tta9tlho3c.apps.googleusercontent.com",
+          "client_id": "951282374147-oqvi6td225ujgqoo6u9rhsiudl5jdc0q.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDAVJ7TrH5b26OPPtIp1whnbY09WoiAREA"
+          "current_key": "AIzaSyDNxtKda-7U66BY2xN4boK8VHTLmLKwdMs"
         }
       ],
       "services": {

@@ -24,7 +24,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txt_email"
-            android:hint="User" />
+            android:hint="User"
+            android:layout_marginLeft="@dimen/d20"
+            android:layout_marginRight="@dimen/d20"
+            android:layout_marginBottom="@dimen/d20"
+            android:layout_marginTop="@dimen/d20"/>
 
     </LinearLayout>
 
@@ -42,13 +46,17 @@
             android:layout_height="wrap_content"
             android:id="@+id/txt_password"
             android:hint="Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:layout_marginLeft="@dimen/d20"
+            android:layout_marginRight="@dimen/d20"
+            android:layout_marginBottom="@dimen/d20"
+            />
 
     </LinearLayout>
 
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:paddingTop="0dp"
@@ -57,25 +65,13 @@
 
         <Button
             android:layout_width="match_parent"
+            style="@style/BotonEstilo1"
             android:layout_height="wrap_content"
             android:text="LOG IN"
-            android:id="@+id/btn_login"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingTop="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp">
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="FORGET THE PASSWORD"
-            android:id="@+id/btn_forget"/>
+            android:id="@+id/btn_login"
+            android:layout_marginLeft="@dimen/d20"
+            android:layout_marginRight="@dimen/d20"
+            />
 
     </LinearLayout>
 
@@ -83,14 +79,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:paddingTop="0dp">
+        android:orientation="horizontal">
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CREATE NEW ACCOUNT"
+            android:text=" NEW ACCOUNT "
+            style="@style/BotonEstilo2"
             android:id="@+id/btn_newaccount"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" FORGET THE PASSWORD "
+            style="@style/BotonEstilo2"
+            android:id="@+id/btn_forget"/>
+
     </LinearLayout>
+
 </LinearLayout>
 
