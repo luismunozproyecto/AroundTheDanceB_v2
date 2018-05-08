@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.example.paxi.aroundthedanceb.R;
@@ -83,6 +84,9 @@ public class ActivityInicio extends AppCompatActivity
         });
 
         //endregion
+
+        //Oculta el teclado al ejecutar
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
     //region Menu

@@ -5,11 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.paxi.aroundthedanceb.Modelos.Evento;
 import com.example.paxi.aroundthedanceb.R;
 
 import java.util.ArrayList;
-
-import Modelos.Evento;
 
 public class RecyclerAdaptador extends RecyclerView.Adapter implements  View.OnClickListener
 {

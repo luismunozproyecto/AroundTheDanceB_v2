@@ -21,4 +21,10 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="BotonEstilo3">
+        <item name="android:background">@drawable/fondo_boton2</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/d16</item>
+    </style>
+
 </resources>

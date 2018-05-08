@@ -15,12 +15,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.paxi.aroundthedanceb.Modelos.Evento;
 import com.example.paxi.aroundthedanceb.R;
 import com.example.paxi.aroundthedanceb.Recycler.RecyclerAdaptador;
 
 import java.util.ArrayList;
-
-import Modelos.Evento;
 
 
 public class TabFragmentEvents extends Fragment
@@ -40,7 +39,6 @@ public class TabFragmentEvents extends Fragment
         View view = inflater.inflate(R.layout.fragmenttabevents, container, false);
 
         txtSearch = (EditText) view.findViewById(R.id.txt_search);
-        btnNewEvent = (Button)  view.findViewById(R.id.btn_newevent);
         btnAdvanceSearch = (Button)  view.findViewById(R.id.btn_advancesearch);
         floatingActionButton_addEvent = view.findViewById(R.id.floatingbtn_addevent);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_events);
@@ -59,7 +57,7 @@ public class TabFragmentEvents extends Fragment
             {
                 pos = recyclerView.getChildAdapterPosition(view);
                 name = lista_eventos.get(pos).getNombre();
-                fecha = lista_eventos.get(pos).getFechaIncio();
+                fecha = lista_eventos.get(pos).getFechaInicio();
                 Toast.makeText(getActivity(), name + "\n" + fecha, Toast.LENGTH_SHORT).show();
             }
         });
@@ -88,15 +86,6 @@ public class TabFragmentEvents extends Fragment
         //endregion
 
         //region Buttons
-        btnNewEvent.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Intent intent = new Intent(getActivity(), TabFragmentEvents_NewEvent.class);
-                startActivity(intent);
-            }
-        });
 
         btnAdvanceSearch.setOnClickListener(new View.OnClickListener()
         {
@@ -124,11 +113,7 @@ public class TabFragmentEvents extends Fragment
 
     private void simularDatos()
     {
-        lista_eventos.add(new Evento("1", "a", "f", "k", "11", "", "", "", 0, 0, "Name1", ""));
-        lista_eventos.add(new Evento("2", "b", "g", "l", "90", "", "", "", 0, 0, "Name2", ""));
-        lista_eventos.add(new Evento("3", "c", "h", "m", "34", "", "", "", 0, 0, "Name3", ""));
-        lista_eventos.add(new Evento("4", "d", "i", "ñ", "23", "", "", "", 0, 0, "Name4", ""));
-        lista_eventos.add(new Evento("5", "e", "j", "o", "15", "", "", "", 0, 0, "Name5", ""));
+
     }
 }
 

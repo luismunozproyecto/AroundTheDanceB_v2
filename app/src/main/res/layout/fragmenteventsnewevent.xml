@@ -28,7 +28,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="SELECT PICTURE"
+            android:text="  SELECT PICTURE  "
+            style="@style/BotonEstilo3"
             android:id="@+id/btn_imagenevent"/>
 
         <EditText
@@ -104,7 +105,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="UBICACION"
+            android:text="  UBICACION  "
+            style="@style/BotonEstilo3"
             android:id="@+id/btn_ubicacion" />
 
 
@@ -124,7 +126,8 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ADD"
+                android:text="  ADD  "
+                style="@style/BotonEstilo3"
                 android:layout_gravity="center"
                 android:id="@+id/btn_addtype"/>
 
@@ -147,7 +150,8 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ADD"
+                android:text="  ADD  "
+                style="@style/BotonEstilo3"
                 android:layout_gravity="center"
                 android:id="@+id/btn_addstyle" />
 
@@ -172,7 +176,8 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ADD"
+                android:text="  ADD  "
+                style="@style/BotonEstilo3"
                 android:layout_gravity="center"
                 android:id="@+id/btn_addcategory" />
 
@@ -183,7 +188,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CREATE"
+            android:text="  CREATE  "
+            style="@style/BotonEstilo3"
             android:layout_gravity="center"
             android:id="@+id/btn_createevent" />
 

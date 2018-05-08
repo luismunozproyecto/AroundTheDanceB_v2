@@ -110,7 +110,6 @@ public class ActivityLogin extends AppCompatActivity
         {
             startActivity(new Intent(ActivityLogin.this, ActivityInicio.class));
         }
-
         //endregion
 
         //region ListenerFirebaseAuth

@@ -4,9 +4,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.paxi.aroundthedanceb.Modelos.Evento;
 import com.example.paxi.aroundthedanceb.R;
-
-import Modelos.Evento;
 
 public class RecyclerHolder extends RecyclerView.ViewHolder
 {
@@ -22,6 +21,6 @@ public class RecyclerHolder extends RecyclerView.ViewHolder
     public void bind(Evento entity)
     {
         RNameEvent.setText(entity.getNombre());
-        RDateEvent.setText(entity.getFechaIncio());
+        RDateEvent.setText(entity.getFechaInicio());
     }
 }
