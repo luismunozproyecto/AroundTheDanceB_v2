@@ -136,6 +136,7 @@ public class FragmentLoginCreateUser extends FragmentActivity
                 if(!txtPassword.getText().toString().equals("") && !txtPasswordRepeat.getText().toString().equals(""))
                 {
                     buttonNextStep.setEnabled(true);
+                    buttonNextStep.setBackgroundResource(R.drawable.fondo_boton3);
                 }
             }
             public void afterTextChanged(Editable s)
@@ -161,6 +162,7 @@ public class FragmentLoginCreateUser extends FragmentActivity
                 if(!txtPasswordRepeat.getText().toString().equals("") && !txtEmail.getText().toString().equals(""))
                 {
                     buttonNextStep.setEnabled(true);
+                    buttonNextStep.setBackgroundResource(R.drawable.fondo_boton3);
                 }
             }
 
@@ -188,6 +190,7 @@ public class FragmentLoginCreateUser extends FragmentActivity
                 if(!txtPassword.getText().toString().equals("") && !txtEmail.getText().toString().equals(""))
                 {
                     buttonNextStep.setEnabled(true);
+                    buttonNextStep.setBackgroundResource(R.drawable.fondo_boton3);
                 }
             }
 
@@ -242,6 +245,21 @@ public class FragmentLoginCreateUser extends FragmentActivity
                     txtPasswordRepeat.setBackgroundResource(R.drawable.edittext_border);
 
                     Toast.makeText(FragmentLoginCreateUser.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
+                }
+                else if(txtEmail.getText().toString().equals(""))
+                {
+                    txtEmail.setHintTextColor(Color.RED);
+                    txtEmail.setBackgroundResource(R.drawable.edittext_border);
+                }
+                else if(txtPassword.getText().toString().equals(""))
+                {
+                    txtPassword.setHintTextColor(Color.RED);
+                    txtPassword.setBackgroundResource(R.drawable.edittext_border);
+                }
+                else if(txtPasswordRepeat.getText().toString().equals(""))
+                {
+                    txtPasswordRepeat.setHintTextColor(Color.RED);
+                    txtPasswordRepeat.setBackgroundResource(R.drawable.edittext_border);
                 }
                 /*else if(contador == 0)
                 {

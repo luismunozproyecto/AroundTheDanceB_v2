@@ -17,21 +17,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Email, Nickname and Password" />
+            android:text="NEW USER"
+            android:textSize="@dimen/d30"
+            android:layout_marginBottom="@dimen/d35"
+            android:layout_marginTop="@dimen/d15"/>
 
         <EditText
             android:id="@+id/txt_nickname"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="Nickname" />
+            android:hint="Nickname"
+            android:layout_marginBottom="@dimen/d35"/>
 
         <EditText
             android:id="@+id/txt_email_fragment"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="Email" />
+            android:hint="Email"
+            android:layout_marginBottom="@dimen/d35"/>
 
         <EditText
             android:id="@+id/txt_password_fragment"
@@ -39,7 +44,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:hint="Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:layout_marginBottom="@dimen/d35"/>
 
         <EditText
             android:id="@+id/txt_repeatpassword_fragment"
@@ -47,7 +53,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:hint="Repeat Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:layout_marginBottom="@dimen/d35"/>
 
     </LinearLayout>
 
@@ -57,6 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
-        android:text="NEXT"/>
+        style="@style/BotonEstilo1"
+        android:text="CREATE"/>
 
 </LinearLayout>
