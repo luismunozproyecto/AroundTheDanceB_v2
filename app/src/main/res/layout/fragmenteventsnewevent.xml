@@ -37,66 +37,42 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:hint="Name"
             android:id="@+id/txt_nameevent"/>
 
-
-        <LinearLayout
-            android:orientation="horizontal"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
+            android:text=" Fecha Inicio "
+            android:id="@+id/textview_fechainicio"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="onClickFechaInicio"
+            android:clickable="true"
+            android:layout_marginBottom="10dp"
+            android:textSize="@dimen/d20"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fecha Inicio "
-                android:layout_gravity="center"
-                android:id="@+id/textview_fechainicio"
-                android:background="?attr/selectableItemBackground"
-                android:onClick="onClickFechaInicio"
-                android:clickable="true"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hora Inicio "
-                android:layout_gravity="center"
-                android:id="@+id/textview_horainicio"
-                android:background="?attr/selectableItemBackground"
-                android:onClick="onClickHoraInicio"
-                android:clickable="true" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
+            android:text=" Hora Inicio "
+            android:id="@+id/textview_horainicio"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="onClickHoraInicio"
+            android:clickable="true"
+            android:layout_marginBottom="10dp"
+            android:textSize="@dimen/d20"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" Fecha Final"
-                android:id="@+id/textview_fechafinal"
-                android:background="?attr/selectableItemBackground"
-                android:onClick="onClickFechaFinal"
-                android:clickable="true"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" Hora Final"
-                android:id="@+id/textview_horafinal"
-                android:background="?attr/selectableItemBackground"
-                android:onClick="onClickHoraFinal"
-                android:clickable="true"
-                android:layout_marginBottom="10dp"/>
-
-        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Fecha Final "
+            android:id="@+id/textview_fechafinal"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="onClickFechaFinal"
+            android:clickable="true"
+            android:textSize="@dimen/d20"/>
 
         <EditText
             android:layout_width="match_parent"

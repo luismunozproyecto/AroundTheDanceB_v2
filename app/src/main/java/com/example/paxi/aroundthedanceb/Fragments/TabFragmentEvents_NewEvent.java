@@ -169,7 +169,7 @@ public class TabFragmentEvents_NewEvent extends AppCompatActivity
         textViewFechaInicio = (TextView) findViewById(R.id.textview_fechainicio);
         textViewFechaFinal  = (TextView) findViewById(R.id.textview_fechafinal);
         textViewHoraInicio  = (TextView) findViewById(R.id.textview_horainicio);
-        textViewHoraFinal   = (TextView) findViewById(R.id.textview_horafinal);
+        //textViewHoraFinal   = (TextView) findViewById(R.id.textview_horafinal);
 
         spinnerTypes      = (Spinner) findViewById(R.id.spinner_types);
         spinnerStyles     = (Spinner) findViewById(R.id.spinner_styles);
@@ -464,7 +464,7 @@ public class TabFragmentEvents_NewEvent extends AppCompatActivity
             @Override
             public void onTimeSet(TimePicker timePicker, int hour, int minute)
             {
-                textViewHoraFinal.setText(hour + ":" + minute);
+                //textViewHoraFinal.setText(hour + ":" + minute);
             }
 
         }, Hora, Minutos, false);
@@ -484,7 +484,7 @@ public class TabFragmentEvents_NewEvent extends AppCompatActivity
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_clear_black_24dp);
+        getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ic_back);
     }
 
     @Override
