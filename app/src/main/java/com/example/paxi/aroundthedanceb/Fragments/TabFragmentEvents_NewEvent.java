@@ -30,89 +30,6 @@ import com.google.firebase.storage.UploadTask;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-//region Clases
-
-class LocalTypes
-{
-    String type;
-    ArrayList<LocalStyles> Styles;
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public LocalTypes(String type) {
-        this.type = type;
-        Styles = new ArrayList<LocalStyles>();
-    }
-
-    public LocalTypes()
-    {
-
-    }
-
-    @Override
-    public String toString()
-    {
-        return type;
-    }
-}
-
-class LocalStyles
-{
-    String style;
-    ArrayList<LocalCategories> categories;
-
-    public LocalStyles(String style) {
-        this.style = style;
-        categories = new ArrayList<LocalCategories>();
-
-    }
-
-    public String getStyle() {
-        return style;
-    }
-
-    public void setStyle(String style) {
-        this.style = style;
-    }
-
-    @Override
-    public String toString()
-    {
-        return style;
-    }
-}
-
-class LocalCategories
-{
-    String categorie;
-
-    public LocalCategories(String style) {
-        this.categorie = style;
-    }
-
-    public String getCategorie() {
-        return categorie;
-    }
-
-    public void setCategorie(String categorie) {
-        this.categorie = categorie;
-    }
-
-    @Override
-    public String toString()
-    {
-        return categorie;
-    }
-}
-
-//endregion
-
 public class TabFragmentEvents_NewEvent extends AppCompatActivity
 {
     //region Variables
@@ -133,15 +50,11 @@ public class TabFragmentEvents_NewEvent extends AppCompatActivity
 
     String type, category, style;
     private static final int GALLERY_INTENT = 2;
-    ArrayList<LocalTypes> types = new ArrayList<LocalTypes>();
     SharedPreferences sharedPref;
 
     StorageReference storageRef;
 
-
-
     //endregion
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -211,10 +124,6 @@ public class TabFragmentEvents_NewEvent extends AppCompatActivity
             {
                 type = spinnerTypes.getSelectedItem().toString();
 
-                LocalTypes tipo = new LocalTypes(type);
-
-                types.add(tipo);
-
             }
         });
 
@@ -224,10 +133,6 @@ public class TabFragmentEvents_NewEvent extends AppCompatActivity
             public void onClick(View view)
             {
                 style = spinnerStyles.getSelectedItem().toString();
-
-                LocalStyles estilo = new  LocalStyles(style);
-
-                types.get(types.size() - 1).Styles.add(estilo);
             }
         });
 
@@ -238,10 +143,6 @@ public class TabFragmentEvents_NewEvent extends AppCompatActivity
             public void onClick(View view)
             {
                 category = spinnerCategories.getSelectedItem().toString();
-
-                LocalCategories categorie = new LocalCategories(category);
-
-                types.get(types.size() - 1).Styles.get(types.get(types.size() - 1).Styles.size() - 1).categories.add(categorie);
             }
         });
 
