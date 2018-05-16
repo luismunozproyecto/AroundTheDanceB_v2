@@ -64,7 +64,7 @@ public class MapsAddLocationEvent extends AppCompatActivity implements OnMapRead
     protected void onCreate(@Nullable Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragmenteventsneweventaddmap);
+        setContentView(R.layout.fragment_events_newevent_addmap);
         txt_Search = (AutoCompleteTextView) findViewById(R.id.auto_search);
 
         getPermisosLocation();

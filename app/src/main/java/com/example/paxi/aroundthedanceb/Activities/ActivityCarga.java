@@ -5,8 +5,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 
 import com.example.paxi.aroundthedanceb.R;
@@ -25,7 +23,7 @@ public class ActivityCarga extends Activity
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.paginadecarga);
+        setContentView(R.layout.activity_paginadecarga);
 
         TimerTask task = new TimerTask()
         {

@@ -34,7 +34,7 @@ public class FragmentLoginCreateUser extends FragmentActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activitynewuser);
+        setContentView(R.layout.activity_newuser);
 
         //Firebase
         mAuth = FirebaseAuth.getInstance();

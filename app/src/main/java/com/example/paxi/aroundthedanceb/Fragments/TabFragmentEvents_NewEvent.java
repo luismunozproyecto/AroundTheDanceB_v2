@@ -27,7 +27,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 
 public class TabFragmentEvents_NewEvent extends AppCompatActivity
@@ -60,7 +59,7 @@ public class TabFragmentEvents_NewEvent extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragmenteventsnewevent);
+        setContentView(R.layout.fragment_events_newevent);
 
         setupToolBar();
 
@@ -209,7 +208,7 @@ public class TabFragmentEvents_NewEvent extends AppCompatActivity
                         "este"
                 );*/
 
-                //BDAntiguaBackgroundWorker.execute("activitylogin", "aqui", "aqui");
+                //BDAntiguaBackgroundWorker.execute("activity_login", "aqui", "aqui");
             }
         });
 

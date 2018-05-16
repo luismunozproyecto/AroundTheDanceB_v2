@@ -32,11 +32,11 @@ public class BDAntiguaBackgroundWorker extends AsyncTask<String, Void, String>
     protected String doInBackground(String... voids)
     {
         String type = voids[0];
-        String login_url = "http://192.168.129.2/activitylogin.php";
+        String login_url = "http://192.168.129.2/activity_login.php";
         String insert_url2 = "http://192.168.129.2/insert_event.php";
 
-        //region activitylogin
-        if(type.equals("activitylogin"))
+        //region activity_login
+        if(type.equals("activity_login"))
         {
             try
             {

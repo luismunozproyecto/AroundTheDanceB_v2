@@ -7,7 +7,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.example.paxi.aroundthedanceb.R;
 import com.example.paxi.aroundthedanceb.Fragments.TabsPageAdapter;
@@ -29,7 +28,7 @@ public class ActivityInicio extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activityinicio);
+        setContentView(R.layout.activity_inicio);
 
         //region MenuLateral
         //Action Bar

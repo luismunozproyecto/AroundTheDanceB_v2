@@ -36,7 +36,7 @@ public class TabFragmentEvents extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        View view = inflater.inflate(R.layout.fragmenttabevents, container, false);
+        View view = inflater.inflate(R.layout.fragment_tab_events, container, false);
 
         txtSearch = (EditText) view.findViewById(R.id.txt_search);
         btnAdvanceSearch = (Button)  view.findViewById(R.id.btn_advancesearch);
