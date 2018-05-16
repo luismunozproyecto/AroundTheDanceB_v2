@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".Activities.ActivityLogin">
+        <activity android:name=".Activities.ActivityCarga">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,6 +29,10 @@
         </activity>
 
         <activity android:name=".Activities.ActivityInicio">
+
+        </activity>
+
+        <activity android:name=".Activities.ActivityLogin">
 
         </activity>
 

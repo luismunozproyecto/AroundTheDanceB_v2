@@ -86,7 +86,6 @@ public class TabFragmentEvents extends Fragment
         //endregion
 
         //region Buttons
-
         btnAdvanceSearch.setOnClickListener(new View.OnClickListener()
         {
             @Override

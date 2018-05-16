@@ -14,46 +14,46 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="0dp"
-            android:id="@+id/imagenevent"/>
+            android:id="@+id/imagenevent"
+            android:layout_marginBottom="10dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Name"
             android:layout_gravity="center"
-            android:hint="Name" />
+            android:textSize="@dimen/d30"
+            android:layout_marginBottom="10dp"/>
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Fecha"
-            android:layout_gravity="center" />
+            android:textSize="@dimen/d20"
+            android:layout_marginBottom="15dp"/>
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Descripcion"
-            android:layout_gravity="center" />
+            android:textSize="@dimen/d20"
+            android:layout_marginBottom="15dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Enlace Ubicacion"
-            android:layout_gravity="center" />
+            android:text="Ubicacion"
+            android:textSize="@dimen/d20"
+            android:layout_marginBottom="15dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tipo, Estilos, Categorias"
-            android:layout_gravity="center" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Enlace Facebook"
-            android:layout_gravity="center" />
+            android:textSize="@dimen/d20"
+            android:layout_marginBottom="15dp"/>
 
     </LinearLayout>
 
