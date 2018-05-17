@@ -4,20 +4,26 @@
     android:layout_width="match_parent">
 
     <LinearLayout
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerlinea_nameevent">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/recyclerlinea_imageview_event"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/recyclerlinea_nameevent"
+            android:id="@+id/recyclerlinea_text_nameevent"
             android:textSize="20dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/recyclerlinea_fechaevent"
+            android:id="@+id/recyclerlinea_text_fechaevent"
             android:textSize="20dp"/>
 
     </LinearLayout>
