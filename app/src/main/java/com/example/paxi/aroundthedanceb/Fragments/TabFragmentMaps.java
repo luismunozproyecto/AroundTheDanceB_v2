@@ -36,13 +36,6 @@ public class TabFragmentMaps extends Fragment implements OnMapReadyCallback, Goo
     {
         view = inflater.inflate(com.example.paxi.aroundthedanceb.R.layout.fragment_tab_maps, container, false);
 
-        Bundle bundle = this.getArguments();
-
-        if(bundle != null)
-        {
-            lista_eventos = bundle.getParcelableArrayList("arraylist");
-        }
-
         return view;
     }
 
@@ -67,10 +60,10 @@ public class TabFragmentMaps extends Fragment implements OnMapReadyCallback, Goo
         MapsInitializer.initialize(getContext());
 
         Marker marker;
+        Marker marker1,marker2,marker3,marker4,marker5,marker6,marker7;
         mGoogleMap = googleMap;
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
-        //PETA
         //Añadir markers
         /*for(int i = 0; i < lista_eventos.size(); i++)
         {
@@ -80,6 +73,55 @@ public class TabFragmentMaps extends Fragment implements OnMapReadyCallback, Goo
 
             marker.setTag(i);
         }*/
+
+        /*marker1 = googleMap.addMarker(new MarkerOptions()
+                .position(new LatLng(
+                        38.3398819,
+                        -0.4934223))
+                .title("asdasd"));
+        marker1.setTag(1);
+
+        marker2 = googleMap.addMarker(new MarkerOptions()
+                .position(new LatLng(
+                        37.3754338,
+                        -5.9900777))
+                .title("asdasd"));
+        marker2.setTag(2);
+
+        marker3 = googleMap.addMarker(new MarkerOptions()
+                .position(new LatLng(
+                        37.397671,
+                        -6.0004626))
+                .title("asdasd"));
+        marker3.setTag(3);
+
+        marker4 = googleMap.addMarker(new MarkerOptions()
+                .position(new LatLng(
+                        38.3579029,
+                        -0.5075435))
+                .title("asdasd"));
+        marker4.setTag(4);
+
+        marker5 = googleMap.addMarker(new MarkerOptions()
+                .position(new LatLng(
+                        38.5374398,
+                        -0.1475051))
+                .title("asdasd"));
+        marker5.setTag(5);
+
+        marker6 = googleMap.addMarker(new MarkerOptions()
+                .position(new LatLng(
+                        41.7033604,
+                        -4.8788518))
+                .title("asdasd"));
+        marker6.setTag(6);
+
+        marker7 = googleMap.addMarker(new MarkerOptions()
+                .position(new LatLng(
+                        38.3900032,
+                        -0.5143003))
+                .title("asdasd"));
+        marker7.setTag(7);*/
     }
 
 
