@@ -10,7 +10,7 @@ import com.example.paxi.aroundthedanceb.R;
 
 import java.util.ArrayList;
 
-public class RecyclerAdaptador extends RecyclerView.Adapter implements  View.OnClickListener
+public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerHolder> implements  View.OnClickListener
 {
     private ArrayList<Evento> datos;
     View.OnClickListener listener;
@@ -21,7 +21,7 @@ public class RecyclerAdaptador extends RecyclerView.Adapter implements  View.OnC
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType)
+    public RecyclerHolder onCreateViewHolder(ViewGroup viewGroup, int viewType)
     {
         View intemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycler_linea_event, viewGroup, false);
 
@@ -38,10 +38,10 @@ public class RecyclerAdaptador extends RecyclerView.Adapter implements  View.OnC
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int i)
+    public void onBindViewHolder(RecyclerHolder holder, int i)
     {
         Evento item = datos.get(i);
-        ((RecyclerHolder)holder).bind(item);
+      holder.bind(item);
     }
 
     @Override

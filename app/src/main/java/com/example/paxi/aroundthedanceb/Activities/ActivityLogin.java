@@ -25,6 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class ActivityLogin extends AppCompatActivity
 {
+    public final static String EXTRA_EMAIL = "EMAIL";
     //Mis Controles
     Button button_logIn, button_forgetPassword, button_newAccount;
     EditText txtPassword, txtEmail;
@@ -108,7 +109,9 @@ public class ActivityLogin extends AppCompatActivity
 
         if (!userIdRecogida.equals("") && !userEmailRecogida.equals(""))
         {
-            startActivity(new Intent(ActivityLogin.this, ActivityInicio.class));
+            Intent intent = new Intent(ActivityLogin.this, ActivityInicio.class);
+            intent.putExtra(EXTRA_EMAIL,txtEmail.getText().toString());
+            startActivity(intent);
         }
         //endregion
 
@@ -122,7 +125,9 @@ public class ActivityLogin extends AppCompatActivity
 
                 if(firebaseUser != null)
                 {
-                    startActivity(new Intent(ActivityLogin.this, ActivityInicio.class));
+                    Intent intent = new Intent(ActivityLogin.this, ActivityInicio.class);
+                    intent.putExtra(EXTRA_EMAIL,txtEmail.getText().toString());
+                    startActivity(intent);
 
                     userId = firebaseUser.getUid();
                     userEmail = firebaseUser.getEmail();

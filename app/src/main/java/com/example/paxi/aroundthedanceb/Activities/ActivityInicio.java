@@ -29,7 +29,7 @@ public class ActivityInicio extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
-
+        recogerExtras();
         //region MenuLateral
         //Action Bar
         /*drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -86,6 +86,17 @@ public class ActivityInicio extends AppCompatActivity
 
         //Oculta el teclado al ejecutar
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+    }
+
+    private void recogerExtras()
+    {
+        Bundle bundle = getIntent().getExtras();
+
+        if(bundle!=null)
+        {
+            String email = bundle.getString(ActivityLogin.EXTRA_EMAIL);
+
+        }
     }
 
     //region Menu

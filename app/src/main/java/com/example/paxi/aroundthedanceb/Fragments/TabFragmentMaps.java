@@ -9,14 +9,18 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Toast;
 
 import com.example.paxi.aroundthedanceb.Activities.ActivityInicio;
+import com.example.paxi.aroundthedanceb.Modelos.Evento;
 import com.example.paxi.aroundthedanceb.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.ArrayList;
 
 public class TabFragmentMaps extends Fragment implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener
 {
@@ -25,12 +29,19 @@ public class TabFragmentMaps extends Fragment implements OnMapReadyCallback, Goo
     GoogleMap mGoogleMap;
     MapView mapView;
     View view;
-
+    ArrayList<Evento> lista_eventos;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         view = inflater.inflate(com.example.paxi.aroundthedanceb.R.layout.fragment_tab_maps, container, false);
+
+        Bundle bundle = this.getArguments();
+
+        if(bundle != null)
+        {
+            lista_eventos = bundle.getParcelableArrayList("arraylist");
+        }
 
         return view;
     }
@@ -59,12 +70,13 @@ public class TabFragmentMaps extends Fragment implements OnMapReadyCallback, Goo
         mGoogleMap = googleMap;
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
+        //PETA
         //Añadir markers
-        /*for(int i = 0; i < numeroEventos; i++)
+        /*for(int i = 0; i < lista_eventos.size(); i++)
         {
             marker = googleMap.addMarker(new MarkerOptions()
-                .position(new LatLng(,))
-                .title(nombre_evento));
+                .position(new LatLng(lista_eventos.get(i).getLat(),lista_eventos.get(i).getLon()))
+                .title(lista_eventos.get(i).getNombre()));
 
             marker.setTag(i);
         }*/
