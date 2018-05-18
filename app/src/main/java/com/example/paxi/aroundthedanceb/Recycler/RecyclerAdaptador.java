@@ -23,7 +23,7 @@ public class RecyclerAdaptador extends RecyclerView.Adapter implements  View.OnC
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType)
     {
-        View intemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recyclerlinea, viewGroup, false);
+        View intemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycler_linea_event, viewGroup, false);
 
         intemView.setOnClickListener(this);
 

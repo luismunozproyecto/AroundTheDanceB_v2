@@ -24,25 +24,15 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Fragments.FragmentLoginCreateUser">
+        <activity android:name=".Activities.ActivityInicio" />
 
-        </activity>
+        <activity android:name=".Activities.ActivityLogin" />
 
-        <activity android:name=".Activities.ActivityInicio">
+        <activity android:name=".Fragments.FragmentLoginCreateUser" />
 
-        </activity>
+        <activity android:name=".Fragments.TabFragmentEvents_NewEvent" />
 
-        <activity android:name=".Activities.ActivityLogin">
-
-        </activity>
-
-        <activity android:name=".Fragments.TabFragmentEvents_NewEvent">
-
-        </activity>
-
-        <activity android:name=".Maps.MapsAddLocationEvent">
-
-        </activity>
+        <activity android:name=".Maps.MapsAddLocationEvent" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

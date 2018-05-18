@@ -14,8 +14,8 @@ public class RecyclerHolder extends RecyclerView.ViewHolder
     public RecyclerHolder(View itemView)
     {
         super(itemView);
-        RNameEvent = (TextView) itemView.findViewById(R.id.recyclerlinea_nameevent);
-        RDateEvent = (TextView) itemView.findViewById(R.id.recyclerlinea_fechaevent);
+        RNameEvent = (TextView) itemView.findViewById(R.id.recyclerlinea_text_nameevent);
+        RDateEvent = (TextView) itemView.findViewById(R.id.recyclerlinea_text_fechaevent);
     }
 
     public void bind(Evento entity)
