@@ -9,7 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.WindowManager;
 
 import com.example.paxi.aroundthedanceb.R;
-import com.example.paxi.aroundthedanceb.Fragments.TabsPageAdapter;
+import com.example.paxi.aroundthedanceb.Fragments.TabFragmentAdapterPager;
 
 public class ActivityInicio extends AppCompatActivity
 {
@@ -57,6 +57,7 @@ public class ActivityInicio extends AppCompatActivity
         //endregion
 
         //region Tabs
+
         tabs = (TabLayout) findViewById(R.id.tablayout);
         tabs.addTab(tabs.newTab().setText("EVENTS"));
         tabs.addTab(tabs.newTab().setText("CALENDAR"));
@@ -64,7 +65,7 @@ public class ActivityInicio extends AppCompatActivity
         tabs.addTab(tabs.newTab().setText("PROFILE"));
 
         final ViewPager mviewPager = (ViewPager) findViewById(R.id.viewpager);
-        final TabsPageAdapter adapter = new TabsPageAdapter(getSupportFragmentManager(), tabs.getTabCount());
+        final TabFragmentAdapterPager adapter = new TabFragmentAdapterPager(getSupportFragmentManager(), tabs.getTabCount());
         mviewPager.setAdapter(adapter);
         mviewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs));
 
@@ -89,13 +90,18 @@ public class ActivityInicio extends AppCompatActivity
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
-    private void recogerExtras(){
+    private void recogerExtras()
+    {
         Bundle bundle = getIntent().getExtras();
 
-        if(bundle!=null){
+        if(bundle != null)
+        {
             String email = bundle.getString(ActivityLogin.EXTRA_EMAIL);
+            System.out.println("aqui: " + email);
         }
     }
+
+
 
     //region Menu
    /* @Override
