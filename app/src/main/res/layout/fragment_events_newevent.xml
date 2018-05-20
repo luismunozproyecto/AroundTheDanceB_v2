@@ -128,7 +128,7 @@
                 android:layout_gravity="center"
                 android:id="@+id/spinner_styles"
                 android:visibility="invisible"
-                android:entries="@array/styles"/>
+                android:entries="@array/styles" />
 
             <Button
                 android:layout_width="wrap_content"

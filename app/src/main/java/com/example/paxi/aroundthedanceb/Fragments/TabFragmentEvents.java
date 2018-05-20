@@ -97,7 +97,7 @@ public class TabFragmentEvents extends Fragment
             @Override
             public void onClick(View view)
             {
-
+                //ActivityBusquedaAvanzada
             }
         });
 

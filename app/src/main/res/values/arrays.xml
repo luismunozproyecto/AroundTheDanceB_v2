@@ -2,6 +2,7 @@
 <resources>
 
     <array name="types">
+        <item></item>
         <item>Battle</item>
         <item>Jam</item>
         <item>Workshop</item>
@@ -10,6 +11,7 @@
     </array>
 
     <array name="styles">
+        <item></item>
         <item>Popping</item>
         <item>Locking</item>
         <item>Hip Hop</item>
@@ -23,6 +25,7 @@
     </array>
 
     <array name="categoriesBattle">
+        <item></item>
         <item>1VS1</item>
         <item>2VS2</item>
         <item>3VS3</item>
