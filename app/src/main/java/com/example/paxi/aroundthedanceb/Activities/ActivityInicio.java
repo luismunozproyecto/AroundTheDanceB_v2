@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.WindowManager;
 import com.example.paxi.aroundthedanceb.R;
-import com.example.paxi.aroundthedanceb.Fragments.TabFragmentAdapterPager;
+import com.example.paxi.aroundthedanceb.FragmentsTabs.TabFragmentAdapterPager;
 
 public class ActivityInicio extends AppCompatActivity
 {
@@ -57,10 +57,10 @@ public class ActivityInicio extends AppCompatActivity
         //region Tabs
 
         tabs = (TabLayout) findViewById(R.id.tablayout);
-        tabs.addTab(tabs.newTab().setText("EVENTS"));
+        tabs.addTab(tabs.newTab().setText(R.string.events));
         //tabs.addTab(tabs.newTab().setText("CALENDAR"));
-        tabs.addTab(tabs.newTab().setText("MAPS"));
-        tabs.addTab(tabs.newTab().setText("PROFILE"));
+        tabs.addTab(tabs.newTab().setText(R.string.map));
+        tabs.addTab(tabs.newTab().setText(R.string.profile));
 
         final ViewPager mviewPager = (ViewPager) findViewById(R.id.viewpager);
         final TabFragmentAdapterPager adapter = new TabFragmentAdapterPager(getSupportFragmentManager(), tabs.getTabCount());

@@ -16,7 +16,7 @@
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:hint="Ciudad"
+        android:hint="@string/city"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
@@ -25,7 +25,7 @@
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:hint="Pais"
+        android:hint="@string/country"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
@@ -47,7 +47,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ADD"
+            android:text="@string/add"
             android:layout_gravity="center"
             android:id="@+id/btn_busqueda_addtype"
             style="@style/BotonEstilo1"
@@ -72,7 +72,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ADD"
+            android:text="@string/add"
             android:layout_gravity="center"
             android:id="@+id/btn_busqueda_addstyle"
             style="@style/BotonEstilo1"
@@ -97,7 +97,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ADD"
+            android:text="@string/add"
             android:layout_gravity="center"
             android:id="@+id/btn_busqueda_addcategory"
             style="@style/BotonEstilo1"
@@ -109,7 +109,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Busqueda"
+        android:text="@string/search"
         android:layout_gravity="center"
         style="@style/BotonEstilo3"
         android:layout_marginTop="10dp"

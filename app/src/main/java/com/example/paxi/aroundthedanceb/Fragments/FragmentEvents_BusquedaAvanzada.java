@@ -15,7 +15,7 @@ import com.example.paxi.aroundthedanceb.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TabFragmentEvents_BusquedaAvanzada extends AppCompatActivity
+public class FragmentEvents_BusquedaAvanzada extends AppCompatActivity
 {
     Button btnAddTypeBusqueda, btnAddStyleBusqueda, btnAddCategoryBusqueda, btnBusqueda;
     Spinner spinnerTypesBusqueda, spinnerStylesBusqueda, spinnerCategoriesBusqueda;

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Around The Dance</string>
+    <string name="login">ENTRAR</string>
+    <string name="newaccount">NUEVA CUENTA</string>
+    <string name="forget">OLVIDASTE LA CONTRASEÑA</string>
+    <string name="add">AÑADIR</string>
+    <string name="search">BUSQUEDA</string>
+    <string name="select">SELECCIONAR FOTO</string>
+    <string name="startdate">FECHA INICIO</string>
+    <string name="starthour">HORA INICIO</string>
+    <string name="finaldate">FECHA FINAL</string>
+    <string name="location">LOCALIZACION</string>
+    <string name="create">CREAR</string>
+    <string name="name">NOMBRE</string>
+    <string name="date">FECHA</string>
+    <string name="description">DESCRIPCION</string>
+    <string name="typesand">TIPO, ESTILOS, CATEGORIAS</string>
+    <string name="newuser">NUEVO USUARIO</string>
+    <string name="advancesearch">BUSQUEDA ADANZADA</string>
+    <string name="nameuser">NOMBRE USUARIO</string>
+    <string name="email">EMAIL</string>
+    <string name="myevents">MI EVENTOS</string>
+    <string name="user">USUARIO</string>
+    <string name="password">CONTRASEÑA</string>
+    <string name="city">CIUDAD</string>
+    <string name="country">PAIS</string>
+    <string name="adress">Direccion, Ciudad o Codigo Postal</string>
+    <string name="repeatpassword">CONFIRMAR CONTRASEÑA</string>
+    <string name="nickname">NICK NAME</string>
+    <string name="map">MAPA</string>
+    <string name="events">EVENTOS</string>
+    <string name="profile">PERFIL</string>
+</resources>

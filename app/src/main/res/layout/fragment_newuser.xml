@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="NEW USER"
+            android:text="@string/newuser"
             android:textSize="@dimen/d30"
             android:layout_marginBottom="@dimen/d35"
             android:layout_marginTop="@dimen/d15"/>
@@ -28,7 +28,7 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="Nickname"
+            android:hint="@string/nickname"
             android:layout_marginBottom="@dimen/d35"/>
 
         <EditText
@@ -36,7 +36,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="Email"
+            android:hint="@string/email"
             android:layout_marginBottom="@dimen/d35"/>
 
         <EditText
@@ -44,7 +44,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:layout_marginBottom="@dimen/d35"/>
 
@@ -53,7 +53,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="Repeat Password"
+            android:hint="@string/repeatpassword"
             android:inputType="textPassword"
             android:layout_marginBottom="@dimen/d35"/>
 
@@ -66,6 +66,6 @@
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
         style="@style/BotonEstilo1"
-        android:text="CREATE"/>
+        android:text="@string/create"/>
 
 </LinearLayout>

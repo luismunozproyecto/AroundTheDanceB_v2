@@ -12,17 +12,17 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name User"/>
+        android:text="@string/nameuser"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"/>
+        android:text="@string/email"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My Events"/>
+        android:text="@string/myevents"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_myevents"

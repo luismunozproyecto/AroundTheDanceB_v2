@@ -30,9 +30,9 @@
 
         <activity android:name=".Fragments.FragmentLoginCreateUser" />
 
-        <activity android:name=".Fragments.TabFragmentEvents_NewEvent" />
+        <activity android:name=".Fragments.FragmentEvents_NewEvent" />
 
-        <activity android:name=".Fragments.TabFragmentEvents_BusquedaAvanzada" />
+        <activity android:name=".Fragments.FragmentEvents_BusquedaAvanzada" />
 
         <activity android:name=".Maps.MapsAddLocationEvent" />
 

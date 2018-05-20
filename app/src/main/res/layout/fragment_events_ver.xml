@@ -22,38 +22,36 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name"
+            android:text="@string/name"
             android:layout_gravity="center"
             android:textSize="@dimen/d30"
             android:layout_marginBottom="10dp"/>
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fecha"
-            android:textSize="@dimen/d20"
-            android:layout_marginBottom="15dp"/>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Descripcion"
+            android:text="@string/date"
             android:textSize="@dimen/d20"
             android:layout_marginBottom="15dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ubicacion"
+            android:text="@string/description"
             android:textSize="@dimen/d20"
             android:layout_marginBottom="15dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tipo, Estilos, Categorias"
+            android:text="@string/location"
+            android:textSize="@dimen/d20"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/typesand"
             android:textSize="@dimen/d20"
             android:layout_marginBottom="15dp"/>
 

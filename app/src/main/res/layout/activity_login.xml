@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txt_email"
-            android:hint="User"
+            android:hint="@string/user"
             android:layout_marginLeft="@dimen/d20"
             android:layout_marginRight="@dimen/d20"
             android:layout_marginBottom="@dimen/d20"
@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txt_password"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:layout_marginLeft="@dimen/d20"
             android:layout_marginRight="@dimen/d20"
@@ -65,7 +65,7 @@
             android:layout_width="match_parent"
             style="@style/BotonEstilo1"
             android:layout_height="wrap_content"
-            android:text="LOG IN"
+            android:text="@string/login"
             android:id="@+id/btn_login"
             android:layout_marginLeft="@dimen/d20"
             android:layout_marginRight="@dimen/d20" />
@@ -81,14 +81,14 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" NEW ACCOUNT "
+            android:text="@string/newaccount"
             style="@style/BotonEstilo2"
             android:id="@+id/btn_newaccount"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" FORGET THE PASSWORD "
+            android:text="@string/forget"
             style="@style/BotonEstilo2"
             android:id="@+id/btn_forget"/>
 

@@ -27,10 +27,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.paxi.aroundthedanceb.Activities.ActivityCarga;
-import com.example.paxi.aroundthedanceb.Activities.ActivityInicio;
-import com.example.paxi.aroundthedanceb.Activities.ActivityLogin;
-import com.example.paxi.aroundthedanceb.Fragments.TabFragmentEvents_NewEvent;
+import com.example.paxi.aroundthedanceb.Fragments.FragmentEvents_NewEvent;
 import com.example.paxi.aroundthedanceb.R;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -46,18 +43,14 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MapsAddLocationEvent extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.OnConnectionFailedListener
 {
@@ -401,7 +394,7 @@ public class MapsAddLocationEvent extends AppCompatActivity implements OnMapRead
                 {
                     case DialogInterface.BUTTON_POSITIVE:
 
-                        Intent intent = new Intent(MapsAddLocationEvent.this, TabFragmentEvents_NewEvent.class);
+                        Intent intent = new Intent(MapsAddLocationEvent.this, FragmentEvents_NewEvent.class);
                         intent.putExtra(EXTRA_LAT, latitud);
                         intent.putExtra(EXTRA_LONG, longitud);
                         setResult(10, intent);

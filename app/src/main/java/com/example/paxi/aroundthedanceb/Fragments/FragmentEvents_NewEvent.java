@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class TabFragmentEvents_NewEvent extends AppCompatActivity
+public class FragmentEvents_NewEvent extends AppCompatActivity
 {
     //BDAntiguaBackgroundWorker BDAntiguaBackgroundWorker;
 
@@ -224,7 +224,7 @@ public class TabFragmentEvents_NewEvent extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(TabFragmentEvents_NewEvent.this, MapsAddLocationEvent.class);
+                Intent intent = new Intent(FragmentEvents_NewEvent.this, MapsAddLocationEvent.class);
                 startActivity(intent);
             }
         });
@@ -377,7 +377,7 @@ public class TabFragmentEvents_NewEvent extends AppCompatActivity
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot)
                 {
-                    Toast.makeText(TabFragmentEvents_NewEvent.this, "Upload Done", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FragmentEvents_NewEvent.this, "Upload Done", Toast.LENGTH_SHORT).show();
                 }
             });
         }*/

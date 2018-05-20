@@ -1,4 +1,4 @@
-package com.example.paxi.aroundthedanceb.Fragments;
+package com.example.paxi.aroundthedanceb.FragmentsTabs;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,14 +16,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.paxi.aroundthedanceb.Modelos.Estilo;
+import com.example.paxi.aroundthedanceb.Fragments.FragmentEvents_BusquedaAvanzada;
+import com.example.paxi.aroundthedanceb.Fragments.FragmentEvents_NewEvent;
 import com.example.paxi.aroundthedanceb.Modelos.Evento;
-import com.example.paxi.aroundthedanceb.Modelos.Tipo;
 import com.example.paxi.aroundthedanceb.R;
 import com.example.paxi.aroundthedanceb.Recycler.RecyclerAdaptador;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class TabFragmentEvents extends Fragment
@@ -98,7 +96,7 @@ public class TabFragmentEvents extends Fragment
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(getActivity(), TabFragmentEvents_BusquedaAvanzada.class);
+                Intent intent = new Intent(getActivity(), FragmentEvents_BusquedaAvanzada.class);
                 startActivity(intent);
             }
         });
@@ -108,7 +106,7 @@ public class TabFragmentEvents extends Fragment
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(getActivity(), TabFragmentEvents_NewEvent.class);
+                Intent intent = new Intent(getActivity(), FragmentEvents_NewEvent.class);
                 startActivity(intent);
             }
         });

@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="  SELECT PICTURE  "
+            android:text="@string/select"
             style="@style/BotonEstilo3"
             android:layout_marginBottom="10dp"
             android:id="@+id/btn_imagenevent"/>
@@ -39,13 +39,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:hint="Name"
+            android:hint="@string/name"
             android:id="@+id/txt_nameevent"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" Fecha Inicio "
+            android:text="@string/startdate"
             android:id="@+id/textview_fechainicio"
             android:background="?attr/selectableItemBackground"
             android:onClick="onClickFechaInicio"
@@ -56,7 +56,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" Hora Inicio "
+            android:text="@string/starthour"
             android:id="@+id/textview_horainicio"
             android:background="?attr/selectableItemBackground"
             android:onClick="onClickHoraInicio"
@@ -67,7 +67,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" Fecha Final "
+            android:text="@string/finaldate"
             android:id="@+id/textview_fechafinal"
             android:background="?attr/selectableItemBackground"
             android:onClick="onClickFechaFinal"
@@ -78,7 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="Description"
+            android:hint="@string/description"
             android:id="@+id/txt_description"
             android:layout_marginBottom="10dp"/>
 
@@ -86,7 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="  UBICACION  "
+            android:text="@string/location"
             style="@style/BotonEstilo3"
             android:id="@+id/btn_ubicacion"
             android:layout_marginBottom="10dp"/>
@@ -107,7 +107,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="  ADD  "
+                android:text="@string/add"
                 style="@style/BotonEstilo1"
                 android:layout_gravity="center"
                 android:id="@+id/btn_addtype"
@@ -133,7 +133,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="  ADD  "
+                android:text="@string/add"
                 style="@style/BotonEstilo1"
                 android:layout_gravity="center"
                 android:id="@+id/btn_addstyle"
@@ -159,7 +159,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="  ADD  "
+                android:text="@string/add"
                 style="@style/BotonEstilo1"
                 android:layout_gravity="center"
                 android:id="@+id/btn_addcategory"
@@ -171,7 +171,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="  CREATE  "
+            android:text="@string/create"
             style="@style/BotonEstilo3"
             android:layout_gravity="center"
             android:id="@+id/btn_createevent" />

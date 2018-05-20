@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/d10"
             android:layout_weight="1"
-            android:hint="SEARCH" />
+            android:hint="@string/search" />
 
         <Button
             android:id="@+id/btn_advancesearch"
@@ -27,7 +27,7 @@
             android:layout_weight="1"
             android:layout_marginRight="@dimen/d10"
             style="@style/BotonEstilo3"
-            android:text="ADVANCE SEARCH" />
+            android:text="@string/advancesearch" />
 
     </LinearLayout>
 
