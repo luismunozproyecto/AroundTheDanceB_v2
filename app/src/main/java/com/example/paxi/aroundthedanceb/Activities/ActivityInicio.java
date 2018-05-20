@@ -60,7 +60,7 @@ public class ActivityInicio extends AppCompatActivity
 
         tabs = (TabLayout) findViewById(R.id.tablayout);
         tabs.addTab(tabs.newTab().setText("EVENTS"));
-        tabs.addTab(tabs.newTab().setText("CALENDAR"));
+        //tabs.addTab(tabs.newTab().setText("CALENDAR"));
         tabs.addTab(tabs.newTab().setText("MAPS"));
         tabs.addTab(tabs.newTab().setText("PROFILE"));
 
@@ -100,8 +100,6 @@ public class ActivityInicio extends AppCompatActivity
             System.out.println("aqui: " + email);
         }
     }
-
-
 
     //region Menu
    /* @Override

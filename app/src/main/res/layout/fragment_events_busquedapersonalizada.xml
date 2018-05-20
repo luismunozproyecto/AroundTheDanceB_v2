@@ -6,13 +6,21 @@
     android:layout_height="match_parent"
     android:layout_gravity="center">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:minHeight="?attr/actionBarSize"
+        android:background="?attr/colorPrimary" />
+
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:hint="Ciudad"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:id="@+id/txt_busqueda_ciudad"/>
 
     <EditText
         android:layout_width="250dp"
@@ -20,7 +28,8 @@
         android:hint="Pais"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:id="@+id/txt_busqueda_pais"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -32,7 +41,7 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:id="@+id/spinner_types"
+            android:id="@+id/spinner_busqueda_tipos"
             android:entries="@array/types"/>
 
         <Button
@@ -40,8 +49,8 @@
             android:layout_height="wrap_content"
             android:text="ADD"
             android:layout_gravity="center"
-            android:id="@+id/btn_addtype"
-            style="@style/BotonEstilo3"
+            android:id="@+id/btn_busqueda_addtype"
+            style="@style/BotonEstilo1"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"/>
 
@@ -57,8 +66,7 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:id="@+id/spinner_styles"
-            android:visibility="invisible"
+            android:id="@+id/spinner_busqueda_estilos"
             android:entries="@array/styles"/>
 
         <Button
@@ -66,8 +74,8 @@
             android:layout_height="wrap_content"
             android:text="ADD"
             android:layout_gravity="center"
-            android:id="@+id/btn_addstyle"
-            style="@style/BotonEstilo3"
+            android:id="@+id/btn_busqueda_addstyle"
+            style="@style/BotonEstilo1"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"/>
 
@@ -83,8 +91,7 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:id="@+id/spinner_categories"
-            android:visibility="invisible"
+            android:id="@+id/spinner_busqueda_categorias"
             android:entries="@array/categoriesBattle"/>
 
         <Button
@@ -92,8 +99,8 @@
             android:layout_height="wrap_content"
             android:text="ADD"
             android:layout_gravity="center"
-            android:id="@+id/btn_addcategory"
-            style="@style/BotonEstilo3"
+            android:id="@+id/btn_busqueda_addcategory"
+            style="@style/BotonEstilo1"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"/>
 
@@ -106,6 +113,7 @@
         android:layout_gravity="center"
         style="@style/BotonEstilo3"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:id="@+id/btn_busqueda"/>
 
 </LinearLayout>

@@ -119,12 +119,18 @@ public class TabFragmentEvents_NewEvent extends AppCompatActivity
         sDay = calendar.get(Calendar.DAY_OF_MONTH);
         sMonth = calendar.get(Calendar.MONTH);
         sYear = calendar.get(Calendar.YEAR);
-        //endregion
 
-        //region Spinners
+        //endregion
 
         spinnerStyles.setVisibility(View.GONE);
         spinnerCategories.setVisibility(View.GONE);
+        //btnAddType.setEnabled(Dis);
+        btnAddType.setEnabled(false);
+
+        btnAddStyle.setVisibility(View.GONE);
+        btnAddCategory.setVisibility(View.GONE);
+
+        //region Spinners
 
         spinnerTypes.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
@@ -135,14 +141,14 @@ public class TabFragmentEvents_NewEvent extends AppCompatActivity
 
                 if(!string_type.equals(""))
                 {
-                    if(string_type.equals("Battle"))
-                    {
-                        spinnerStyles.setVisibility(View.VISIBLE);
-                    }
-                    else if(string_type.equals("Jam"))
-                    {
-                        spinnerStyles.setVisibility(View.VISIBLE);
-                    }
+                    btnAddType.setEnabled(true);
+                    btnAddType.setBackgroundResource(R.drawable.fondo_boton2);
+                }
+
+                if(string_type.equals(""))
+                {
+                    btnAddType.setEnabled(false);
+                    btnAddType.setBackgroundResource(R.drawable.fondo_boton1);
                 }
             }
 
@@ -162,10 +168,42 @@ public class TabFragmentEvents_NewEvent extends AppCompatActivity
 
                 if(!string_estilo.equals(""))
                 {
-                    if(string_type.equals("Battle"))
-                    {
-                        spinnerCategories.setVisibility(View.VISIBLE);
-                    }
+                    btnAddStyle.setEnabled(true);
+                    btnAddStyle.setBackgroundResource(R.drawable.fondo_boton2);
+                }
+
+                if(string_estilo.equals(""))
+                {
+                    btnAddStyle.setEnabled(false);
+                    btnAddStyle.setBackgroundResource(R.drawable.fondo_boton1);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView)
+            {
+
+            }
+        });
+
+
+        spinnerCategories.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id)
+            {
+                string_categoria = spinnerCategories.getSelectedItem().toString();
+
+                if(!string_categoria.equals(""))
+                {
+                    btnAddCategory.setEnabled(true);
+                    btnAddCategory.setBackgroundResource(R.drawable.fondo_boton2);
+                }
+
+                if(string_categoria.equals(""))
+                {
+                    btnAddCategory.setEnabled(false);
+                    btnAddCategory.setBackgroundResource(R.drawable.fondo_boton1);
                 }
             }
 
@@ -212,6 +250,9 @@ public class TabFragmentEvents_NewEvent extends AppCompatActivity
                 tipo = new Tipo(string_type);  //Tipo con su nombre
 
                 arraylist_tipos.add(tipo);
+
+                spinnerStyles.setVisibility(View.VISIBLE);
+                btnAddStyle.setVisibility(View.VISIBLE);
             }
         });
 
@@ -225,6 +266,9 @@ public class TabFragmentEvents_NewEvent extends AppCompatActivity
                 estilo = new Estilo(string_estilo);
 
                 arraylist_estilos.add(estilo);
+
+                spinnerCategories.setVisibility(View.VISIBLE);
+                btnAddCategory.setVisibility(View.VISIBLE);
             }
         });
 

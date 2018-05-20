@@ -97,7 +97,8 @@ public class TabFragmentEvents extends Fragment
             @Override
             public void onClick(View view)
             {
-                //ActivityBusquedaAvanzada
+                Intent intent = new Intent(getActivity(), TabFragmentEvents_BusquedaAvanzada.class);
+                startActivity(intent);
             }
         });
 
