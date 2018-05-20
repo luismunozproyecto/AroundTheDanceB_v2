@@ -16,8 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.paxi.aroundthedanceb.Fragments.FragmentEvents_BusquedaAvanzada;
-import com.example.paxi.aroundthedanceb.Fragments.FragmentEvents_NewEvent;
+import com.example.paxi.aroundthedanceb.Activities.ActivtyEventsBusquedaAvanzada;
+import com.example.paxi.aroundthedanceb.Activities.ActivityEventsNewEvent;
 import com.example.paxi.aroundthedanceb.Modelos.Evento;
 import com.example.paxi.aroundthedanceb.R;
 import com.example.paxi.aroundthedanceb.Recycler.RecyclerAdaptador;
@@ -96,7 +96,7 @@ public class TabFragmentEvents extends Fragment
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(getActivity(), FragmentEvents_BusquedaAvanzada.class);
+                Intent intent = new Intent(getActivity(), ActivtyEventsBusquedaAvanzada.class);
                 startActivity(intent);
             }
         });
@@ -106,7 +106,7 @@ public class TabFragmentEvents extends Fragment
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(getActivity(), FragmentEvents_NewEvent.class);
+                Intent intent = new Intent(getActivity(), ActivityEventsNewEvent.class);
                 startActivity(intent);
             }
         });

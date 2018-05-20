@@ -1,4 +1,4 @@
-package com.example.paxi.aroundthedanceb.Fragments;
+package com.example.paxi.aroundthedanceb.Activities;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class FragmentEvents_NewEvent extends AppCompatActivity
+public class ActivityEventsNewEvent extends AppCompatActivity
 {
     //BDAntiguaBackgroundWorker BDAntiguaBackgroundWorker;
 
@@ -224,7 +224,7 @@ public class FragmentEvents_NewEvent extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(FragmentEvents_NewEvent.this, MapsAddLocationEvent.class);
+                Intent intent = new Intent(ActivityEventsNewEvent.this, MapsAddLocationEvent.class);
                 startActivity(intent);
             }
         });
@@ -377,7 +377,7 @@ public class FragmentEvents_NewEvent extends AppCompatActivity
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot)
                 {
-                    Toast.makeText(FragmentEvents_NewEvent.this, "Upload Done", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ActivityEventsNewEvent.this, "Upload Done", Toast.LENGTH_SHORT).show();
                 }
             });
         }*/

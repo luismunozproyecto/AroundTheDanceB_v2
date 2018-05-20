@@ -29,7 +29,7 @@ import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
 
 
-public class MapsPlaceAutocompleteAdapter extends ArrayAdapter<AutocompletePrediction> implements Filterable
+public class MapsAutocompleteAdapter extends ArrayAdapter<AutocompletePrediction> implements Filterable
 {
 
     private static final String TAG = "PlaceAutoCompleteAd";
@@ -43,7 +43,7 @@ public class MapsPlaceAutocompleteAdapter extends ArrayAdapter<AutocompletePredi
 
     private AutocompleteFilter mPlaceFilter;
 
-    public MapsPlaceAutocompleteAdapter(Context context, GoogleApiClient googleApiClient, LatLngBounds bounds, AutocompleteFilter filter)
+    public MapsAutocompleteAdapter(Context context, GoogleApiClient googleApiClient, LatLngBounds bounds, AutocompleteFilter filter)
     {
         super(context, android.R.layout.simple_expandable_list_item_2, android.R.id.text1);
         mGoogleApiClient = googleApiClient;

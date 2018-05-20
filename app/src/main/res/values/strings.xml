@@ -30,4 +30,7 @@
     <string name="map">MAP</string>
     <string name="events">EVENTS</string>
     <string name="profile">PROFILE</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="eventConfirmation">Do you want this location for your event?</string>
 </resources>

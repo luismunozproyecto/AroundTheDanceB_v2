@@ -31,4 +31,7 @@
     <string name="map">MAPA</string>
     <string name="events">EVENTOS</string>
     <string name="profile">PERFIL</string>
+    <string name="yes">SI</string>
+    <string name="no">NO</string>
+    <string name="eventConfirmation">Quieres esta localización para tu evento?</string>
 </resources>

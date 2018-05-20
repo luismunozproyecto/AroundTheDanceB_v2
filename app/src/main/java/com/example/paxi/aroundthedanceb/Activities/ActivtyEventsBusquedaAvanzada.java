@@ -1,4 +1,4 @@
-package com.example.paxi.aroundthedanceb.Fragments;
+package com.example.paxi.aroundthedanceb.Activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +15,7 @@ import com.example.paxi.aroundthedanceb.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentEvents_BusquedaAvanzada extends AppCompatActivity
+public class ActivtyEventsBusquedaAvanzada extends AppCompatActivity
 {
     Button btnAddTypeBusqueda, btnAddStyleBusqueda, btnAddCategoryBusqueda, btnBusqueda;
     Spinner spinnerTypesBusqueda, spinnerStylesBusqueda, spinnerCategoriesBusqueda;

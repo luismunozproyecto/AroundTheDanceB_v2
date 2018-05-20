@@ -27,7 +27,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.paxi.aroundthedanceb.Fragments.FragmentEvents_NewEvent;
+import com.example.paxi.aroundthedanceb.Activities.ActivityEventsNewEvent;
 import com.example.paxi.aroundthedanceb.R;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -68,7 +68,7 @@ public class MapsAddLocationEvent extends AppCompatActivity implements OnMapRead
     private Boolean permisoLocation = false;
     private GoogleMap googleMapa;
     private FusedLocationProviderClient fusedLocationProviderClient;
-    private MapsPlaceAutocompleteAdapter mMapsPlaceAutocompleteAdapter;
+    private MapsAutocompleteAdapter mMapsPlaceAutocompleteAdapter;
     private GoogleApiClient mGoogleApiClient;
 
     private Double latitud, longitud;
@@ -135,7 +135,7 @@ public class MapsAddLocationEvent extends AppCompatActivity implements OnMapRead
 
         txt_Search.setOnItemClickListener(mAutocompleteClickListener);
 
-        mMapsPlaceAutocompleteAdapter = new MapsPlaceAutocompleteAdapter(this, mGoogleApiClient, BOUNDS, null);
+        mMapsPlaceAutocompleteAdapter = new MapsAutocompleteAdapter(this, mGoogleApiClient, BOUNDS, null);
 
         txt_Search.setAdapter(mMapsPlaceAutocompleteAdapter);
 
@@ -394,7 +394,7 @@ public class MapsAddLocationEvent extends AppCompatActivity implements OnMapRead
                 {
                     case DialogInterface.BUTTON_POSITIVE:
 
-                        Intent intent = new Intent(MapsAddLocationEvent.this, FragmentEvents_NewEvent.class);
+                        Intent intent = new Intent(MapsAddLocationEvent.this, ActivityEventsNewEvent.class);
                         intent.putExtra(EXTRA_LAT, latitud);
                         intent.putExtra(EXTRA_LONG, longitud);
                         setResult(10, intent);
@@ -410,7 +410,7 @@ public class MapsAddLocationEvent extends AppCompatActivity implements OnMapRead
         };
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Are you sure?").setPositiveButton("Yes", dialogClickListener).setNegativeButton("No", dialogClickListener).show();
+        builder.setMessage(R.string.eventConfirmation).setPositiveButton(R.string.yes, dialogClickListener).setNegativeButton(R.string.no, dialogClickListener).show();
     }
 
     //endregion
