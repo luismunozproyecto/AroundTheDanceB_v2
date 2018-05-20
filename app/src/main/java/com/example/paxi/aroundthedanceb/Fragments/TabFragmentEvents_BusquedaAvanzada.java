@@ -1,6 +1,5 @@
 package com.example.paxi.aroundthedanceb.Fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -9,16 +8,12 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
-
 import com.example.paxi.aroundthedanceb.Modelos.Estilo;
 import com.example.paxi.aroundthedanceb.Modelos.Evento;
 import com.example.paxi.aroundthedanceb.Modelos.Tipo;
 import com.example.paxi.aroundthedanceb.R;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class TabFragmentEvents_BusquedaAvanzada extends AppCompatActivity
 {
@@ -209,6 +204,8 @@ public class TabFragmentEvents_BusquedaAvanzada extends AppCompatActivity
         setupToolBar();
     }
 
+    //region ToolBar
+
     private void setupToolBar()
     {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -231,4 +228,6 @@ public class TabFragmentEvents_BusquedaAvanzada extends AppCompatActivity
 
         return false;
     }
+
+    //endregion
 }

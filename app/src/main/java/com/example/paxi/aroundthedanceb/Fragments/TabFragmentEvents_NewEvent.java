@@ -1,12 +1,10 @@
 package com.example.paxi.aroundthedanceb.Fragments;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -20,26 +18,18 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-
-import com.example.paxi.aroundthedanceb.Activities.ActivityLogin;
 import com.example.paxi.aroundthedanceb.Maps.MapsAddLocationEvent;
 import com.example.paxi.aroundthedanceb.Modelos.Estilo;
 import com.example.paxi.aroundthedanceb.Modelos.Evento;
 import com.example.paxi.aroundthedanceb.Modelos.Tipo;
 import com.example.paxi.aroundthedanceb.R;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 public class TabFragmentEvents_NewEvent extends AppCompatActivity
 {
-
-
     //BDAntiguaBackgroundWorker BDAntiguaBackgroundWorker;
 
     //region static
@@ -71,11 +61,9 @@ public class TabFragmentEvents_NewEvent extends AppCompatActivity
     private int sYear, sMonth, sDay;
     private Double latitud, longitud;
 
-
     private List<Tipo> arraylist_tipos = new ArrayList<>();
     private List<Estilo> arraylist_estilos = new ArrayList<>();
     private List<String> arraylist_categorias = new ArrayList<>();
-
 
     String string_type, string_categoria, string_estilo;
 
@@ -217,6 +205,7 @@ public class TabFragmentEvents_NewEvent extends AppCompatActivity
         //endregion
 
         //region Buttons
+
         btnImageEvent.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -369,7 +358,7 @@ public class TabFragmentEvents_NewEvent extends AppCompatActivity
         //endregion
     }
 
-    //region Storage
+    //region onActivityResult
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data)

@@ -7,7 +7,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.WindowManager;
-
 import com.example.paxi.aroundthedanceb.R;
 import com.example.paxi.aroundthedanceb.Fragments.TabFragmentAdapterPager;
 
@@ -16,7 +15,6 @@ public class ActivityInicio extends AppCompatActivity
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     TabLayout tabs;
-
 
     @Override
     public void onBackPressed()

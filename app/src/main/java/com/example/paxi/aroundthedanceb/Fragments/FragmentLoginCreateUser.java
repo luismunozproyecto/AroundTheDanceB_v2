@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.paxi.aroundthedanceb.Activities.ActivityInicio;
 import com.example.paxi.aroundthedanceb.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,8 +21,6 @@ import com.google.firebase.auth.FirebaseAuth;
 public class FragmentLoginCreateUser extends FragmentActivity
 {
     Button buttonNextStep;
-    int contador = 0, cont = 0;
-
     EditText txtNickName, txtEmail, txtPassword, txtPasswordRepeat;
     TextView tittle;
 

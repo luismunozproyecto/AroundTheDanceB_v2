@@ -1,14 +1,11 @@
 package com.example.paxi.aroundthedanceb.Activities;
 
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Window;
-
 import com.example.paxi.aroundthedanceb.R;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -40,5 +37,4 @@ public class ActivityCarga extends Activity
         Timer timer = new Timer();
         timer.schedule(task, SPLASH_SCREEN_DELAY);
     }
-
 }

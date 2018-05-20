@@ -1,15 +1,12 @@
 package com.example.paxi.aroundthedanceb.Fragments;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-
 import com.example.paxi.aroundthedanceb.Modelos.Estilo;
 import com.example.paxi.aroundthedanceb.Modelos.Evento;
 import com.example.paxi.aroundthedanceb.Modelos.Tipo;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +35,9 @@ public class TabFragmentAdapterPager extends FragmentStatePagerAdapter
                 tabFragmentEvents.setArguments(bundle);
 
                 return tabFragmentEvents;
+
             case 1:
+                //Calendar
 
             case 2:
                 TabFragmentMaps tabFragmentMaps = new TabFragmentMaps();
@@ -90,7 +89,5 @@ public class TabFragmentAdapterPager extends FragmentStatePagerAdapter
         //Crear Eventos
 
         //endregion
-
-
     }
 }

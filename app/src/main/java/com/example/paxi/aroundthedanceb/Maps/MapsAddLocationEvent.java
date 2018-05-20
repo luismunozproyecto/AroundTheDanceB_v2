@@ -1,6 +1,8 @@
 package com.example.paxi.aroundthedanceb.Maps;
 
 import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -8,6 +10,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -18,6 +21,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
@@ -42,8 +46,10 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -83,7 +89,21 @@ public class MapsAddLocationEvent extends AppCompatActivity implements OnMapRead
 
         getPermisosLocation();
 
+        //region PETA
+
+        /*googleMapa.setOnMapClickListener(new GoogleMap.OnMapClickListener()
+        {
+            @Override
+            public void onMapClick(LatLng point)
+            {
+                googleMapa.addMarker(new MarkerOptions().position(point).title("You are here"));
+            }
+        });*/
+
+        //endregion
     }
+
+    //region Inicializar
 
     @Override
     public void onMapReady(GoogleMap googleMap)
@@ -103,6 +123,51 @@ public class MapsAddLocationEvent extends AppCompatActivity implements OnMapRead
             inicializar();
         }
     }
+
+    private void inicialiazarMapa()
+    {
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(MapsAddLocationEvent.this);
+    }
+
+
+    private void inicializar()
+    {
+        mGoogleApiClient = new GoogleApiClient
+                .Builder(this)
+                .addApi(Places.GEO_DATA_API)
+                .addApi(Places.PLACE_DETECTION_API)
+                .enableAutoManage(this, this)
+                .build();
+
+        txt_Search.setOnItemClickListener(mAutocompleteClickListener);
+
+        mMapsPlaceAutocompleteAdapter = new MapsPlaceAutocompleteAdapter(this, mGoogleApiClient, BOUNDS, null);
+
+        txt_Search.setAdapter(mMapsPlaceAutocompleteAdapter);
+
+        txt_Search.setOnEditorActionListener(new TextView.OnEditorActionListener()
+        {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent keyEvent)
+            {
+                if(actionId == EditorInfo.IME_ACTION_SEARCH
+                        || actionId == EditorInfo.IME_ACTION_DONE
+                        || keyEvent.getAction() == KeyEvent.ACTION_DOWN
+                        || keyEvent.getAction() == KeyEvent.KEYCODE_ENTER)
+                {
+                    geoSearch();
+                }
+
+                return false;
+            }
+        });
+
+        FideSoftKeboard();
+    }
+
+    //endregion
+
+    //region Permisos
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
@@ -160,47 +225,9 @@ public class MapsAddLocationEvent extends AppCompatActivity implements OnMapRead
         }
     }
 
-    private void inicialiazarMapa()
-    {
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(MapsAddLocationEvent.this);
-    }
+    //endregion
 
-
-    private void inicializar()
-    {
-        mGoogleApiClient = new GoogleApiClient
-                .Builder(this)
-                .addApi(Places.GEO_DATA_API)
-                .addApi(Places.PLACE_DETECTION_API)
-                .enableAutoManage(this, this)
-                .build();
-
-        txt_Search.setOnItemClickListener(mAutocompleteClickListener);
-
-        mMapsPlaceAutocompleteAdapter = new MapsPlaceAutocompleteAdapter(this, mGoogleApiClient, BOUNDS, null);
-
-        txt_Search.setAdapter(mMapsPlaceAutocompleteAdapter);
-
-        txt_Search.setOnEditorActionListener(new TextView.OnEditorActionListener()
-        {
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent keyEvent)
-            {
-                if(actionId == EditorInfo.IME_ACTION_SEARCH
-                        || actionId == EditorInfo.IME_ACTION_DONE
-                        || keyEvent.getAction() == KeyEvent.ACTION_DOWN
-                        || keyEvent.getAction() == KeyEvent.KEYCODE_ENTER)
-                {
-                    geoSearch();
-                }
-
-                return false;
-            }
-        });
-
-        FideSoftKeboard();
-    }
-
+    //region DeviceLocation
     private void getDeviceLocation()
     {
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
@@ -236,6 +263,89 @@ public class MapsAddLocationEvent extends AppCompatActivity implements OnMapRead
         }
     }
 
+    //endregion
+
+    //region Mover Camara
+    private void moverCamera(LatLng latLng, float zoom, String tittle)
+    {
+        googleMapa.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom));
+
+        if(!tittle.equals("My Location"))
+        {
+            MarkerOptions options = new MarkerOptions().position(latLng).title(tittle);
+            googleMapa.addMarker(options);
+        }
+
+        FideSoftKeboard();
+    }
+
+    //endregion
+
+    //region Teclado
+
+    private void FideSoftKeboard()
+    {
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+    }
+
+    public static void hideKeyboard(Activity activity)
+    {
+        View view = activity.findViewById(android.R.id.content);
+
+        if (view != null)
+        {
+            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+
+    //endregion
+
+    //region Autocomplete
+    private AdapterView.OnItemClickListener mAutocompleteClickListener = new AdapterView.OnItemClickListener()
+    {
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
+        {
+            FideSoftKeboard();
+
+            final AutocompletePrediction item = mMapsPlaceAutocompleteAdapter.getItem(i);
+            final String placeId = item.getPlaceId();
+
+            PendingResult<PlaceBuffer> placeResult = Places.GeoDataApi.getPlaceById(mGoogleApiClient, placeId);
+            placeResult.setResultCallback(mUpdatePlaceDetailsCallback);
+        }
+    };
+
+    //endregion
+
+    //region Busquedas
+
+    private ResultCallback<PlaceBuffer> mUpdatePlaceDetailsCallback = new ResultCallback<PlaceBuffer>()
+    {
+        @Override
+        public void onResult(@NonNull PlaceBuffer places)
+        {
+            if(!places.getStatus().isSuccess())
+            {
+                places.release();
+                return;
+            }
+
+            final Place place = places.get(0);
+
+            moverCamera(new LatLng(place.getViewport().getCenter().latitude, place.getViewport().getCenter().longitude), DEFAULT_ZOOM, "");
+
+            latitud = place.getViewport().getCenter().latitude;
+
+            longitud = place.getViewport().getCenter().longitude;
+
+            Confirmar();
+
+            places.release();
+        }
+    };
+
     private void geoSearch() //Le da click a la lupa
     {
         String searchString = txt_Search.getText().toString();
@@ -262,65 +372,25 @@ public class MapsAddLocationEvent extends AppCompatActivity implements OnMapRead
         }
     }
 
-    private void moverCamera(LatLng latLng, float zoom, String tittle)
-    {
-        googleMapa.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom));
+    //endregion
 
-        if(!tittle.equals("My Location"))
-        {
-            MarkerOptions options = new MarkerOptions().position(latLng).title(tittle);
-            googleMapa.addMarker(options);
-        }
-
-        FideSoftKeboard();
-    }
-
-    private void FideSoftKeboard()
-    {
-        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-    }
-
-    private AdapterView.OnItemClickListener mAutocompleteClickListener = new AdapterView.OnItemClickListener()
-    {
-        @Override
-        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
-        {
-            FideSoftKeboard();
-
-            final AutocompletePrediction item = mMapsPlaceAutocompleteAdapter.getItem(i);
-            final String placeId = item.getPlaceId();
-
-            PendingResult<PlaceBuffer> placeResult = Places.GeoDataApi.getPlaceById(mGoogleApiClient, placeId);
-            placeResult.setResultCallback(mUpdatePlaceDetailsCallback);
-        }
-    };
-
-    private ResultCallback<PlaceBuffer> mUpdatePlaceDetailsCallback = new ResultCallback<PlaceBuffer>() //Le da click en la lista
-    {
-        @Override
-        public void onResult(@NonNull PlaceBuffer places)
-        {
-            if(!places.getStatus().isSuccess())
-            {
-                places.release();
-                return;
-            }
-
-            final Place place = places.get(0);
-
-            moverCamera(new LatLng(place.getViewport().getCenter().latitude, place.getViewport().getCenter().longitude), DEFAULT_ZOOM, "");
-
-            latitud = place.getViewport().getCenter().latitude;
-
-            longitud = place.getViewport().getCenter().longitude;
-
-            Confirmar();
-
-            places.release();
-        }
-    };
+    //region ConfirmarLocation
 
     public void Confirmar()
+    {
+        hideKeyboard(this);
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable()
+        {
+            public void run()
+            {
+                DialogoConfirmar();
+            }
+        }, 1000);
+    }
+
+    public void DialogoConfirmar()
     {
         DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener()
         {
@@ -350,5 +420,5 @@ public class MapsAddLocationEvent extends AppCompatActivity implements OnMapRead
         builder.setMessage("Are you sure?").setPositiveButton("Yes", dialogClickListener).setNegativeButton("No", dialogClickListener).show();
     }
 
-
+    //endregion
 }

@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.example.paxi.aroundthedanceb.Fragments.FragmentLoginCreateUser;
 import com.example.paxi.aroundthedanceb.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,6 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class ActivityLogin extends AppCompatActivity
 {
     public final static String EXTRA_EMAIL = "EMAIL";
+
     //Mis Controles
     Button button_logIn, button_forgetPassword, button_newAccount;
     EditText txtPassword, txtEmail;
@@ -37,47 +37,6 @@ public class ActivityLogin extends AppCompatActivity
     //Variables
     String userId, userEmail;
     SharedPreferences sharedPref;
-
-    @Override
-    protected void onStart()
-    {
-        super.onStart();
-        FirebaseUser user = mAuth.getCurrentUser();
-
-        if (user != null)
-        {
-            Intent i = new Intent(ActivityLogin.this, ActivityInicio.class);
-            startActivity(i);
-        }
-        else
-        {
-            mAuth.addAuthStateListener(mAuthListener);
-        }
-    }
-
-    @Override
-    protected void onStop()
-    {
-        super.onStop();
-
-        if(mAuthListener != null)
-        {
-            mAuth.removeAuthStateListener(mAuthListener);
-            mAuth.signOut();
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    @Override
-    protected void onResume()
-    {
-        super.onResume();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -276,6 +235,51 @@ public class ActivityLogin extends AppCompatActivity
         });
 
         //endregion
+    }
+
+    //region Fases
+
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        if (user != null)
+        {
+            Intent i = new Intent(ActivityLogin.this, ActivityInicio.class);
+            startActivity(i);
+        }
+        else
+        {
+            mAuth.addAuthStateListener(mAuthListener);
+        }
+    }
+
+    @Override
+    protected void onStop()
+    {
+        super.onStop();
+
+        if(mAuthListener != null)
+        {
+            mAuth.removeAuthStateListener(mAuthListener);
+            mAuth.signOut();
+        }
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+    }
+
+    //endregion
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
 

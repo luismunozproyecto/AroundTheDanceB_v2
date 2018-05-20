@@ -59,6 +59,7 @@ public class TabFragmentEvents extends Fragment
         }
 
         //region Search
+
         txtSearch.addTextChangedListener(new TextWatcher()
         {
             @Override
@@ -116,6 +117,8 @@ public class TabFragmentEvents extends Fragment
         return view;
     }
 
+    //region Busqueda
+
     private ArrayList<Evento> filtrarEvento(String filtro)
     {
         ArrayList<Evento> lista_eventos_filtrados = new ArrayList<>();
@@ -130,6 +133,10 @@ public class TabFragmentEvents extends Fragment
 
         return lista_eventos_filtrados;
     }
+
+    //endregion
+
+    //region Recycler
 
     private void mostrarRecycler(ArrayList<Evento> lista_ev)
     {
@@ -152,8 +159,11 @@ public class TabFragmentEvents extends Fragment
                 Toast.makeText(getActivity(), name + "\n" + fecha, Toast.LENGTH_SHORT).show();
             }
         });
+
         recyclerView.setAdapter(recyclerAdaptador);
     }
+
+    //endregion
 
 }
 
