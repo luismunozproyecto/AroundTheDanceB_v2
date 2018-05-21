@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.paxi.aroundthedanceb.Activities.ActivityInicio;
+import com.example.paxi.aroundthedanceb.Activities.ActivityInicioTabsUp;
 import com.example.paxi.aroundthedanceb.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -292,7 +292,7 @@ public class FragmentLoginCreateUser extends FragmentActivity
                         }
                     });
 
-                    startActivity(new Intent(FragmentLoginCreateUser.this, ActivityInicio.class));
+                    startActivity(new Intent(FragmentLoginCreateUser.this, ActivityInicioTabsUp.class));
                 }
             }
         });

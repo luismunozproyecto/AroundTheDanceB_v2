@@ -66,14 +66,14 @@ public class TabFragmentMaps extends Fragment implements OnMapReadyCallback, Goo
 
         //region Markers
 
-        for(int i = 0; i < lista_eventos.size(); i++)
+        /*for(int i = 0; i < lista_eventos.size(); i++)
         {
             marker = googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(lista_eventos.get(i).getLat(),lista_eventos.get(i).getLon()))
                 .title(lista_eventos.get(i).getNombre()));
 
             marker.setTag(i);
-        }
+        }*/
 
         //endregion
     }

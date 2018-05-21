@@ -33,4 +33,7 @@
     <string name="yes">YES</string>
     <string name="no">NO</string>
     <string name="eventConfirmation">Do you want this location for your event?</string>
+    <string name="nav_home">Home</string>
+    <string name="mapsss">Map</string>
+    <string name="profilesss">Profile</string>
 </resources>

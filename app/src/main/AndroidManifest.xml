@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".Activities.ActivityCarga">
+        <activity android:name=".Activities.ActivityCarga"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,17 +25,26 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Activities.ActivityInicio" />
+        <activity android:name=".Activities.ActivityInicioTabsDown"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".Activities.ActivityLogin" />
+        <activity android:name=".Activities.ActivityInicioTabsUp"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".Fragments.FragmentLoginCreateUser" />
+        <activity android:name=".Activities.ActivityLogin"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".Activities.ActivityEventsNewEvent" />
+        <activity android:name=".Fragments.FragmentLoginCreateUser"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".Activities.ActivtyEventsBusquedaAvanzada" />
+        <activity android:name=".Activities.ActivityEventsNewEvent"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".Maps.MapsAddLocationEvent" />
+        <activity android:name=".Activities.ActivtyEventsBusquedaAvanzada"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Maps.MapsAddLocationEvent"
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

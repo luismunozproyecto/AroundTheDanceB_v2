@@ -1,5 +1,7 @@
 package com.example.paxi.aroundthedanceb.FragmentsTabs;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -12,6 +14,8 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -50,6 +54,8 @@ public class TabFragmentEvents extends Fragment
         //mostrarRecycler(lista_eventos);
 
         Bundle bundle = getArguments();
+
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         if(bundle != null)
         {
@@ -162,6 +168,5 @@ public class TabFragmentEvents extends Fragment
     }
 
     //endregion
-
 }
 

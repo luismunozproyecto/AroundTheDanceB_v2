@@ -53,11 +53,7 @@ public class ActivtyEventsBusquedaAvanzada extends AppCompatActivity
 
         //endregion
 
-        spinnerStylesBusqueda.setVisibility(View.GONE);
-        spinnerCategoriesBusqueda.setVisibility(View.GONE);
         btnAddTypeBusqueda.setEnabled(false);
-        btnAddStyleBusqueda.setVisibility(View.GONE);
-        btnAddCategoryBusqueda.setVisibility(View.GONE);
 
         //region Spinners
 
@@ -157,9 +153,6 @@ public class ActivtyEventsBusquedaAvanzada extends AppCompatActivity
                 tipo = new Tipo(string_type);
 
                 arraylist_tipos.add(tipo);
-
-                spinnerStylesBusqueda.setVisibility(View.VISIBLE);
-                btnAddStyleBusqueda.setVisibility(View.VISIBLE);
             }
         });
 
@@ -173,9 +166,6 @@ public class ActivtyEventsBusquedaAvanzada extends AppCompatActivity
                 estilo = new Estilo(string_estilo);
 
                 arraylist_estilos.add(estilo);
-
-                spinnerCategoriesBusqueda.setVisibility(View.VISIBLE);
-                btnAddCategoryBusqueda.setVisibility(View.VISIBLE);
             }
         });
 

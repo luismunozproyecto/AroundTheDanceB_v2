@@ -10,7 +10,7 @@ import android.view.WindowManager;
 import com.example.paxi.aroundthedanceb.R;
 import com.example.paxi.aroundthedanceb.FragmentsTabs.TabFragmentAdapterPager;
 
-public class ActivityInicio extends AppCompatActivity
+public class ActivityInicioTabsUp extends AppCompatActivity
 {
     DrawerLayout drawerLayout;
     Toolbar toolbar;
@@ -26,7 +26,7 @@ public class ActivityInicio extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inicio);
+        setContentView(R.layout.activity_inicio_tabsup);
         recogerExtras();
 
         //region MenuLateral
@@ -48,7 +48,7 @@ public class ActivityInicio extends AppCompatActivity
             {
                 item.setChecked(true);
                 drawerLayout.closeDrawers();
-                Toast.makeText(ActivityInicio.this, item.getTitle(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ActivityInicioTabsUp.this, item.getTitle(), Toast.LENGTH_SHORT).show();
                 return true;
             }
         });*/
