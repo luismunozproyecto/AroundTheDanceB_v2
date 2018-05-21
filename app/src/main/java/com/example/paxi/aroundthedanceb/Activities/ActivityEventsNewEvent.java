@@ -382,7 +382,7 @@ public class ActivityEventsNewEvent extends AppCompatActivity
             });
         }*/
 
-        if(requestCode == 10 && resultCode == RESULT_OK)
+        if(requestCode == 10)
         {
             latitud = data.getDoubleExtra(MapsAddLocationEvent.EXTRA_LAT, 0);
             longitud = data.getDoubleExtra(MapsAddLocationEvent.EXTRA_LONG, 0);
@@ -478,6 +478,7 @@ public class ActivityEventsNewEvent extends AppCompatActivity
     }
 
     //Toolbar
+
     private void setupToolBar()
     {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

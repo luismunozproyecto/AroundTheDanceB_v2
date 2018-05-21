@@ -7,7 +7,6 @@
         android:title="@string/events" />
     <item
         android:id="@+id/tab_bottom_map"
-        android:icon="@android:drawable/ic_menu_mylocation"
         android:title="@string/map" />
     <item
         android:id="@+id/tab_bottom_profile"

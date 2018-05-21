@@ -1,37 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Around The Dance</string>
-    <string name="login">ENTRAR</string>
-    <string name="newaccount">NUEVA CUENTA</string>
-    <string name="forget">OLVIDASTE LA CONTRASEÑA</string>
     <string name="add">AÑADIR</string>
-    <string name="search">BUSQUEDA</string>
-    <string name="select">SELECCIONAR FOTO</string>
-    <string name="startdate">FECHA INICIO</string>
-    <string name="starthour">HORA INICIO</string>
-    <string name="finaldate">FECHA FINAL</string>
-    <string name="location">LOCALIZACION</string>
+    <string name="adress">Escribe dirección, Ciudad o Codigo Postal</string>
+    <string name="advancesearch">BUSQUEDA AVANZADA</string>
+
     <string name="create">CREAR</string>
-    <string name="name">NOMBRE</string>
-    <string name="date">FECHA</string>
-    <string name="description">DESCRIPCION</string>
-    <string name="typesand">TIPO, ESTILOS, CATEGORIAS</string>
-    <string name="newuser">NUEVO USUARIO</string>
-    <string name="advancesearch">BUSQUEDA ADANZADA</string>
-    <string name="nameuser">NOMBRE USUARIO</string>
-    <string name="email">EMAIL</string>
-    <string name="myevents">MI EVENTOS</string>
-    <string name="user">USUARIO</string>
-    <string name="password">CONTRASEÑA</string>
     <string name="city">CIUDAD</string>
     <string name="country">PAIS</string>
-    <string name="adress">Direccion, Ciudad o Codigo Postal</string>
-    <string name="repeatpassword">CONFIRMAR CONTRASEÑA</string>
-    <string name="nickname">NICK NAME</string>
-    <string name="map">MAPA</string>
+    <string name="check">Revisa tu email</string>
+
+    <string name="date">FECHA</string>
+    <string name="description">Descripción</string>
+
+    <string name="email">EMAIL</string>
+    <string name="emailinvalid">Este email es inavalido</string>
+    <string name="emailwrong">Tu email o tu contraseño son incorrectas, por favor revisa otra vez</string>
+    <string name="eventConfirmation">Quieres esta localizacion para tu evento?</string>
     <string name="events">EVENTOS</string>
-    <string name="profile">PERFIL</string>
-    <string name="yes">SI</string>
+
+    <string name="forget">OLVIDASTE TU CONTRASEÑA</string>
+    <string name="forgetpasswprdlogin">Introduce tu correo para resetear la contraseña</string>
+    <string name="finaldate">FECHA FINAL</string>
+
+    <string name="login">ENTRAR</string>
+    <string name="location">LOCALIZACION</string>
+
+    <string name="map">MAPA</string>
+    <string name="mapsss">Mapa</string>
+    <string name="myevents">MIS EVENTOS</string>
+
+    <string name="name">NOMBRE</string>
+    <string name="nameuser">NOMBRE DE USUARIO</string>
+    <string name="nav_home">Inicio</string>
+    <string name="newaccount">NUEVA CUENTA</string>
+    <string name="newuser">NUEVO USUARIO</string>
+    <string name="nickname">NICK NAME</string>
+    <string name="nicknameempty">NickName no puede estar vacio</string>
     <string name="no">NO</string>
-    <string name="eventConfirmation">Quieres esta localización para tu evento?</string>
+
+    <string name="password">CONTRASEÑA</string>
+    <string name="passwordsnotmatching">Las contraseñas no coiciden</string>
+    <string name="passwordshort">La contraseña es muy corta, se necesitan 6 caracteres como minimo</string>
+    <string name="profile">PERFIL</string>
+
+    <string name="search">BUSCAR</string>
+    <string name="select">SELECCIONAR IMAGEN</string>
+    <string name="send">ENVIAR</string>
+    <string name="startdate">FECHA DE INICIO</string>
+    <string name="starthour">HORA DE INICIO</string>
+
+    <string name="unablelocation">No hemos podido encontrar la localizacion de este dispositivo</string>
+    <string name="user">USUARIO</string>
+
+    <string name="repeatpassword">REPETIR CONTRASEÑA</string>
+
+    <string name="yes">SI</string>
+
+    <string name="typesand">TIPO, ESTILOS, CATEGORIAS</string>
 </resources>

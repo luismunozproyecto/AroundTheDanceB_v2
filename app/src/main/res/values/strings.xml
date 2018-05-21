@@ -1,39 +1,61 @@
 <resources>
     <string name="app_name">Around The Dance</string>
-    <string name="login">LOG IN</string>
-    <string name="newaccount">NEW ACCOUNT</string>
-    <string name="forget">FORGET THE PASSWORD</string>
     <string name="add">ADD</string>
-    <string name="search">SEARCH</string>
-    <string name="select">SELECT PICTURE</string>
-    <string name="startdate">START DATE</string>
-    <string name="starthour">START HOUR</string>
-    <string name="finaldate">FINAL DATE</string>
-    <string name="location">LOCATION</string>
-    <string name="create">CREATE</string>
-    <string name="name">NAME</string>
-    <string name="date">DATE</string>
-    <string name="description">DESCRIPTION</string>
-    <string name="typesand">TYPE, STYLES, CATEGORIES</string>
-    <string name="newuser">NEW USER</string>
+    <string name="adress">Enter Address, City or Zip Code</string>
     <string name="advancesearch">ADVANCE SEARCH</string>
-    <string name="nameuser">NAME USER</string>
-    <string name="email">EMAIL</string>
-    <string name="myevents">MY EVENTS</string>
-    <string name="user">USER</string>
-    <string name="password">PASSWORD</string>
+
+    <string name="create">CREATE</string>
     <string name="city">CITY</string>
     <string name="country">COUNTRY</string>
-    <string name="adress">Enter Address, City or Zip Code</string>
-    <string name="repeatpassword">REPEAT PASSWORD</string>
-    <string name="nickname">NICK NAME</string>
-    <string name="map">MAP</string>
-    <string name="events">EVENTS</string>
-    <string name="profile">PROFILE</string>
-    <string name="yes">YES</string>
-    <string name="no">NO</string>
+    <string name="check">Check your email</string>
+
+    <string name="date">DATE</string>
+    <string name="description">DESCRIPTION</string>
+
+    <string name="email">EMAIL</string>
+    <string name="emailinvalid">This email is invalid</string>
+    <string name="emailwrong">Your email or your password is wrong, please check again</string>
     <string name="eventConfirmation">Do you want this location for your event?</string>
-    <string name="nav_home">Home</string>
+    <string name="events">EVENTS</string>
+
+    <string name="forget">FORGET THE PASSWORD</string>
+    <string name="forgetpasswprdlogin">Enter you email to reset your Password</string>
+    <string name="finaldate">FINAL DATE</string>
+
+    <string name="login">LOG IN</string>
+    <string name="location">LOCATION</string>
+
+    <string name="map">MAP</string>
     <string name="mapsss">Map</string>
-    <string name="profilesss">Profile</string>
+    <string name="myevents">MY EVENTS</string>
+
+    <string name="name">NAME</string>
+    <string name="nameuser">NAME USER</string>
+    <string name="nav_home">Home</string>
+    <string name="newaccount">NEW ACCOUNT</string>
+    <string name="newuser">NEW USER</string>
+    <string name="nickname">NICK NAME</string>
+    <string name="nicknameempty">NickName cant be empty</string>
+    <string name="no">NO</string>
+
+    <string name="password">PASSWORD</string>
+    <string name="passwordsnotmatching">Passwords not matching</string>
+    <string name="passwordshort">Password is too short, 6 characters minimum</string>
+    <string name="profile">PROFILE</string>
+
+    <string name="search">SEARCH</string>
+    <string name="select">SELECT PICTURE</string>
+    <string name="send">SEND</string>
+    <string name="startdate">START DATE</string>
+    <string name="starthour">START HOUR</string>
+
+    <string name="unablelocation">Unable to get current location</string>
+    <string name="user">USER</string>
+
+    <string name="repeatpassword">REPEAT PASSWORD</string>
+
+    <string name="yes">YES</string>
+
+    <string name="typesand">TYPE, STYLES, CATEGORIES</string>
+
 </resources>

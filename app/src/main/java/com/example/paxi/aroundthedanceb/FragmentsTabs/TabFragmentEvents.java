@@ -50,17 +50,16 @@ public class TabFragmentEvents extends Fragment
         floatingActionButton_addEvent = view.findViewById(R.id.floatingbtn_addevent);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_events);
 
-        //simularDatos();
-        //mostrarRecycler(lista_eventos);
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         Bundle bundle = getArguments();
-
-        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         if(bundle != null)
         {
             lista_eventos = bundle.getParcelableArrayList("lista_eventos");
         }
+
+        mostrarRecycler(lista_eventos);
 
         //region Search
 

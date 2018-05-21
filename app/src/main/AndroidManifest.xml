@@ -25,13 +25,16 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".Activities.ActivityLogin"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".Activities.ActivityLoginForgetPassword"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".Activities.ActivityInicioTabsDown"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".Activities.ActivityInicioTabsUp"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".Activities.ActivityLogin"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".Fragments.FragmentLoginCreateUser"

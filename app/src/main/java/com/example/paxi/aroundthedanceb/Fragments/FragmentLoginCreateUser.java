@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.paxi.aroundthedanceb.Activities.ActivityInicioTabsDown;
 import com.example.paxi.aroundthedanceb.Activities.ActivityInicioTabsUp;
 import com.example.paxi.aroundthedanceb.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -65,7 +67,7 @@ public class FragmentLoginCreateUser extends FragmentActivity
                     txtNickName.setBackgroundResource(R.drawable.edittext_border);
 
 
-                    Toast.makeText(FragmentLoginCreateUser.this, "NickName cant be empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FragmentLoginCreateUser.this, R.string.nicknameempty, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -81,7 +83,7 @@ public class FragmentLoginCreateUser extends FragmentActivity
                     txtEmail.setBackgroundResource(R.drawable.edittext_border);
 
 
-                    Toast.makeText(FragmentLoginCreateUser.this, "This email is invalid", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FragmentLoginCreateUser.this, R.string.emailinvalid, Toast.LENGTH_SHORT).show();
                 }
 
                 if (txtNickName.getText().toString().equals(""))
@@ -90,7 +92,7 @@ public class FragmentLoginCreateUser extends FragmentActivity
                     txtNickName.setBackgroundResource(R.drawable.edittext_border);
 
 
-                    Toast.makeText(FragmentLoginCreateUser.this, "NickName cant be empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FragmentLoginCreateUser.this, R.string.nicknameempty, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -105,7 +107,7 @@ public class FragmentLoginCreateUser extends FragmentActivity
                     txtEmail.setHintTextColor(Color.RED);
                     txtEmail.setBackgroundResource(R.drawable.edittext_border);
 
-                    Toast.makeText(FragmentLoginCreateUser.this, "This email is invalid", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FragmentLoginCreateUser.this, R.string.emailinvalid, Toast.LENGTH_SHORT).show();
                 }
 
                 if (txtNickName.getText().toString().equals(""))
@@ -114,7 +116,7 @@ public class FragmentLoginCreateUser extends FragmentActivity
                     txtNickName.setBackgroundResource(R.drawable.edittext_border);
 
 
-                    Toast.makeText(FragmentLoginCreateUser.this, "NickName cant be empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FragmentLoginCreateUser.this, R.string.nicknameempty, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -210,7 +212,7 @@ public class FragmentLoginCreateUser extends FragmentActivity
                     txtEmail.setHintTextColor(Color.RED);
                     txtEmail.setBackgroundResource(R.drawable.edittext_border);
 
-                    Toast.makeText(FragmentLoginCreateUser.this, "This email is invalid", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FragmentLoginCreateUser.this, R.string.nicknameempty, Toast.LENGTH_SHORT).show();
 
                     if (!txtPassword.getText().toString().equals(txtPasswordRepeat.getText().toString()))
                     {
@@ -220,7 +222,7 @@ public class FragmentLoginCreateUser extends FragmentActivity
                         txtPasswordRepeat.setHintTextColor(Color.RED);
                         txtPasswordRepeat.setBackgroundResource(R.drawable.edittext_border);
 
-                        Toast.makeText(FragmentLoginCreateUser.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(FragmentLoginCreateUser.this, R.string.passwordsnotmatching, Toast.LENGTH_SHORT).show();
                     }
                 }
                 else if (txtPassword.getText().toString().length() < 6)
@@ -231,7 +233,7 @@ public class FragmentLoginCreateUser extends FragmentActivity
                     txtPasswordRepeat.setHintTextColor(Color.RED);
                     txtPasswordRepeat.setBackgroundResource(R.drawable.edittext_border);
 
-                    Toast.makeText(FragmentLoginCreateUser.this, "Password is too short, 6 characters minimum", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FragmentLoginCreateUser.this, R.string.passwordshort, Toast.LENGTH_SHORT).show();
                 }
                 else if (!txtPassword.getText().toString().equals(txtPasswordRepeat.getText().toString()))
                 {
@@ -241,7 +243,7 @@ public class FragmentLoginCreateUser extends FragmentActivity
                     txtPasswordRepeat.setHintTextColor(Color.RED);
                     txtPasswordRepeat.setBackgroundResource(R.drawable.edittext_border);
 
-                    Toast.makeText(FragmentLoginCreateUser.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FragmentLoginCreateUser.this, R.string.passwordsnotmatching, Toast.LENGTH_SHORT).show();
                 }
                 else if(txtEmail.getText().toString().equals(""))
                 {
@@ -292,7 +294,7 @@ public class FragmentLoginCreateUser extends FragmentActivity
                         }
                     });
 
-                    startActivity(new Intent(FragmentLoginCreateUser.this, ActivityInicioTabsUp.class));
+                    startActivity(new Intent(FragmentLoginCreateUser.this, ActivityInicioTabsDown.class));
                 }
             }
         });

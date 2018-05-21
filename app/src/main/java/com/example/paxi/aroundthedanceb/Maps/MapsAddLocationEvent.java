@@ -244,7 +244,7 @@ public class MapsAddLocationEvent extends AppCompatActivity implements OnMapRead
                         }
                         else
                         {
-                            Toast.makeText(MapsAddLocationEvent.this, "unable to get current location", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MapsAddLocationEvent.this, R.string.unablelocation, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

@@ -20,14 +20,14 @@ public class ActivityCarga extends Activity
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_paginadecarga);
+        setContentView(R.layout.activity_carga);
 
         TimerTask task = new TimerTask()
         {
             @Override
             public void run()
             {
-                Intent mainIntent = new Intent().setClass(ActivityCarga.this, ActivityInicioTabsDown.class);
+                Intent mainIntent = new Intent().setClass(ActivityCarga.this, ActivityLogin.class);
                 startActivity(mainIntent);
 
                 finish();

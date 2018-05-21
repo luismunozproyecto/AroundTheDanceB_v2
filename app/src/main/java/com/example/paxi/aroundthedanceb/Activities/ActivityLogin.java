@@ -61,6 +61,7 @@ public class ActivityLogin extends AppCompatActivity
         mAuth = FirebaseAuth.getInstance();
 
         //region YaLogeado
+
         sharedPref = getSharedPreferences("preferencias", Context.MODE_PRIVATE);
         String userIdRecogida, userEmailRecogida;
         userIdRecogida = sharedPref.getString("key_id", "");
@@ -68,7 +69,7 @@ public class ActivityLogin extends AppCompatActivity
 
         if (!userIdRecogida.equals("") && !userEmailRecogida.equals(""))
         {
-            Intent intent = new Intent(ActivityLogin.this, ActivityInicioTabsUp.class);
+            Intent intent = new Intent(ActivityLogin.this, ActivityInicioTabsDown.class);
             intent.putExtra(EXTRA_EMAIL,txtEmail.getText().toString());
             startActivity(intent);
         }
@@ -84,26 +85,24 @@ public class ActivityLogin extends AppCompatActivity
 
                 if(firebaseUser != null)
                 {
-                    Intent intent = new Intent(ActivityLogin.this, ActivityInicioTabsUp.class);
+                    Intent intent = new Intent(ActivityLogin.this, ActivityInicioTabsDown.class);
                     intent.putExtra(EXTRA_EMAIL,txtEmail.getText().toString());
                     startActivity(intent);
 
+                    //Preferencias
                     userId = firebaseUser.getUid();
                     userEmail = firebaseUser.getEmail();
-
                     sharedPref = getSharedPreferences("preferencias", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPref.edit();
-
                     editor.putString("key_id", userId);
                     editor.putString("key_email", userEmail);
-
                     editor.commit();
                 }
                 else
                 {
                     if(!txtPassword.getText().toString().equals("") && !txtEmail.getText().toString().equals(""))
                     {
-                        Toast.makeText(ActivityLogin.this, "Your email or your password is wrong, please check again", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ActivityLogin.this, R.string.emailwrong, Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -159,6 +158,8 @@ public class ActivityLogin extends AppCompatActivity
             public void onClick(View view)
             {
                 //Enviar a activity de olvidar contraseña
+                Intent intent = new Intent(ActivityLogin.this, ActivityLoginForgetPassword.class);
+                startActivity(intent);
             }
         });
 
@@ -247,7 +248,7 @@ public class ActivityLogin extends AppCompatActivity
 
         if (user != null)
         {
-            Intent i = new Intent(ActivityLogin.this, ActivityInicioTabsUp.class);
+            Intent i = new Intent(ActivityLogin.this, ActivityInicioTabsDown.class);
             startActivity(i);
         }
         else
