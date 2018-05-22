@@ -2,10 +2,15 @@ package com.example.paxi.aroundthedanceb.Activities;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -23,26 +28,32 @@ import com.example.paxi.aroundthedanceb.Modelos.Estilo;
 import com.example.paxi.aroundthedanceb.Modelos.Evento;
 import com.example.paxi.aroundthedanceb.Modelos.Tipo;
 import com.example.paxi.aroundthedanceb.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.UUID;
 
 public class ActivityEventsNewEvent extends AppCompatActivity
 {
     //BDAntiguaBackgroundWorker BDAntiguaBackgroundWorker;
 
+
     //region static
 
     private static final long SPLASH_SCREEN_DELAY = 1000;
+    private final int PICK_IMAGE_REQUEST = 71;
     private static final int GALLERY_INTENT = 2;
     private static final int DATE_ID = 0;
 
     //endregion
-
-    SharedPreferences sharedPref;
-
-    StorageReference storageRef;
 
     //region Controles
 
@@ -54,12 +65,16 @@ public class ActivityEventsNewEvent extends AppCompatActivity
 
     //endregion
 
+    //region Variables
+
+    FirebaseStorage storage;
+    StorageReference storageReference;
+
     Calendar calendar = Calendar.getInstance();
 
     int fecha = 0;
     private int mYear, mMonth, mDay, Hora, Minutos;
     private int sYear, sMonth, sDay;
-
 
     private List<Tipo> arraylist_tipos = new ArrayList<>();
     private List<Estilo> arraylist_estilos = new ArrayList<>();
@@ -72,6 +87,13 @@ public class ActivityEventsNewEvent extends AppCompatActivity
     Estilo estilo;
     Double latitud=0.0;
     Double longitud=0.0;
+
+    private Uri filePath;
+
+    String urlImagen;
+
+    //endregion
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -81,12 +103,20 @@ public class ActivityEventsNewEvent extends AppCompatActivity
         setupToolBar();
 
         //BDAntiguaBackgroundWorker = new BDAntiguaBackgroundWorker(this);
+
+        //region RecogerLAT&LON
+
         Bundle b = getIntent().getExtras();
-        if(b!=null){
+
+        if(b != null)
+        {
               latitud = b.getDouble(MapsAddLocationEvent.EXTRA_LAT);
               longitud = b.getDouble(MapsAddLocationEvent.EXTRA_LONG);
             //llamar aqui al metodo que haga lo que yo quiera con lat y ong
         }
+
+        //endregion
+
         //region Controles
 
         imagenEvent = (ImageView) findViewById(R.id.imagenevent);
@@ -114,15 +144,18 @@ public class ActivityEventsNewEvent extends AppCompatActivity
         sMonth = calendar.get(Calendar.MONTH);
         sYear = calendar.get(Calendar.YEAR);
 
-        //endregion
-
         spinnerStyles.setVisibility(View.GONE);
         spinnerCategories.setVisibility(View.GONE);
         //btnAddType.setEnabled(Dis);
         btnAddType.setEnabled(false);
-
         btnAddStyle.setVisibility(View.GONE);
         btnAddCategory.setVisibility(View.GONE);
+
+        //endregion
+
+        //Firebase
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
 
         //region Spinners
 
@@ -217,11 +250,10 @@ public class ActivityEventsNewEvent extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(Intent.ACTION_PICK);
-
+                Intent intent = new Intent();
                 intent.setType("image/*");
-
-                startActivityForResult(intent, GALLERY_INTENT);
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
             }
         });
 
@@ -347,6 +379,8 @@ public class ActivityEventsNewEvent extends AppCompatActivity
 
                 //endregion
 
+                uploadImage();
+
                 arraylist_estilos.get(arraylist_estilos.size() - 1).setCategorias(arraylist_categorias);
 
                 arraylist_tipos.get(arraylist_tipos.size() - 1).setEstilos(arraylist_estilos);
@@ -356,15 +390,61 @@ public class ActivityEventsNewEvent extends AppCompatActivity
                         "20/05/2018", "17:00", "24/05/2018",
                         "Alicante", "España", 0.0, 0.0,
                         arraylist_tipos,
-                        "imagen.jpg",
+                        urlImagen,
                         "paxi07");
-
-
             }
         });
 
         //endregion
     }
+
+    //region SubirImagen
+
+    private void uploadImage()
+    {
+
+        if(filePath != null)
+        {
+            final ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle("Uploading...");
+            progressDialog.show();
+
+            urlImagen = UUID.randomUUID().toString();
+
+            StorageReference ref = storageReference.child("images/"+ urlImagen);
+            ref.putFile(filePath)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>()
+                    {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot)
+                        {
+                            progressDialog.dismiss();
+                            Toast.makeText(ActivityEventsNewEvent.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener()
+                    {
+                        @Override
+                        public void onFailure(@NonNull Exception e)
+                        {
+                            progressDialog.dismiss();
+                            Toast.makeText(ActivityEventsNewEvent.this, "Failed "+ e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>()
+                    {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot)
+                        {
+                            double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
+
+                            progressDialog.setMessage("Uploaded "+(int)progress+"%");
+                        }
+                    });
+        }
+    }
+
+    //endregion
 
     //region onActivityResult
 
@@ -373,22 +453,21 @@ public class ActivityEventsNewEvent extends AppCompatActivity
     {
         super.onActivityResult(requestCode, resultCode, data);
 
-         /*storageRef = FirebaseStorage.getInstance().getReference();
-
-        if(requestCode == GALLERY_INTENT && resultCode == RESULT_OK)
+        if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null )
         {
-            Uri uri = data.getData();
-            StorageReference filepath = storageRef.child("Photos").child(uri.getLastPathSegment());
+            filePath = data.getData();
 
-            filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>()
+            try
             {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot)
-                {
-                    Toast.makeText(ActivityEventsNewEvent.this, "Upload Done", Toast.LENGTH_SHORT).show();
-                }
-            });
-        }*/
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+                //imagenEvent.setImageBitmap(bitmap);
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        }
+
 
         if(requestCode == 10)
         {
@@ -485,7 +564,9 @@ public class ActivityEventsNewEvent extends AppCompatActivity
         timePickerDialog.show();
     }
 
-    //Toolbar
+    //endregion
+
+    //region Toolbar
 
     private void setupToolBar()
     {

@@ -1,7 +1,5 @@
 package com.example.paxi.aroundthedanceb.FragmentsTabs;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -15,13 +13,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.example.paxi.aroundthedanceb.Activities.ActivtyEventsBusquedaAvanzada;
 import com.example.paxi.aroundthedanceb.Activities.ActivityEventsNewEvent;
+import com.example.paxi.aroundthedanceb.Dialog.Dialog_AdvanceSearch;
 import com.example.paxi.aroundthedanceb.Modelos.Evento;
 import com.example.paxi.aroundthedanceb.R;
 import com.example.paxi.aroundthedanceb.Recycler.RecyclerAdaptador;
@@ -29,7 +26,7 @@ import com.example.paxi.aroundthedanceb.Recycler.RecyclerAdaptador;
 import java.util.ArrayList;
 
 
-public class TabFragmentEvents extends Fragment
+public class TabFragmentEvents extends Fragment implements Dialog_AdvanceSearch.PasarArrayListFiltros
 {
     EditText txtSearch;
     Button btnNewEvent, btnAdvanceSearch;
@@ -106,8 +103,7 @@ public class TabFragmentEvents extends Fragment
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(getActivity(), ActivtyEventsBusquedaAvanzada.class);
-                startActivity(intent);
+                new Dialog_AdvanceSearch(getContext(), TabFragmentEvents.this);
             }
         });
 
@@ -124,25 +120,6 @@ public class TabFragmentEvents extends Fragment
 
         return view;
     }
-
-    //region Busqueda
-
-    private ArrayList<Evento> filtrarEvento(String filtro)
-    {
-        ArrayList<Evento> lista_eventos_filtrados = new ArrayList<>();
-
-        for (int i=0; i<lista_eventos.size(); i++)
-        {
-            if(lista_eventos.get(i).getNombre().toLowerCase().contains(filtro.toLowerCase()))
-            {
-                lista_eventos_filtrados.add(lista_eventos.get(i));
-            }
-        }
-
-        return lista_eventos_filtrados;
-    }
-
-    //endregion
 
     //region Recycler
 
@@ -164,6 +141,9 @@ public class TabFragmentEvents extends Fragment
                 pos = recyclerView.getChildAdapterPosition(view);
                 name = lista_eventos.get(pos).getNombre();
                 fecha = lista_eventos.get(pos).getFechaInicio();
+
+                //Activity Ver Evento
+
                 Toast.makeText(getActivity(), name + "\n" + fecha, Toast.LENGTH_SHORT).show();
             }
         });
@@ -171,6 +151,30 @@ public class TabFragmentEvents extends Fragment
         recyclerView.setAdapter(recyclerAdaptador);
     }
 
+    private ArrayList<Evento> filtrarEvento(String filtro)
+    {
+        ArrayList<Evento> lista_eventos_filtrados = new ArrayList<>();
+
+        for (int i=0; i<lista_eventos.size(); i++)
+        {
+            if(lista_eventos.get(i).getNombre().toLowerCase().contains(filtro.toLowerCase()))
+            {
+                lista_eventos_filtrados.add(lista_eventos.get(i));
+            }
+        }
+        return lista_eventos_filtrados;
+    }
+
     //endregion
+
+    @Override
+    public void PasarFiltros(ArrayList<String> arraylist_filtros)
+    {
+        filtros = arraylist_filtros;
+
+        //Actualizar el recycler
+    }
 }
+
+
 

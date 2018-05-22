@@ -81,19 +81,6 @@ public class MapsAddLocationEvent extends AppCompatActivity implements OnMapRead
         txt_Search = (AutoCompleteTextView) findViewById(R.id.auto_search);
 
         getPermisosLocation();
-
-        //region PETA
-
-        /*googleMapa.setOnMapClickListener(new GoogleMap.OnMapClickListener()
-        {
-            @Override
-            public void onMapClick(LatLng point)
-            {
-                googleMapa.addMarker(new MarkerOptions().position(point).title("You are here"));
-            }
-        });*/
-
-        //endregion
     }
 
     //region Inicializar
@@ -115,6 +102,17 @@ public class MapsAddLocationEvent extends AppCompatActivity implements OnMapRead
 
             inicializar();
         }
+
+        googleMapa.setOnMapClickListener(new GoogleMap.OnMapClickListener()
+        {
+            @Override
+            public void onMapClick(LatLng point)
+            {
+                googleMapa.addMarker(new MarkerOptions().position(point).title("You are here"));
+
+                Confirmar();
+            }
+        });
     }
 
     private void inicialiazarMapa()
@@ -380,7 +378,7 @@ public class MapsAddLocationEvent extends AppCompatActivity implements OnMapRead
             {
                 DialogoConfirmar();
             }
-        }, 1000);
+        }, 500);
     }
 
     public void DialogoConfirmar()
@@ -403,7 +401,9 @@ public class MapsAddLocationEvent extends AppCompatActivity implements OnMapRead
                         break;
 
                     case DialogInterface.BUTTON_NEGATIVE:
-                        //Nada
+
+                        googleMapa.clear();
+
                         break;
                 }
             }

@@ -1,52 +1,57 @@
-package com.example.paxi.aroundthedanceb.Activities;
+package com.example.paxi.aroundthedanceb.Dialog;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
+
 import com.example.paxi.aroundthedanceb.FragmentsTabs.TabFragmentEvents;
 import com.example.paxi.aroundthedanceb.Modelos.Estilo;
-import com.example.paxi.aroundthedanceb.Modelos.Evento;
 import com.example.paxi.aroundthedanceb.Modelos.Tipo;
 import com.example.paxi.aroundthedanceb.R;
+
 import java.util.ArrayList;
 
-public class ActivtyEventsBusquedaAvanzada extends AppCompatActivity
+public class Dialog_AdvanceSearch
 {
-    Button btnAddTypeBusqueda, btnAddStyleBusqueda, btnAddCategoryBusqueda, btnBusqueda;
-    Spinner spinnerTypesBusqueda, spinnerStylesBusqueda, spinnerCategoriesBusqueda;
-    EditText txtCiudad, txtPais;
+    public interface PasarArrayListFiltros
+    {
+        void PasarFiltros(ArrayList<String> arraylist_filtros);
+    }
 
-    String string_type, string_categoria, string_estilo;
+    private PasarArrayListFiltros pasarArrayListFiltros;
 
     private ArrayList<String> arraylist_filtros = new ArrayList<>();
+    String string_type, string_categoria, string_estilo, string;
 
-    Evento evento;
-    Tipo tipo;
-    Estilo estilo;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState)
+    public Dialog_AdvanceSearch(Context context, PasarArrayListFiltros actividad)
     {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialog_busquedapersonalizada);
+        pasarArrayListFiltros = actividad;
 
-        //region Controles
+        final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        //dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.setContentView(R.layout.dialog_busquedapersonalizada);
 
-        btnAddTypeBusqueda = (Button) findViewById(R.id.btn_busqueda_addtype);
-        btnAddStyleBusqueda = (Button) findViewById(R.id.btn_busqueda_addstyle);
-        btnAddCategoryBusqueda = (Button) findViewById(R.id.btn_busqueda_addcategory);
-        btnBusqueda = (Button) findViewById(R.id.btn_busqueda);
+        final Button btnAddTypeBusqueda, btnAddStyleBusqueda, btnAddCategoryBusqueda, btnBusqueda;
+        final Spinner spinnerTypesBusqueda, spinnerStylesBusqueda, spinnerCategoriesBusqueda;
 
-        spinnerTypesBusqueda = (Spinner) findViewById(R.id.spinner_busqueda_tipos);
-        spinnerStylesBusqueda = (Spinner) findViewById(R.id.spinner_busqueda_estilos);
-        spinnerCategoriesBusqueda = (Spinner) findViewById(R.id.spinner_busqueda_categorias);
+        btnAddTypeBusqueda = (Button) dialog.findViewById(R.id.btn_busqueda_addtype);
+        btnAddStyleBusqueda = (Button) dialog.findViewById(R.id.btn_busqueda_addstyle);
+        btnAddCategoryBusqueda = (Button) dialog.findViewById(R.id.btn_busqueda_addcategory);
+        btnBusqueda = (Button) dialog.findViewById(R.id.btn_busqueda);
 
-        //endregion
+        spinnerTypesBusqueda = (Spinner) dialog.findViewById(R.id.spinner_busqueda_tipos);
+        spinnerStylesBusqueda = (Spinner) dialog.findViewById(R.id.spinner_busqueda_estilos);
+        spinnerCategoriesBusqueda = (Spinner) dialog.findViewById(R.id.spinner_busqueda_categorias);
+
 
         btnAddTypeBusqueda.setEnabled(false);
 
@@ -143,12 +148,9 @@ public class ActivtyEventsBusquedaAvanzada extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                string_type = spinnerTypesBusqueda.getSelectedItem().toString();
+                string = spinnerTypesBusqueda.getSelectedItem().toString();
 
-                tipo = new Tipo(string_type);
-
-                //arraylist_tipos.add(tipo);
-                arraylist_filtros.add(tipo.getNombre());
+                arraylist_filtros.add(string);
             }
         });
 
@@ -157,12 +159,9 @@ public class ActivtyEventsBusquedaAvanzada extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                string_estilo = spinnerStylesBusqueda.getSelectedItem().toString();
+                string = spinnerStylesBusqueda.getSelectedItem().toString();
 
-                estilo = new Estilo(string_estilo);
-
-                //arraylist_estilos.add(estilo);
-                arraylist_filtros.add(estilo.getNombre());
+                arraylist_filtros.add(string);
             }
         });
 
@@ -171,10 +170,9 @@ public class ActivtyEventsBusquedaAvanzada extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                string_categoria = spinnerCategoriesBusqueda.getSelectedItem().toString();
+                string = spinnerCategoriesBusqueda.getSelectedItem().toString();
 
-                //arraylist_categorias.add(string_categoria);
-                arraylist_filtros.add(string_categoria);
+                arraylist_filtros.add(string);
             }
         });
 
@@ -183,46 +181,11 @@ public class ActivtyEventsBusquedaAvanzada extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-
-                Bundle b = new Bundle();
-                b.putStringArrayList("FILTROS",arraylist_filtros);
-
-                TabFragmentEvents tfe = new TabFragmentEvents();
-                tfe.setArguments(b);
-
-
+                pasarArrayListFiltros.PasarFiltros(arraylist_filtros);
+                dialog.dismiss();
             }
         });
 
-        //endregion
-
-        setupToolBar();
+        dialog.show();
     }
-
-    //region ToolBar
-
-    private void setupToolBar()
-    {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-
-        if (toolbar == null) return;
-
-        setSupportActionBar(toolbar);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ic_back);
-    }
-
-    @Override
-    public boolean onSupportNavigateUp()
-    {
-        finish();
-
-        return false;
-    }
-
-    //endregion
 }

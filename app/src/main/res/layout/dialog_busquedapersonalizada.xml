@@ -6,31 +6,6 @@
     android:layout_height="match_parent"
     android:layout_gravity="center">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="32dp"
-        android:minHeight="?attr/actionBarSize"
-        android:background="?attr/colorPrimary" />
-
-    <EditText
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/city"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/txt_busqueda_ciudad"/>
-
-    <EditText
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/country"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/txt_busqueda_pais"/>
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
@@ -47,7 +22,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/add"
+            android:text="+"
             android:layout_gravity="center"
             android:id="@+id/btn_busqueda_addtype"
             style="@style/BotonEstilo1"
@@ -72,7 +47,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/add"
+            android:text="+"
             android:layout_gravity="center"
             android:id="@+id/btn_busqueda_addstyle"
             style="@style/BotonEstilo1"
@@ -97,7 +72,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/add"
+            android:text="+"
             android:layout_gravity="center"
             android:id="@+id/btn_busqueda_addcategory"
             style="@style/BotonEstilo1"
