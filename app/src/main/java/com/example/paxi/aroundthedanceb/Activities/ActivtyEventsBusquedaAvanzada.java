@@ -1,5 +1,6 @@
 package com.example.paxi.aroundthedanceb.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -8,6 +9,8 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import com.example.paxi.aroundthedanceb.FragmentsTabs.TabFragmentEvents;
 import com.example.paxi.aroundthedanceb.Modelos.Estilo;
 import com.example.paxi.aroundthedanceb.Modelos.Evento;
 import com.example.paxi.aroundthedanceb.Modelos.Tipo;
@@ -26,6 +29,7 @@ public class ActivtyEventsBusquedaAvanzada extends AppCompatActivity
     private List<Tipo> arraylist_tipos = new ArrayList<>();
     private List<Estilo> arraylist_estilos = new ArrayList<>();
     private List<String> arraylist_categorias = new ArrayList<>();
+    private ArrayList<String> arraylist_filtros = new ArrayList<>();
 
     Evento evento;
     Tipo tipo;
@@ -152,7 +156,8 @@ public class ActivtyEventsBusquedaAvanzada extends AppCompatActivity
 
                 tipo = new Tipo(string_type);
 
-                arraylist_tipos.add(tipo);
+                //arraylist_tipos.add(tipo);
+                arraylist_filtros.add(tipo.getNombre());
             }
         });
 
@@ -165,7 +170,8 @@ public class ActivtyEventsBusquedaAvanzada extends AppCompatActivity
 
                 estilo = new Estilo(string_estilo);
 
-                arraylist_estilos.add(estilo);
+                //arraylist_estilos.add(estilo);
+                arraylist_filtros.add(estilo.getNombre());
             }
         });
 
@@ -176,7 +182,8 @@ public class ActivtyEventsBusquedaAvanzada extends AppCompatActivity
             {
                 string_categoria = spinnerCategoriesBusqueda.getSelectedItem().toString();
 
-                arraylist_categorias.add(string_categoria);
+                //arraylist_categorias.add(string_categoria);
+                arraylist_filtros.add(string_categoria);
             }
         });
 
@@ -185,6 +192,13 @@ public class ActivtyEventsBusquedaAvanzada extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
+
+                Bundle b = new Bundle();
+                b.putStringArrayList("FILTROS",arraylist_filtros);
+
+                TabFragmentEvents tfe = new TabFragmentEvents();
+                tfe.setArguments(b);
+
 
             }
         });

@@ -59,7 +59,7 @@ public class ActivityEventsNewEvent extends AppCompatActivity
     int fecha = 0;
     private int mYear, mMonth, mDay, Hora, Minutos;
     private int sYear, sMonth, sDay;
-    private Double latitud, longitud;
+
 
     private List<Tipo> arraylist_tipos = new ArrayList<>();
     private List<Estilo> arraylist_estilos = new ArrayList<>();
@@ -70,7 +70,8 @@ public class ActivityEventsNewEvent extends AppCompatActivity
     Evento evento;
     Tipo tipo;
     Estilo estilo;
-
+    Double latitud=0.0;
+    Double longitud=0.0;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -80,7 +81,12 @@ public class ActivityEventsNewEvent extends AppCompatActivity
         setupToolBar();
 
         //BDAntiguaBackgroundWorker = new BDAntiguaBackgroundWorker(this);
-
+        Bundle b = getIntent().getExtras();
+        if(b!=null){
+              latitud = b.getDouble(MapsAddLocationEvent.EXTRA_LAT);
+              longitud = b.getDouble(MapsAddLocationEvent.EXTRA_LONG);
+            //llamar aqui al metodo que haga lo que yo quiera con lat y ong
+        }
         //region Controles
 
         imagenEvent = (ImageView) findViewById(R.id.imagenevent);
@@ -352,6 +358,8 @@ public class ActivityEventsNewEvent extends AppCompatActivity
                         arraylist_tipos,
                         "imagen.jpg",
                         "paxi07");
+
+
             }
         });
 

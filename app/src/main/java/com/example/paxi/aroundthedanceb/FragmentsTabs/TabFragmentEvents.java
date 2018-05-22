@@ -39,6 +39,7 @@ public class TabFragmentEvents extends Fragment
     RecyclerAdaptador recyclerAdaptador;
     int pos;
     String name, fecha;
+    ArrayList<String> filtros;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -57,9 +58,13 @@ public class TabFragmentEvents extends Fragment
         if(bundle != null)
         {
             lista_eventos = bundle.getParcelableArrayList("lista_eventos");
+
+            if(bundle.getStringArrayList("FILTROS")!=null){
+                filtros = bundle.getStringArrayList("FILTROS");
+            }
         }
 
-        mostrarRecycler(lista_eventos);
+        //mostrarRecycler(lista_eventos);
 
         //region Search
 
@@ -128,7 +133,7 @@ public class TabFragmentEvents extends Fragment
 
         for (int i=0; i<lista_eventos.size(); i++)
         {
-            if(lista_eventos.get(i).getNombre().contains(filtro))
+            if(lista_eventos.get(i).getNombre().toLowerCase().contains(filtro.toLowerCase()))
             {
                 lista_eventos_filtrados.add(lista_eventos.get(i));
             }

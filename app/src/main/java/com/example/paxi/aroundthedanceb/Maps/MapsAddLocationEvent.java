@@ -397,7 +397,7 @@ public class MapsAddLocationEvent extends AppCompatActivity implements OnMapRead
                         Intent intent = new Intent(MapsAddLocationEvent.this, ActivityEventsNewEvent.class);
                         intent.putExtra(EXTRA_LAT, latitud);
                         intent.putExtra(EXTRA_LONG, longitud);
-                        setResult(10, intent);
+                        startActivity(intent);
                         finish();
 
                         break;
