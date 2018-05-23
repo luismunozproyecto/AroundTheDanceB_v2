@@ -1,4 +1,4 @@
-package com.example.paxi.aroundthedanceb.FragmentsTabs;
+package com.example.paxi.aroundthedanceb.TabsFragments;
 
 
 import android.content.Intent;
@@ -19,7 +19,7 @@ import com.example.paxi.aroundthedanceb.Recycler.RecyclerAdaptador;
 
 import java.util.ArrayList;
 
-import static com.example.paxi.aroundthedanceb.FragmentsTabs.TabFragmentEvents.EXTRA_VEREVENTO;
+import static com.example.paxi.aroundthedanceb.TabsFragments.TabFragmentEvents.EXTRA_VEREVENTO;
 
 public class TabFragmentProfile extends Fragment
 {

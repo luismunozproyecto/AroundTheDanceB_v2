@@ -2,18 +2,12 @@ package com.example.paxi.aroundthedanceb.Dialog;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
 
-import com.example.paxi.aroundthedanceb.FragmentsTabs.TabFragmentEvents;
-import com.example.paxi.aroundthedanceb.Modelos.Estilo;
-import com.example.paxi.aroundthedanceb.Modelos.Tipo;
 import com.example.paxi.aroundthedanceb.R;
 
 import java.util.ArrayList;

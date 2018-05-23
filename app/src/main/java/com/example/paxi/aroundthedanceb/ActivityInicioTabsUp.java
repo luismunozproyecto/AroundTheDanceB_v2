@@ -9,8 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.WindowManager;
 
 import com.example.paxi.aroundthedanceb.Activities.ActivityLogin;
-import com.example.paxi.aroundthedanceb.R;
-import com.example.paxi.aroundthedanceb.FragmentsTabs.TabFragmentAdapterPager;
+import com.example.paxi.aroundthedanceb.TabsFragments.TabFragmentAdapterPager;
 
 public class ActivityInicioTabsUp extends AppCompatActivity
 {

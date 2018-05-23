@@ -1,4 +1,4 @@
-package com.example.paxi.aroundthedanceb.FragmentsTabs;
+package com.example.paxi.aroundthedanceb.TabsFragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

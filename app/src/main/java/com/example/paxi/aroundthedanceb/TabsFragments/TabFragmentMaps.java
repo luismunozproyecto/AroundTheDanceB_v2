@@ -1,10 +1,6 @@
-package com.example.paxi.aroundthedanceb.FragmentsTabs;
+package com.example.paxi.aroundthedanceb.TabsFragments;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,19 +11,15 @@ import com.example.paxi.aroundthedanceb.Activities.ActivityEventsVerEvento;
 import com.example.paxi.aroundthedanceb.Maps.MapsCustomMarker;
 import com.example.paxi.aroundthedanceb.Modelos.Evento;
 import com.example.paxi.aroundthedanceb.R;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
-
-import static com.example.paxi.aroundthedanceb.FragmentsTabs.TabFragmentEvents.EXTRA_VEREVENTO;
 
 public class TabFragmentMaps extends Fragment implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleMap.OnInfoWindowClickListener
 {

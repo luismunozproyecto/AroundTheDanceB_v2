@@ -8,11 +8,11 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import com.example.paxi.aroundthedanceb.FragmentsTabs.TabFragmentEvents;
+import com.example.paxi.aroundthedanceb.TabsFragments.TabFragmentEvents;
 import com.example.paxi.aroundthedanceb.Modelos.Estilo;
 import com.example.paxi.aroundthedanceb.Modelos.Evento;
 import com.example.paxi.aroundthedanceb.Modelos.Tipo;
-import com.example.paxi.aroundthedanceb.R;
+
 import java.util.ArrayList;
 
 public class ActivtyEventsBusquedaAvanzada extends AppCompatActivity

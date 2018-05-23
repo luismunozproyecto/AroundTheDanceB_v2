@@ -1,23 +1,18 @@
 package com.example.paxi.aroundthedanceb.Activities;
 
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.TimePicker;
-import android.widget.Toast;
 
-import com.example.paxi.aroundthedanceb.FragmentsTabs.TabFragmentEvents;
+import com.example.paxi.aroundthedanceb.TabsFragments.TabFragmentEvents;
 import com.example.paxi.aroundthedanceb.Modelos.Evento;
 import com.example.paxi.aroundthedanceb.R;
 
-import java.util.Calendar;
 import java.util.Locale;
 
 public class ActivityEventsVerEvento extends AppCompatActivity
@@ -104,11 +99,6 @@ public class ActivityEventsVerEvento extends AppCompatActivity
 
     public void onClickLocation(View v)
     {
-        /*Uri gmmIntentUri = Uri.parse("geo:0,0?q=");
-        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-        mapIntent.setPackage("com.google.android.apps.maps");
-        startActivity(mapIntent);*/
-
         String uri = String.format(Locale.ENGLISH, "geo:%f,%f", evento.getLat(), evento.getLon());
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
         startActivity(intent);
