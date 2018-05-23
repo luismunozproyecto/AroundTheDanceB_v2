@@ -41,7 +41,7 @@ public class RecyclerAdaptador extends RecyclerView.Adapter<RecyclerHolder> impl
     public void onBindViewHolder(RecyclerHolder holder, int i)
     {
         Evento item = datos.get(i);
-      holder.bind(item);
+        holder.bind(item);
     }
 
     @Override

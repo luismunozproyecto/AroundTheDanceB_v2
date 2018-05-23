@@ -4,11 +4,14 @@
 
     <item
         android:id="@+id/tab_bottom_events"
+        android:icon="@mipmap/ic_event"
         android:title="@string/events" />
     <item
         android:id="@+id/tab_bottom_map"
+        android:icon="@mipmap/ic_location"
         android:title="@string/map" />
     <item
         android:id="@+id/tab_bottom_profile"
+        android:icon="@mipmap/ic_profile"
         android:title="@string/profile" />
 </menu>

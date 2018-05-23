@@ -116,7 +116,7 @@ public class ActivityInicioTabsDown extends AppCompatActivity
         Evento evento1 = new Evento("1", "Battle Alicante",
                 "EVENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
                 "30-12-2018", "13:00", "31-12-2018",
-                "Alicante", "España", 0.0, 0.0,
+                "Alicante", "España", 38.3777032, -0.4905777,
                 tipos1,
                 "imagen.jpg",
                 "paxi07");
@@ -125,7 +125,7 @@ public class ActivityInicioTabsDown extends AppCompatActivity
         Evento evento2 = new Evento("1", "Battle Sevilla",
                 "EVENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
                 "30-12-2018", "13:00", "31-12-2018",
-                "Alicante", "España", 0.0, 0.0,
+                "Alicante", "España", 40.4381311, -3.8196197,
                 tipos1,
                 "imagen.jpg",
                 "paxi07");
@@ -134,7 +134,7 @@ public class ActivityInicioTabsDown extends AppCompatActivity
         Evento evento3 = new Evento("1", "Feel The Dance",
                 "EVENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
                 "30-12-2018", "13:00", "31-12-2018",
-                "Alicante", "España", 0.0, 0.0,
+                "Alicante", "España", 52.3621549, 4.8816178,
                 tipos1,
                 "imagen.jpg",
                 "paxi07");
@@ -142,7 +142,7 @@ public class ActivityInicioTabsDown extends AppCompatActivity
         Evento evento4 = new Evento("1", "Switch On",
                 "EVENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
                 "30-12-2018", "13:00", "31-12-2018",
-                "Alicante", "España", 0.0, 0.0,
+                "Alicante", "España", 34.0207305, -118.6919159,
                 tipos1,
                 "imagen.jpg",
                 "paxi07");
@@ -151,7 +151,7 @@ public class ActivityInicioTabsDown extends AppCompatActivity
         Evento evento5 = new Evento("1", "Alicante Dance",
                 "EVENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
                 "30-12-2018", "13:00", "31-12-2018",
-                "Alicante", "España", 0.0, 0.0,
+                "Alicante", "España", 55.7580365, 37.3728602,
                 tipos1,
                 "imagen.jpg",
                 "paxi07");
@@ -160,7 +160,7 @@ public class ActivityInicioTabsDown extends AppCompatActivity
         Evento evento6 = new Evento("1", "Sevilla Dance Center",
                 "EVENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
                 "30-12-2018", "13:00", "31-12-2018",
-                "Alicante", "España", 0.0, 0.0,
+                "Alicante", "España", 37.7577627, 122.4726194,
                 tipos1,
                 "imagen.jpg",
                 "paxi07");
@@ -168,7 +168,7 @@ public class ActivityInicioTabsDown extends AppCompatActivity
         Evento evento7 = new Evento("1", "Battle Alicante Ciudad",
                 "EVENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
                 "30-12-2018", "13:00", "31-12-2018",
-                "Alicante", "España", 0.0, 0.0,
+                "Alicante", "España", 49.2578263, 123.1939435,
                 tipos1,
                 "imagen.jpg",
                 "paxi07");
@@ -177,7 +177,7 @@ public class ActivityInicioTabsDown extends AppCompatActivity
         Evento evento8 = new Evento("1", "Jam Esta",
                 "EVENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
                 "30-12-2018", "13:00", "31-12-2018",
-                "Alicante", "España", 0.0, 0.0,
+                "Alicante", "España", 35.6786436, 139.5583965,
                 tipos1,
                 "imagen.jpg",
                 "paxi07");
@@ -186,7 +186,7 @@ public class ActivityInicioTabsDown extends AppCompatActivity
         Evento evento9 = new Evento("1", "Battle 123",
                 "EVENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
                 "30-12-2018", "13:00", "31-12-2018",
-                "Alicante", "España", 0.0, 0.0,
+                "Alicante", "España", 1.3143394, 103.7041651,
                 tipos1,
                 "imagen.jpg",
                 "paxi07");

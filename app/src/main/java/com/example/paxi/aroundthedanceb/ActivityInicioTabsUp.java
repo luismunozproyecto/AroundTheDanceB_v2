@@ -1,4 +1,4 @@
-package com.example.paxi.aroundthedanceb.Activities;
+package com.example.paxi.aroundthedanceb;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -7,6 +7,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.WindowManager;
+
+import com.example.paxi.aroundthedanceb.Activities.ActivityLogin;
 import com.example.paxi.aroundthedanceb.R;
 import com.example.paxi.aroundthedanceb.FragmentsTabs.TabFragmentAdapterPager;
 

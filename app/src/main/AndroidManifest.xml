@@ -34,16 +34,19 @@
         <activity android:name=".Activities.ActivityInicioTabsDown"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".Activities.ActivityInicioTabsUp"
+        <activity android:name=".ActivityInicioTabsUp"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".Fragments.FragmentLoginCreateUser"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".Activities.ActivityEventsVerEvento"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".Activities.ActivityEventsNewEvent"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".Activities.ActivtyEventsBusquedaAvanzada"
+        <activity android:name=".ActivtyEventsBusquedaAvanzada"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".Maps.MapsAddLocationEvent"

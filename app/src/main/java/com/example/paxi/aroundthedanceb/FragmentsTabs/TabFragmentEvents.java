@@ -15,9 +15,9 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
-import com.example.paxi.aroundthedanceb.Activities.ActivtyEventsBusquedaAvanzada;
+
 import com.example.paxi.aroundthedanceb.Activities.ActivityEventsNewEvent;
+import com.example.paxi.aroundthedanceb.Activities.ActivityEventsVerEvento;
 import com.example.paxi.aroundthedanceb.Dialog.Dialog_AdvanceSearch;
 import com.example.paxi.aroundthedanceb.Modelos.Evento;
 import com.example.paxi.aroundthedanceb.R;
@@ -28,6 +28,8 @@ import java.util.ArrayList;
 
 public class TabFragmentEvents extends Fragment implements Dialog_AdvanceSearch.PasarArrayListFiltros
 {
+    public final static String EXTRA_VEREVENTO = "EVENTO_VER";
+
     EditText txtSearch;
     Button btnNewEvent, btnAdvanceSearch;
     ArrayList<Evento> lista_eventos;
@@ -125,7 +127,7 @@ public class TabFragmentEvents extends Fragment implements Dialog_AdvanceSearch.
 
     private void mostrarRecycler(ArrayList<Evento> lista_ev)
     {
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,false).getOrientation());
 
@@ -143,8 +145,11 @@ public class TabFragmentEvents extends Fragment implements Dialog_AdvanceSearch.
                 fecha = lista_eventos.get(pos).getFechaInicio();
 
                 //Activity Ver Evento
-
-                Toast.makeText(getActivity(), name + "\n" + fecha, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), ActivityEventsVerEvento.class);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(EXTRA_VEREVENTO, lista_eventos.get(pos));
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 

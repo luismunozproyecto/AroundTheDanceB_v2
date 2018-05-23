@@ -13,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.paxi.aroundthedanceb.Activities.ActivityInicioTabsDown;
-import com.example.paxi.aroundthedanceb.Activities.ActivityInicioTabsUp;
 import com.example.paxi.aroundthedanceb.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
