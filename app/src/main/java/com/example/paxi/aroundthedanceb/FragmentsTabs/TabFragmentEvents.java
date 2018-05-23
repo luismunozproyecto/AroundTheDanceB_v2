@@ -15,14 +15,12 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.example.paxi.aroundthedanceb.Activities.ActivityEventsNewEvent;
 import com.example.paxi.aroundthedanceb.Activities.ActivityEventsVerEvento;
 import com.example.paxi.aroundthedanceb.Dialog.Dialog_AdvanceSearch;
 import com.example.paxi.aroundthedanceb.Modelos.Evento;
 import com.example.paxi.aroundthedanceb.R;
 import com.example.paxi.aroundthedanceb.Recycler.RecyclerAdaptador;
-
 import java.util.ArrayList;
 
 
@@ -38,7 +36,10 @@ public class TabFragmentEvents extends Fragment implements Dialog_AdvanceSearch.
     RecyclerAdaptador recyclerAdaptador;
     int pos;
     String name, fecha;
+
     ArrayList<String> filtros;
+
+    ArrayList<Evento> lista_eventos_filtrados;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -57,10 +58,6 @@ public class TabFragmentEvents extends Fragment implements Dialog_AdvanceSearch.
         if(bundle != null)
         {
             lista_eventos = bundle.getParcelableArrayList("lista_eventos");
-
-            if(bundle.getStringArrayList("FILTROS")!=null){
-                filtros = bundle.getStringArrayList("FILTROS");
-            }
         }
 
         //mostrarRecycler(lista_eventos);
@@ -80,9 +77,9 @@ public class TabFragmentEvents extends Fragment implements Dialog_AdvanceSearch.
             {
                 String filtro = charSequence.toString();
 
-                if(filtro.length()>3)
+                if(filtro.length() > 3)
                 {
-                    ArrayList<Evento> lef = filtrarEvento(filtro);
+                    ArrayList<Evento> lef = filtrarEventoNombre(filtro);
                     mostrarRecycler(lef);
                 }
                 else if(filtro.length() == 0)
@@ -156,7 +153,7 @@ public class TabFragmentEvents extends Fragment implements Dialog_AdvanceSearch.
         recyclerView.setAdapter(recyclerAdaptador);
     }
 
-    private ArrayList<Evento> filtrarEvento(String filtro)
+    private ArrayList<Evento> filtrarEventoNombre(String filtro)
     {
         ArrayList<Evento> lista_eventos_filtrados = new ArrayList<>();
 
@@ -167,6 +164,7 @@ public class TabFragmentEvents extends Fragment implements Dialog_AdvanceSearch.
                 lista_eventos_filtrados.add(lista_eventos.get(i));
             }
         }
+
         return lista_eventos_filtrados;
     }
 
@@ -176,8 +174,6 @@ public class TabFragmentEvents extends Fragment implements Dialog_AdvanceSearch.
     public void PasarFiltros(ArrayList<String> arraylist_filtros)
     {
         filtros = arraylist_filtros;
-
-        //Actualizar el recycler
     }
 }
 

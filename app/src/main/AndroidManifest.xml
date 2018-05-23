@@ -43,6 +43,9 @@
         <activity android:name=".Activities.ActivityEventsVerEvento"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".Activities.ActivityEventsEditEvent"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".Activities.ActivityEventsNewEvent"
             android:screenOrientation="portrait"/>
 

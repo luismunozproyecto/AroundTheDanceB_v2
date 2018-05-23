@@ -410,7 +410,7 @@ public class ActivityEventsNewEvent extends AppCompatActivity
 
             urlImagen = UUID.randomUUID().toString();
 
-            StorageReference ref = storageReference.child("images/"+ urlImagen);
+            StorageReference ref = storageReference.child("images/"+ urlImagen+".png");
             ref.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>()
                     {

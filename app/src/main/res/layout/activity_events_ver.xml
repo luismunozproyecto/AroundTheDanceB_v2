@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -13,64 +14,79 @@
         android:background="?attr/colorPrimary" />
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:layout_weight="0.68">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="0dp"
             android:id="@+id/verevent_imagen"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/name"
+            android:layout_height="158dp"
             android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0.98"
+            android:src="@drawable/este" />
+
+        <TextView
             android:id="@+id/verevent_namet"
-            android:textSize="@dimen/d30"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="10dp"/>
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/name"
+            android:textSize="@dimen/d30" />
+
+        <TextView
             android:id="@+id/verevent_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="10dp"
             android:text="@string/date"
-            android:textSize="@dimen/d20"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="10dp"/>
+            android:textSize="@dimen/d20" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/verevent_description"
-            android:text="@string/description"
-            android:textSize="@dimen/d20"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="10dp"/>
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/description"
+            android:textSize="@dimen/d20" />
+
+        <TextView
             android:id="@+id/verevent_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/location"
+            android:textSize="@dimen/d20" />
+
+        <TextView
+            android:id="@+id/verevent_latylon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="10dp"
             android:text="@string/location"
             android:textSize="@dimen/d20"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="10dp"/>
+            android:onClick="onClickLocation"
+            android:clickable="true"/>
 
         <TextView
+            android:id="@+id/verevent_types"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/typesand"
-            android:id="@+id/verevent_types"
-            android:textSize="@dimen/d20"
             android:layout_marginBottom="15dp"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:text="@string/typesand"
+            android:textSize="@dimen/d20" />
 
     </LinearLayout>
 

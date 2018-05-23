@@ -31,15 +31,12 @@ import static com.example.paxi.aroundthedanceb.FragmentsTabs.TabFragmentEvents.E
 
 public class TabFragmentMaps extends Fragment implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleMap.OnInfoWindowClickListener
 {
+    public final static String EXTRA_VEREVENTO = "EVENTO_VER";
+
     GoogleMap mGoogleMap;
     MapView mapView;
     View view;
     ArrayList<Evento> lista_eventos;
-
-    boolean clickYa = false;
-
-    public final static String EXTRA_VEREVENTO = "EVENTO_VER";
-
     MapsCustomMarker customInfoWindow;
 
     @Override
@@ -75,9 +72,8 @@ public class TabFragmentMaps extends Fragment implements OnMapReadyCallback, Goo
     @Override
     public void onMapReady(GoogleMap googleMap)
     {
-        MapsInitializer.initialize(getContext());
-
         Marker marker;
+        MapsInitializer.initialize(getContext());
 
         mGoogleMap = googleMap;
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);

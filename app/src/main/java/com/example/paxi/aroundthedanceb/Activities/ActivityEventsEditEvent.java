@@ -1,26 +1,16 @@
 package com.example.paxi.aroundthedanceb.Activities;
 
-import android.app.TimePickerDialog;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.example.paxi.aroundthedanceb.FragmentsTabs.TabFragmentEvents;
 import com.example.paxi.aroundthedanceb.Modelos.Evento;
 import com.example.paxi.aroundthedanceb.R;
 
-import java.util.Calendar;
-import java.util.Locale;
-
-public class ActivityEventsVerEvento extends AppCompatActivity
+public class ActivityEventsEditEvent extends AppCompatActivity
 {
     TextView nameEvent, dateEvent, descriptionEvent, locationEvent, typesEvent;
     ImageView imageViewEvent;
@@ -65,35 +55,18 @@ public class ActivityEventsVerEvento extends AppCompatActivity
             descriptionEvent.setText(evento.getDescripcion());
             locationEvent.setText(evento.getPais() + ", " + evento.getCiudad());
 
-            if(evento.getTipos() != null)
+            for (int i = 0; i < evento.getTipos().size(); i++)
             {
-                for (int i = 0; i < evento.getTipos().size(); i++)
+                for (int j = 0; j < evento.getTipos().get(i).getEstilos().size(); j++)
                 {
-                    if(evento.getTipos().get(i).getEstilos() != null)
+                    for (int k = 0; k < evento.getTipos().get(i).getEstilos().get(j).getCategorias().size(); k++)
                     {
-                        for (int j = 0; j < evento.getTipos().get(i).getEstilos().size(); j++)
-                        {
-                            if(evento.getTipos().get(i).getEstilos().get(j).getCategorias() != null)
-                            {
-                                for (int k = 0; k < evento.getTipos().get(i).getEstilos().get(j).getCategorias().size(); k++)
-                                {
-                                    typesEvent.setText(
-                                            ("Type: " + evento.getTipos().get(i).getNombre() + ", " + "\n\t\t" +
-                                                    "Style: " + evento.getTipos().get(i).getEstilos().get(j).getNombre() + ", " + "\n\t\t\t" +
-                                                    "Category: " + evento.getTipos().get(i).getEstilos().get(j).getCategorias().get(k) + ", ").toString());
-                                }
-                            }
-                            else
-                            {
-                                typesEvent.setText(
+                        typesEvent.setText
+                                (
                                         ("Type: " + evento.getTipos().get(i).getNombre() + ", " + "\n\t\t" +
-                                                "Style: " + evento.getTipos().get(i).getEstilos().get(j).getNombre() + ", " + "\n\t\t\t").toString());
-                            }
-                        }
-                    }
-                    else
-                    {
-                        typesEvent.setText(("Type: " + evento.getTipos().get(i).getNombre() + ", " + "\n\t\t").toString());
+                                                "Style: " + evento.getTipos().get(i).getEstilos().get(j).getNombre() + ", " + "\n\t\t\t" +
+                                                "Category: " + evento.getTipos().get(i).getEstilos().get(j).getCategorias().get(k) + ", ").toString()
+                                );
                     }
                 }
             }
@@ -101,18 +74,6 @@ public class ActivityEventsVerEvento extends AppCompatActivity
     }
 
     //endregion
-
-    public void onClickLocation(View v)
-    {
-        /*Uri gmmIntentUri = Uri.parse("geo:0,0?q=");
-        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-        mapIntent.setPackage("com.google.android.apps.maps");
-        startActivity(mapIntent);*/
-
-        String uri = String.format(Locale.ENGLISH, "geo:%f,%f", evento.getLat(), evento.getLon());
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-        startActivity(intent);
-    }
 
     //region ToolBar
 
