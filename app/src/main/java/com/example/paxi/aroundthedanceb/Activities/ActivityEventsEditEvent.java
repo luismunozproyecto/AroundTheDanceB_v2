@@ -10,11 +10,11 @@ import android.widget.TextView;
 import com.example.paxi.aroundthedanceb.TabsFragments.TabFragmentEvents;
 import com.example.paxi.aroundthedanceb.Modelos.Evento;
 import com.example.paxi.aroundthedanceb.R;
+import com.example.paxi.aroundthedanceb.TabsFragments.TabFragmentProfile;
 
 public class ActivityEventsEditEvent extends AppCompatActivity
 {
-    EditText nameEvent, dateEvent, descriptionEvent, locationEvent, typesEvent;
-    ImageView imageViewEvent;
+    EditText nameEvent, dateEvent, descriptionEvent, locationEvent;
 
     Evento evento;
 
@@ -22,11 +22,18 @@ public class ActivityEventsEditEvent extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_events_ver);
+        setContentView(R.layout.activity_events_edit);
 
         //region Controles
 
+        nameEvent = (EditText) findViewById(R.id.edit_event_namet);
+        dateEvent = (EditText) findViewById(R.id.edit_event_date);
+        descriptionEvent = (EditText) findViewById(R.id.edit_event_description);
+        locationEvent = (EditText) findViewById(R.id.edit_event_location);
+
         //endregion
+
+        recogerExtras();
 
         setupToolBar();
     }
@@ -39,7 +46,7 @@ public class ActivityEventsEditEvent extends AppCompatActivity
 
         if(bundle != null)
         {
-            evento = bundle.getParcelable(TabFragmentEvents.EXTRA_VEREVENTO);
+            evento = bundle.getParcelable(TabFragmentProfile.EXTRA_EDITAREVENTO);
 
             nameEvent.setText(evento.getNombre());
             dateEvent.setText(evento.getFechaInicio());

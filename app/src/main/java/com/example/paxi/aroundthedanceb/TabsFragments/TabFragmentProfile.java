@@ -30,6 +30,8 @@ public class TabFragmentProfile extends Fragment
     int pos;
     String name, fecha;
 
+    public final static String EXTRA_EDITAREVENTO = "EVENTO_EDITAR";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
@@ -87,7 +89,7 @@ public class TabFragmentProfile extends Fragment
                 //Activity Ver Evento
                 Intent intent = new Intent(getActivity(), ActivityEventsEditEvent.class);
                 Bundle bundle = new Bundle();
-                bundle.putParcelable(EXTRA_VEREVENTO, lista_eventos.get(pos));
+                bundle.putParcelable(EXTRA_EDITAREVENTO, lista_eventos.get(pos));
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
