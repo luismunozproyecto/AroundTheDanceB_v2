@@ -27,7 +27,7 @@ public class ActivityCarga extends Activity
             @Override
             public void run()
             {
-                Intent mainIntent = new Intent().setClass(ActivityCarga.this, ActivityInicioTabsDown.class);
+                Intent mainIntent = new Intent().setClass(ActivityCarga.this, ActivityLogin.class);
                 startActivity(mainIntent);
 
                 finish();

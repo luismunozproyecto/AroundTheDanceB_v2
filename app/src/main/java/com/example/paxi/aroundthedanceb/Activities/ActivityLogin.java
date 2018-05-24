@@ -69,7 +69,7 @@ public class ActivityLogin extends AppCompatActivity
 
         if (!userIdRecogida.equals("") && !userEmailRecogida.equals(""))
         {
-            Intent intent = new Intent(ActivityLogin.this, ActivityCarga.class);
+            Intent intent = new Intent(ActivityLogin.this, ActivityInicioTabsDown.class);
             intent.putExtra(EXTRA_EMAIL,txtEmail.getText().toString());
             startActivity(intent);
         }
@@ -85,7 +85,7 @@ public class ActivityLogin extends AppCompatActivity
 
                 if(firebaseUser != null)
                 {
-                    Intent intent = new Intent(ActivityLogin.this, ActivityCarga.class);
+                    Intent intent = new Intent(ActivityLogin.this, ActivityInicioTabsDown.class);
                     intent.putExtra(EXTRA_EMAIL,txtEmail.getText().toString());
                     startActivity(intent);
 

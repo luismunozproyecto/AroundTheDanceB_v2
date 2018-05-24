@@ -22,6 +22,7 @@
     <string name="forget">OLVIDASTE TU CONTRASEÑA</string>
     <string name="forgetpasswprdlogin">Introduce tu correo para resetear la contraseña</string>
     <string name="finaldate">FECHA FINAL</string>
+    <string name="filters">FILTROS</string>
 
     <string name="login">ENTRAR</string>
     <string name="location">LOCALIZACION</string>

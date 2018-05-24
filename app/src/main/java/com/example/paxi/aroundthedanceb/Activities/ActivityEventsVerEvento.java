@@ -99,8 +99,8 @@ public class ActivityEventsVerEvento extends AppCompatActivity
 
     public void onClickLocation(View v)
     {
-        String uri = String.format(Locale.ENGLISH, "geo:%f,%f", evento.getLat(), evento.getLon());
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                Uri.parse("geo:0,0?q=" + evento.getLat() + "," + evento.getLon()));
         startActivity(intent);
     }
 

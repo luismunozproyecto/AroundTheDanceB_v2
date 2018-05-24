@@ -21,6 +21,7 @@
     <string name="forget">FORGET THE PASSWORD</string>
     <string name="forgetpasswprdlogin">Enter you email to reset your Password</string>
     <string name="finaldate">FINAL DATE</string>
+    <string name="filters">FILTERS</string>
 
     <string name="login">LOG IN</string>
     <string name="location">LOCATION</string>
