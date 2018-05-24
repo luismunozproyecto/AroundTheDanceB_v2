@@ -9,6 +9,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.EventLog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,12 +23,28 @@ import com.example.paxi.aroundthedanceb.Dialog.Dialog_AdvanceSearch;
 import com.example.paxi.aroundthedanceb.Modelos.Evento;
 import com.example.paxi.aroundthedanceb.R;
 import com.example.paxi.aroundthedanceb.Recycler.RecyclerAdaptador;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
+
+
 
 
 public class TabFragmentEvents extends Fragment implements Dialog_AdvanceSearch.PasarArrayListFiltros
 {
     public final static String EXTRA_VEREVENTO = "EVENTO_VER";
+
+
+
+    //FIREBASE
+    public FirebaseDatabase firebaseDatabase;
+    public DatabaseReference databaseReference;
+    public ValueEventListener valueEventListener;
+
 
     EditText txtSearch;
     Button btnNewEvent, btnAdvanceSearch;
@@ -37,9 +55,11 @@ public class TabFragmentEvents extends Fragment implements Dialog_AdvanceSearch.
     int pos;
     String name, fecha;
 
+
     ArrayList<String> filtros;
 
     ArrayList<Evento> lista_eventos_filtrados;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -60,6 +80,7 @@ public class TabFragmentEvents extends Fragment implements Dialog_AdvanceSearch.
             lista_eventos = bundle.getParcelableArrayList("lista_eventos");
         }
 
+        cargarEventosFireBase();
         //mostrarRecycler(lista_eventos);
 
         //region Search
@@ -175,6 +196,66 @@ public class TabFragmentEvents extends Fragment implements Dialog_AdvanceSearch.
     {
         filtros = arraylist_filtros;
     }
+
+
+
+
+     /*==================================
+
+            METODOS DE FIREBASE
+
+    ======================================
+     */
+
+    private void cargarEventosFireBase(){
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference().child("eventos");
+
+        valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+               /* for (DataSnapshot dataSnapshotExamenes: dataSnapshot.getChildren()) {
+
+                    Evento e = dataSnapshotExamenes.getValue(Evento.class);
+                    lista_eventos.add(e);
+
+                }
+*/
+                lista_eventos.clear();
+                for (DataSnapshot dataSnapshotExamenes: dataSnapshot.getChildren()) {
+                    cargarRecyclerViewEvento(dataSnapshotExamenes);
+                }
+
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e("ActivityParte2","DATABASE ERROR");
+            }
+        };
+        databaseReference.addValueEventListener(valueEventListener);
+
+
+    }
+
+    private void cargarRecyclerViewEvento (DataSnapshot dataSnapshot){
+
+        lista_eventos.add(dataSnapshot.getValue(Evento.class));
+
+        mostrarRecycler(lista_eventos);
+
+
+    }
+
+
+    private Evento obtenerEvento(int position){
+        return lista_eventos.get(position);
+    }
+
+
+
+
+
 }
 
 
