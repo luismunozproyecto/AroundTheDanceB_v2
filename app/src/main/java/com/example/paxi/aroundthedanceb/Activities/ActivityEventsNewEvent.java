@@ -29,6 +29,10 @@ import com.example.paxi.aroundthedanceb.Modelos.Tipo;
 import com.example.paxi.aroundthedanceb.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -65,6 +69,9 @@ public class ActivityEventsNewEvent extends AppCompatActivity
     //endregion
 
     //region Variables
+    DatabaseReference dbRef;
+    ValueEventListener valueEventListener;
+
 
     FirebaseStorage storage;
     StorageReference storageReference;
@@ -315,82 +322,73 @@ public class ActivityEventsNewEvent extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                //region BDAntigua
 
-                /*String server_url = "http://192.168.129.2/insert_event.php";
-                sharedPref = getSharedPreferences("preferencias", Context.MODE_PRIVATE);
-                final AlertDialog.Builder alertDialog = new AlertDialog.Builder(NewEvent.this);
+                 //uploadImage();
+                if(arraylist_estilos.size()==0 || arraylist_tipos.size()==0){
+                    Toast.makeText(getApplicationContext(),
+                            "Debes de agregar Tipo, estilo y categoría",
+                            Toast.LENGTH_LONG).show();
 
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, server_url, new Response.Listener<String>()
-                {
-                    @Override
-                    public void onResponse(String response)
-                    {
-                        alertDialog.setTitle("Server Response");
-                        alertDialog.setMessage("Response: " + response);
-                        alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener()
-                        {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which)
-                            {
+                }else{
 
-                            }
-                        });
-
-                        AlertDialog alertDialog1 = alertDialog.create();
-                        alertDialog1.show();
-
-                    }
-                },new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error)
-                    {
-                        Toast.makeText(NewEvent.this, "Error", Toast.LENGTH_LONG).show();
-                        error.printStackTrace();
-                    }
-                })
-                    {
-                        @Override
-                        protected Map<String, String> getParams() throws AuthFailureError
-                        {
-                            Map<String, String> params = new HashMap<String, String>();
-                            params.put("name", txtNameEvent.getText().toString());
-                            params.put("description", txtDescription.getText().toString());
-                            return super.getParams();
-                        }
-                    };
-
-                MySingleton.getInstance(NewEvent.this).addTorequestque(stringRequest);*/
-
-
-                /*BDAntiguaBackgroundWorker.execute
-                (
-                        "insertevent",
-                        txtNameEvent.getText().toString(),
-                        textViewFechaInicio.getText().toString() + " " + textViewHoraInicio.getText().toString(),
-                        textViewFechaFinal.getText().toString() + " " + textViewHoraFinal.getText().toString(),
-                        txtDescription.getText().toString(),
-                        "este"
-                );*/
-
-                //BDAntiguaBackgroundWorker.execute("activity_login", "aqui", "aqui");
-
-                //endregion
-
-                uploadImage();
 
                 arraylist_estilos.get(arraylist_estilos.size() - 1).setCategorias(arraylist_categorias);
-
                 arraylist_tipos.get(arraylist_tipos.size() - 1).setEstilos(arraylist_estilos);
 
-                evento = new Evento("1", "Battle Alicante",
-                        "HASGBHDASBDHASVBDHASDASBDBVASDBGHASDG",
-                        "20/05/2018", "17:00", "24/05/2018",
-                        "Alicante", "España", 0.0, 0.0,
+                String nombre = txtNameEvent.getText().toString();
+                String descripcion = txtDescription.getText().toString();
+                String fechainicio = textViewFechaInicio.getText().toString();
+                String horainicio = textViewHoraInicio.getText().toString();
+                String fechafin = textViewFechaFinal.getText().toString();
+                String ciudad = "Madrid";
+                String pais = "España";
+
+
+               evento = new Evento("", nombre,
+                        descripcion,
+                        fechainicio, horainicio, fechafin,
+                        ciudad, pais, latitud, longitud,
                         arraylist_tipos,
-                        urlImagen,
+                        "",
                         "paxi07");
+
+              /*  evento = new Evento("evento12", "nombre",
+                        "descripcion",
+                        "02/02/2019", "09:30", "03/04/2019",
+                        ciudad, pais, latitud, longitud,
+                        arraylist_tipos,
+                        "evento1.jpg",
+                        "paxi07");*/
+                dbRef = FirebaseDatabase.getInstance().getReference()
+                        .child("eventos");
+                String claveP3 = dbRef.push().getKey();
+
+                evento.setId(claveP3);
+                evento.setImagen(claveP3+".png");
+
+
+
+               dbRef.child(evento.getId()).setValue(evento, new DatabaseReference.CompletionListener(){
+                    public void onComplete(DatabaseError error, DatabaseReference ref) {
+                        if(error == null) {
+                            Toast.makeText(getApplicationContext(),
+                                    "Evento guardado",
+                                    Toast.LENGTH_LONG).show();
+
+                            uploadImage();
+
+                            Intent i=new Intent(getApplicationContext(), ActivityInicioTabsDown.class);
+                            startActivity(i);
+
+                        }else {
+                            Toast.makeText(getApplicationContext(),
+                                    "No se ha podido crear el evento",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
+                }
             }
         });
 
@@ -408,9 +406,9 @@ public class ActivityEventsNewEvent extends AppCompatActivity
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
-            urlImagen = UUID.randomUUID().toString();
+            urlImagen = evento.getImagen().toString();
 
-            StorageReference ref = storageReference.child("images/"+ urlImagen+".png");
+            StorageReference ref = storageReference.child("eventos/"+urlImagen);
             ref.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>()
                     {
@@ -418,7 +416,7 @@ public class ActivityEventsNewEvent extends AppCompatActivity
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot)
                         {
                             progressDialog.dismiss();
-                            Toast.makeText(ActivityEventsNewEvent.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                           //Toast.makeText(ActivityEventsNewEvent.this, "Uploaded", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener()
@@ -427,7 +425,7 @@ public class ActivityEventsNewEvent extends AppCompatActivity
                         public void onFailure(@NonNull Exception e)
                         {
                             progressDialog.dismiss();
-                            Toast.makeText(ActivityEventsNewEvent.this, "Failed "+ e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ActivityEventsNewEvent.this, "Error al subir la imagen "+ e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>()
@@ -459,7 +457,7 @@ public class ActivityEventsNewEvent extends AppCompatActivity
             try
             {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
-                //imagenEvent.setImageBitmap(bitmap);
+                imagenEvent.setImageBitmap(bitmap);
             }
             catch (IOException e)
             {

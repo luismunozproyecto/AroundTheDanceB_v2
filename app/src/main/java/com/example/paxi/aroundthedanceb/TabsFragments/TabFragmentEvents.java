@@ -1,5 +1,8 @@
 package com.example.paxi.aroundthedanceb.TabsFragments;
 
+import android.app.AlertDialog;
+import android.app.FragmentManager;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -17,8 +20,12 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
+
 import com.example.paxi.aroundthedanceb.Activities.ActivityEventsNewEvent;
 import com.example.paxi.aroundthedanceb.Activities.ActivityEventsVerEvento;
+import com.example.paxi.aroundthedanceb.Dialog.DialogAdvanceSearch;
 import com.example.paxi.aroundthedanceb.Dialog.Dialog_AdvanceSearch;
 import com.example.paxi.aroundthedanceb.Modelos.Evento;
 import com.example.paxi.aroundthedanceb.R;
@@ -29,6 +36,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
@@ -55,7 +63,8 @@ public class TabFragmentEvents extends Fragment implements Dialog_AdvanceSearch.
     int pos;
     String name, fecha;
 
-
+    boolean filtroAvanzados=false;
+      String tipo="", estilo, categoria;
     ArrayList<String> filtros;
 
     ArrayList<Evento> lista_eventos_filtrados;
@@ -123,7 +132,61 @@ public class TabFragmentEvents extends Fragment implements Dialog_AdvanceSearch.
             @Override
             public void onClick(View view)
             {
-                new Dialog_AdvanceSearch(getContext(), TabFragmentEvents.this);
+               // new Dialog_AdvanceSearch(getContext(), TabFragmentEvents.this);
+              /* FragmentManager fragmentManager = getActivity().getFragmentManager();
+                DialogAdvanceSearch das = new DialogAdvanceSearch();
+                das.show( fragmentManager,"tagDas");
+*/
+// get prompts.xml view
+                LayoutInflater li = LayoutInflater.from(getContext());
+                View promptsView = li.inflate(R.layout.dialog_custom, null);
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                        getContext());
+
+
+
+
+                final Spinner spTipo = (Spinner) promptsView.findViewById(R.id.spinner_busqueda_tipos_dialog);
+                final Spinner  spEstilo = (Spinner) promptsView.findViewById(R.id.spinner_busqueda_estilos_dialog);
+                final Spinner spCategoria = (Spinner) promptsView.findViewById(R.id.spinner_busqueda_categorias_dialog);
+                // set prompts.xml to alertdialog builder
+                alertDialogBuilder.setView(promptsView);
+                // set dialog message
+                alertDialogBuilder
+                        .setCancelable(false)
+                        .setPositiveButton("Buscar",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,int id) {
+                                        // get user input and set it to result
+                                        // edit text
+                                        tipo = spTipo.getSelectedItem().toString();
+                                        estilo =spEstilo.getSelectedItem().toString();
+                                        categoria =spCategoria.getSelectedItem().toString();
+                                        if(tipo.equals("")){
+                                            Toast.makeText(getActivity(), "Debes de seleccionar a menos el tipo",Toast.LENGTH_LONG).show();
+                                        }else{
+                                            filtroAvanzados =true;
+
+                                            cargarEventosFireBase();
+                                        }
+
+                                    }
+                                })
+                        .setNegativeButton("Cerrar",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,int id) {
+                                        dialog.cancel();
+                                    }
+                                });
+
+                // create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                // show it
+                alertDialog.show();
+
+
             }
         });
 
@@ -134,6 +197,7 @@ public class TabFragmentEvents extends Fragment implements Dialog_AdvanceSearch.
             {
                 Intent intent = new Intent(getActivity(), ActivityEventsNewEvent.class);
                 startActivity(intent);
+
             }
         });
         //endregion
@@ -238,11 +302,32 @@ public class TabFragmentEvents extends Fragment implements Dialog_AdvanceSearch.
 
     }
 
-    private void cargarRecyclerViewEvento (DataSnapshot dataSnapshot){
+    private ArrayList<Evento> eventosFiltrosAvanzados(ArrayList<Evento> lista_eventos){
+        ArrayList<Evento> lsFiltrado=new ArrayList<>();
+        for (int i=0; i<lista_eventos.size(); i++)
+        {
+            if(lista_eventos.get(i).getTipos().get(0).getNombre().equals(tipo)
+                    || lista_eventos.get(i).getTipos().get(0).getEstilos().get(0).equals(estilo)
+                        || lista_eventos.get(i).getTipos().get(0).getEstilos().get(0).equals(categoria))
+            {
+                lsFiltrado.add(lista_eventos.get(i));
+            }
+        }
+
+        return lsFiltrado;
+    }
+    private void cargarRecyclerViewEvento(DataSnapshot dataSnapshot){
 
         lista_eventos.add(dataSnapshot.getValue(Evento.class));
 
-        mostrarRecycler(lista_eventos);
+        if(filtroAvanzados){
+            lista_eventos = eventosFiltrosAvanzados(lista_eventos);
+            mostrarRecycler(lista_eventos);
+
+        }else{
+            mostrarRecycler(lista_eventos);
+        }
+
 
 
     }

@@ -1,7 +1,9 @@
 package com.example.paxi.aroundthedanceb.TabsFragments;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
@@ -10,12 +12,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.paxi.aroundthedanceb.Activities.ActivityEventsEditEvent;
 import com.example.paxi.aroundthedanceb.Activities.ActivityEventsVerEvento;
 import com.example.paxi.aroundthedanceb.Modelos.Evento;
 import com.example.paxi.aroundthedanceb.R;
 import com.example.paxi.aroundthedanceb.Recycler.RecyclerAdaptador;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
@@ -26,6 +32,7 @@ public class TabFragmentProfile extends Fragment
     ArrayList<Evento> lista_eventos;
     RecyclerView recyclerView;
     RecyclerAdaptador recyclerAdaptador;
+    SharedPreferences sharedPref;
 
     int pos;
     String name, fecha;
@@ -37,6 +44,16 @@ public class TabFragmentProfile extends Fragment
     {
         View view = inflater.inflate(R.layout.fragment_tab_profile, container, false);
 
+        sharedPref = getActivity().getSharedPreferences("preferencias", Context.MODE_PRIVATE);
+        TextView tvPerfilEmail  = (TextView)view.findViewById(R.id.tvPerfilEmail);
+        String userIdRecogida = sharedPref.getString("key_id", "");
+        String userEmailRecogida = sharedPref.getString("key_email", "");
+
+        if (!userEmailRecogida.equals("")) {
+            tvPerfilEmail.setText("Mi email: "+userEmailRecogida+"\n"+"Mi ID: "+userIdRecogida);
+        } else {
+//No esta logeando
+        }
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_myevents);
 
         Bundle bundle = getArguments();

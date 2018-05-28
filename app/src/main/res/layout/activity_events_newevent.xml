@@ -9,8 +9,14 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="32dp"
-        android:minHeight="?attr/actionBarSize"
-        android:background="?attr/colorPrimary" />
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
 
     <LinearLayout
         android:orientation="vertical"
@@ -177,5 +183,7 @@
             android:id="@+id/btn_createevent" />
 
     </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

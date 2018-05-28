@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,20 +19,26 @@
 
         <activity android:name=".Activities.ActivityCarga"
             android:screenOrientation="portrait">
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter> -->
         </activity>
 
-        <activity android:name=".Activities.ActivityLogin"
-            android:screenOrientation="portrait"/>
+         <activity android:name=".Activities.ActivityLogin"
+            android:screenOrientation="portrait"><intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+        </activity>
 
         <activity android:name=".Activities.ActivityLoginForgetPassword"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".Activities.ActivityInicioTabsDown"
+
             android:screenOrientation="portrait"/>
 
         <activity android:name=".ActivityInicioTabsUp"
